@@ -19,13 +19,12 @@ Route::get('/', function () {
 });
 
 
-
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
         Route::view('','dashboard')->name('index');
     });
     Route::prefix('users')->name('users.')->group(function(){
-        Route::view('show/{id}','user/detail')->where('id','[0-9]+')->name('show');
+        Route::view('/{id}','user/detail')->where('id','[0-9]+')->name('show');
 
         Route::view('','user/list')->name('index');   
      
@@ -44,7 +43,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         })->name('delete')->where('id','[0-9]+');
     });
     Route::prefix('category')->name('category.')->group(function(){
-        Route::view('show/{id}','category/detail')->where('id','[0-9]+')->name('show');
+        Route::view('/{id}','category/detail')->where('id','[0-9]+')->name('show');
 
         Route::view('','category/list')->name('index');   
      
@@ -63,7 +62,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         })->name('delete')->where('id','[0-9]+');
     });
     Route::prefix('post')->name('post.')->group(function(){
-        Route::view('show/{id}','post/detail')->where('id','[0-9]+')->name('show');
+        Route::view('/{id}','post/detail')->where('id','[0-9]+')->name('show');
 
         Route::view('','post/list')->name('index');   
      
