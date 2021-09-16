@@ -147,22 +147,9 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center">--- DASHBOARD ---</h2>
-        <h4>USER</h4>
-        <ul>
-            <li><a href="{{ route('admin.users.index') }}" class="btn btn-primary">LIST USER</a></li>
-            <li><a href="{{ route('admin.users.create') }}" class="btn btn-primary">ADD USER</a></li>
-        </ul>
-        <h4>CATEGORY</h4>
-        <ul>
-            <li><a href="{{ route('admin.category.index') }}" class="btn btn-success">LIST CATEGORY</a></li>
-            <li><a href="{{ route('admin.category.create') }}" class="btn btn-success">ADD CATEGORY</a></li>
-        </ul>
-        <h4>POST</h4>
-        <ul>
-            <li><a href="{{ route('admin.post.index') }}" class="btn btn-danger">LIST POST</a></li>
-            <li><a href="{{ route('admin.post.create') }}" class="btn btn-danger">ADD POST</a></li>
-        </ul>
+        
+            <li><a href="{{ route('admin.dashboard.index') }}" class="btn btn-primary">Chuyển đến trang ADMIN</a></li>
+       
     </div>
 </body>
 </html>
