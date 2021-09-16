@@ -18,22 +18,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
-        Route::view('','dashboard')->name('index');
+        Route::view('','/admin/dashboard')->name('index');
     });
     Route::prefix('users')->name('users.')->group(function(){
-        Route::view('/{id}','user/detail')->where('id','[0-9]+')->name('show');
+        Route::view('/{id}','/admin/user/detail')->where('id','[0-9]+')->name('show');
 
-        Route::view('','user/list')->name('index');   
+        Route::view('','/admin/user/list')->name('index');   
      
-        Route::view('create','user/create')->name('create');
+        Route::view('create','/admin/user/create')->name('create');
         Route::post('store', function(){
             return redirect()->route('admin.users.index');
         })->name('store');
         
-        Route::view('edit/{id}','user/edit')->where('id','[0-9]+')->name('edit');
+        Route::view('edit/{id}','/admin/user/edit')->where('id','[0-9]+')->name('edit');
         Route::put('update/{id}', function(){
             return redirect()->route('admin.users.index');
         })->name('update')->where('id','[0-9]+');
@@ -43,16 +42,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
         })->name('delete')->where('id','[0-9]+');
     });
     Route::prefix('category')->name('category.')->group(function(){
-        Route::view('/{id}','category/detail')->where('id','[0-9]+')->name('show');
+        Route::view('/{id}','/admin/category/detail')->where('id','[0-9]+')->name('show');
 
-        Route::view('','category/list')->name('index');   
+        Route::view('','/admin/category/list')->name('index');   
      
-        Route::view('create','category/create')->name('create');
+        Route::view('create','/admin/category/create')->name('create');
         Route::post('store', function(){
             return redirect()->route('admin.category.index');
         })->name('store');
         
-        Route::view('edit/{id}','category/edit')->where('id','[0-9]+')->name('edit');
+        Route::view('edit/{id}','/admin/category/edit')->where('id','[0-9]+')->name('edit');
         Route::put('update/{id}', function(){
             return redirect()->route('admin.category.index');
         })->name('update')->where('id','[0-9]+');
@@ -62,16 +61,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
         })->name('delete')->where('id','[0-9]+');
     });
     Route::prefix('post')->name('post.')->group(function(){
-        Route::view('/{id}','post/detail')->where('id','[0-9]+')->name('show');
+        Route::view('/{id}','/admin/post/detail')->where('id','[0-9]+')->name('show');
 
-        Route::view('','post/list')->name('index');   
+        Route::view('','/admin/post/list')->name('index');   
      
-        Route::view('create','post/create')->name('create');
+        Route::view('create','/admin/post/create')->name('create');
         Route::post('store', function(){
             return redirect()->route('admin.post.index');
         })->name('store');
         
-        Route::view('edit/{id}','post/edit')->where('id','[0-9]+')->name('edit');
+        Route::view('edit/{id}','/admin/post/edit')->where('id','[0-9]+')->name('edit');
         Route::put('update/{id}', function($id){
             return redirect()->route('admin.post.index');
         })->name('update')->where('id','[0-9]+');
