@@ -1,44 +1,87 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>POSTS</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+@extends('admin.layouts.master')
+@section('title')
+    List Post
+@endsection
+@section('content-header')
+<div class="container-fluid">
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <h1 class="m-0">Bài viết</h1>
+    </div><!-- /.col -->
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="">Bài viết</a></li>
+        <li class="breadcrumb-item active">Danh sách Bài viết</li>
+      </ol>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</div><!-- /.container-fluid -->
+@endsection
+@section('content')
+<div class="card card-default">
+  <div class="card-header">
+    <h3 class="card-title">
+      @include('admin.compoments.btn',[
+        'href'=> route('admin.post.create'),
+        'type'=>'primary',
+        'content'=>'Tạo bài viết mới'])
+    </h3>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <div class="card-tools">
+      <div class="input-group input-group-sm" style="width: 150px;">
+        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <h3 class="text-center">--- Post ---</h3>
-        <a href="{{ route('admin.post.create') }}" class="btn btn-primary">Add New Post</a>
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-default">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body table-responsive p-0" style="height: 300px;">
+    <div class="container-fluid">
+      
         <table class="table">
             <thead>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Thumbnail</th>
-                <th>Description</th>
-                <th>Action</th>
+                <th>Tên</th>
+                <th>Avatar</th>
+                <th>Mô tả</th>
+                <th>Hành động</th>
             </thead>
-            <tr>
+            <tr >
                 <td>1</td>
-                <td>Adim</td>
+                <td>Tuyển Việt Nam quyết tạo "địa chấn" ở vòng loại World Cup</td>
                 <td>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEzy37KsQmCvQvjDeap4heO6hXR46cbpVfPw&usqp=CAU" width="100px" height="100px">
+                    <img src="https://media-cdn.laodong.vn/Storage/NewsPortal/2020/5/14/805420/Viet-Nam-Vs-Malaysia.jpg" width="100px" height="100px">
                 </td>
-                <td>Adim</td>
+                <td width="500px">
+                    Tuyển Việt Nam quyết tạo "địa chấn" ở vòng loại World Cup; Phan Văn Đức rách mu bàn chân; Văn Hậu bị chỉ trích ở SC Heerenveen; Ronaldo ngưỡng mộ sự nghiệp của Messi... là những tin tức thể thao nổi bật ngày 14.5.
+                </td>
                 <td>
-                    <a href="{{ route('admin.post.show', ['id'=>1]) }}" class="btn btn-primary">Detail</a>
-                    <a href="{{ route('admin.post.edit', ['id'=>1]) }}" class="btn btn-success">Edit</a>
-                    <a href="{{ route('admin.post.delete', ['id'=>1]) }}" class="btn btn-danger">Delete</a>
+                    @include('admin.compoments.btn',[
+                      'href'=> route('admin.post.show',['id'=>1]),
+                      'type'=>'primary',
+                      'content'=>'<i class="fas fa-info"></i>'
+                      ])
+                    @include('admin.compoments.btn',[
+                        'href'=> route('admin.post.edit',['id'=>1]),
+                        'type'=>'success',
+                        'content'=>'<i class="fas fa-edit"></i>'
+                      ])
+                    @include('admin.compoments.btn',[
+                      'href'=> route('admin.post.delete',['id'=>1]),
+                      'type'=>'danger',
+                      'content'=>'<i class="fas fa-trash-alt"></i>'
+                    ])
                 </td>
             </tr>
         </table>
-    </div>
-</body>
-</html>
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.card-body -->
+</div>
+@endsection

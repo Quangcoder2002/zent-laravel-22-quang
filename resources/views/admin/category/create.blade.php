@@ -18,18 +18,30 @@
 </div><!-- /.container-fluid -->
 @endsection
 @section('content')
-<div class="container">
+<div class="card card-default">
+  <div class="card-header">
+    <h3 class="card-title">Chỉnh sửa User</h3>
+
+    <div class="card-tools">
+    
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+<div class="container-fluid">
     <form method="POST" action="{{ route('admin.category.store') }}" role="form" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="">Name</label>
             <input type="text" class="form-control" id="" placeholder="" name="name">
         </div>
-        <div class="form-group">
-            <label for="">Description</label>
-            <input type="text" class="form-control" id="" placeholder="" name="description">
-        </div>
+        @include('admin.compoments.summernote',[
+            'title'=>'Mô tả'
+          ])
         <input type="submit" class="btn btn-primary" value="Create">
     </form>
 </div><!-- /.container -->
+</div>
+<!-- /.card-body -->
+</div>
 @endsection

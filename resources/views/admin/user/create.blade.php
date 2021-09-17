@@ -1,5 +1,3 @@
-</body>
-</html>
 @extends('admin.layouts.master')
 @section('title')
     Add Users
@@ -38,10 +36,9 @@
                     <label for="">Tên</label>
                     <input type="text" class="form-control" id="" placeholder="" name="name">
                 </div>
-                <div class="form-group">
-                    <label for="">Mô tả</label>
-                    <input type="text" class="form-control" id="" placeholder="" name="description">
-                </div>
+                @include('admin.compoments.summernote',[
+                  'title'=>'Mô tả'
+                ])
                 <input type="submit" class="btn btn-primary" value="Tạo">
             </form>
         </div><!-- /.container-fluid -->

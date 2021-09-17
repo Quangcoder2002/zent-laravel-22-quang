@@ -24,7 +24,7 @@
     <h3 class="card-title">Chỉnh sửa User</h3>
 
     <div class="card-tools">
-     
+    
     </div>
   </div>
   <!-- /.card-header -->
@@ -37,11 +37,10 @@
               <label for="">Tên</label>
               <input type="text" class="form-control" id="" placeholder="" name="name" value="ADMIN">
           </div>
-          <div class="form-group">
-              <label for="">Mô tả</label>
-              <input type="text" class="form-control" id="" placeholder="" name="description" value="sdsadadasda">
-          </div>
-          <input type="submit" class="btn btn-primary" value="Cập nhật">
+          @include('admin.compoments.summernote',[
+            'title'=>'Mô tả'
+          ])
+          <button type="submit" class="btn btn-primary">Cập nhật</button>
       </form>
     </div><!-- /.container-fluid -->
   </div>
