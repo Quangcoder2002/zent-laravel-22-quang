@@ -71,7 +71,7 @@
         </ul>  
       </li>
       <li class="nav-header">Quản lý hệ thống</li>
-      <li class="nav-item menu-open">
+      <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-edit"></i>
           <p>
