@@ -40,6 +40,26 @@
           @include('admin.compoments.summernote',[
             'title'=>'Mô tả'
           ])
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" data-select2-id="90">
+                <label>Danh mục</label>
+                <select class="form-control">
+                  <option>Thời sự</option>
+                  <option>Thể thao</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group" data-select2-id="90">
+                <label>Trạng thái</label>
+                <select class="form-control">
+                  <option>Hiện</option>
+                  <option>Ẩn</option>
+                </select>
+              </div>
+            </div>
+          </div>
           <button type="submit" class="btn btn-primary">Cập nhật</button>
       </form>
     </div><!-- /.container-fluid -->
