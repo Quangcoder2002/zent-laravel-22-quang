@@ -25,7 +25,7 @@
       @include('admin.compoments.btn',[
         'href'=> route('admin.category.create'),
         'type'=>'primary',
-        'content'=>'Tạo user mới'])
+        'content'=>'Tạo danh mục mới'])
     </h3>
 
     <div class="card-tools">
@@ -71,7 +71,7 @@
                         'content'=>'<i class="fas fa-edit"></i>'
                       ])
                     @include('admin.compoments.btn',[
-                      'href'=> route('admin.category.delete',['id'=>1]),
+                      'href'=> route('admin.category.destroy',['id'=>1]),
                       'type'=>'danger',
                       'content'=>'<i class="fas fa-trash-alt"></i>'
                     ])
@@ -96,7 +96,7 @@
                       'content'=>'<i class="fas fa-edit"></i>'
                     ])
                   @include('admin.compoments.btn',[
-                    'href'=> route('admin.category.delete',['id'=>1]),
+                    'href'=> route('admin.category.destroy',['id'=>1]),
                     'type'=>'danger',
                     'content'=>'<i class="fas fa-trash-alt"></i>'
                   ])

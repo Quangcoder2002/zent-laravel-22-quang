@@ -73,7 +73,7 @@
                         'content'=>'<i class="fas fa-edit"></i>'
                       ])
                     @include('admin.compoments.btn',[
-                      'href'=> route('admin.post.delete',['id'=>1]),
+                      'href'=> route('admin.post.destroy',['id'=>1]),
                       'type'=>'danger',
                       'content'=>'<i class="fas fa-trash-alt"></i>'
                     ])

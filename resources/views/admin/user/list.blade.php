@@ -1,18 +1,18 @@
 @extends('admin.layouts.master')
 @section('title')
-    List Users
+    List users
 @endsection
 @section('content-header')
 <div class="container-fluid">
   <div class="row mb-2">
     <div class="col-sm-6">
-      <h1 class="m-0">Users</h1>
+      <h1 class="m-0">users</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="">Users</a></li>
-        <li class="breadcrumb-item active">Danh sách Users</li>
+        <li class="breadcrumb-item"><a href="">users</a></li>
+        <li class="breadcrumb-item active">Danh sách users</li>
       </ol>
     </div><!-- /.col -->
   </div><!-- /.row -->
@@ -25,7 +25,7 @@
       @include('admin.compoments.btn',[
         'href'=> route('admin.users.create'),
         'type'=>'primary',
-        'content'=>'Tạo user mới'])
+        'content'=>'Tạo users mới'])
     </h3>
 
     <div class="card-tools">
@@ -71,7 +71,7 @@
                         'content'=>'<i class="fas fa-edit"></i>'
                       ])
                     @include('admin.compoments.btn',[
-                      'href'=> route('admin.users.delete',['id'=>1]),
+                      'href'=> route('admin.users.destroy',['id'=>1]),
                       'type'=>'danger',
                       'content'=>'<i class="fas fa-trash-alt"></i>'
                     ])
@@ -96,7 +96,7 @@
                       'content'=>'<i class="fas fa-edit"></i>'
                     ])
                   @include('admin.compoments.btn',[
-                    'href'=> route('admin.users.delete',['id'=>1]),
+                    'href'=> route('admin.users.destroy',['id'=>1]),
                     'type'=>'danger',
                     'content'=>'<i class="fas fa-trash-alt"></i>'
                   ])
@@ -121,7 +121,7 @@
                     'content'=>'<i class="fas fa-edit"></i>'
                   ])
                 @include('admin.compoments.btn',[
-                  'href'=> route('admin.users.delete',['id'=>1]),
+                  'href'=> route('admin.users.destroy',['id'=>1]),
                   'type'=>'danger',
                   'content'=>'<i class="fas fa-trash-alt"></i>'
                 ])
@@ -146,7 +146,7 @@
                     'content'=>'<i class="fas fa-edit"></i>'
                   ])
                 @include('admin.compoments.btn',[
-                  'href'=> route('admin.users.delete',['id'=>1]),
+                  'href'=> route('admin.users.destroy',['id'=>1]),
                   'type'=>'danger',
                   'content'=>'<i class="fas fa-trash-alt"></i>'
                 ])

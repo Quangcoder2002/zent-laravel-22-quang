@@ -26,8 +26,8 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
-      <li class="nav-item">
-        <a href="{{ route('admin.dashboard.index') }}" class="nav-link  active">
+      <li class="nav-item @if (request()->routeIs('admin.dashboard.*')) menu-is-opening menu-open @endif">
+        <a href="{{ route('admin.dashboard.index') }}" class="nav-link  @if (request()->routeIs('admin.dashboard.*')) active @endif">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
             Dashboard
@@ -35,44 +35,32 @@
         </a>
       </li>
       <li class="nav-header">Quản lý chung</li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
+      <li class="nav-item @if (request()->routeIs('admin.category.*')) menu-is-opening menu-open @endif">
+        <a href="#" class="nav-link @if (request()->routeIs('admin.category.*')||request()->routeIs('admin.post.*')) active @endif">
           <i class="nav-icon fas fa-copy"></i>
           <p>
             Quản lý Blog
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview" style="display: none;">
+        <ul class="nav nav-treeview" style="display:@if (request()->routeIs('admin.category.*') || request()->routeIs('admin.post.*')) block @endif;">
           <li class="nav-item">
-            <a href="{{ route('admin.category.index') }}" class="nav-link">
+            <a href="{{ route('admin.category.index') }}" class="nav-link @if (request()->routeIs('admin.category.*')) active @endif">
               <i class="far fa-circle nav-icon"></i>
-              <p>Danh sách danh mục</p>
+              <p>Quản lý danh mục</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.category.create') }}" class="nav-link">
+            <a href="{{ route('admin.post.index') }}" class="nav-link @if (request()->routeIs('admin.post.*')) active @endif">
               <i class="far fa-circle nav-icon"></i>
-              <p>Thêm danh mục</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.post.index') }}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Danh sách bài viết</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.post.create') }}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Thêm bài viết mới</p>
+              <p>Quản lý bài viết</p>
             </a>
           </li>
         </ul>  
       </li>
       <li class="nav-header">Quản lý hệ thống</li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
+      <li class="nav-item @if (request()->routeIs('admin.users.*')) menu-is-opening menu-open @endif">
+        <a href="#" class="nav-link @if (request()->routeIs('admin.users.*')) active @endif">
           <i class="nav-icon fas fa-edit"></i>
           <p>
             Quản lý Users
@@ -81,19 +69,19 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{ route('admin.users.index') }}" class="nav-link">
+            <a href="{{ route('admin.users.index') }}" class="nav-link @if (request()->routeIs('admin.users.index')) active @endif">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách users</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.users.create') }}" class="nav-link">
+            <a href="{{ route('admin.users.create') }}" class="nav-link @if (request()->routeIs('admin.users.create')) active @endif">
               <i class="far fa-circle nav-icon"></i>
               <p>Tạo mới User</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.users.edit',['id'=>1]) }}" class="nav-link">
+            <a href="{{ route('admin.users.edit',['id'=>1]) }}" class="nav-link @if (request()->routeIs('admin.users.edit')) active @endif">
               <i class="far fa-circle nav-icon"></i>
               <p>Chỉnh sửa User</p>
             </a>
