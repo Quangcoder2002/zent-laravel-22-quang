@@ -26,7 +26,7 @@ class ChangeImageUrlColumnPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->renameColumn('image_url', 'img_url');
+            $table->renameColumn('img_url', 'image_url');
         });
     }
 }
