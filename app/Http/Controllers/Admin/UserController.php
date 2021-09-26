@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,7 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.list');
+        $users = DB::table('users')->get();
+        return view('admin.user.list')->with([
+            'users'=> $users
+        ]);
     }
 
     /**
@@ -51,7 +55,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = DB::table('users')->find($id);
+        return view('admin.user.detail')->with([
+            'user'=>$user
+        ]);
     }
 
     /**

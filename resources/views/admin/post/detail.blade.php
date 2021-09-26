@@ -23,7 +23,13 @@
     <div class="container">
         <h3 align="center">Detail Post</h3>
         <hr>
-            <h1>Name</h1>
-        </div>
+        <h1>Title:{{$post->title}}</h1>
+        <p>Trang thái:@if ($post->status == 1)
+          Hiện
+        @else
+          Ẩn
+        @endif </p>
+        <p>Content:{{$post->content}}</p>
+    </div>
 </div><!-- /.container-fluid -->
 @endsection

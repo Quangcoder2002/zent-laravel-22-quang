@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -14,19 +15,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.list');
+        $posts = DB::table('posts')->get();
+        $categories = DB::table('categories')->get();
+        $users = DB::table('users')->select('name','id')->get();
+        return view('admin.post.list')->with([
+            'posts'=> $posts,
+            'categories'=>$categories,
+            'users'=> $users
+        ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-       return view('admin.post.create');
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -51,7 +48,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = DB::table('posts')->find($id);
+        return view('admin.post.detail')->with([
+            'post'=>$post
+        ]);
     }
 
     /**

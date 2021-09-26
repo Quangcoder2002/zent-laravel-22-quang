@@ -47,38 +47,64 @@
         <table class="table">
             <thead>
                 <th>ID</th>
-                <th>Tên</th>
-                <th>Avatar</th>
-                <th>Mô tả</th>
+                <th>Tên bài viết</th>
+                <th>Danh mục</th>
+                <th>Người tạo</th>
+                <th>Trạng thái</th>
+                <th>Ngày tạo</th>
                 <th>Hành động</th>
             </thead>
+            @foreach ($posts as $post)
             <tr >
-                <td>1</td>
-                <td>Tuyển Việt Nam quyết tạo "địa chấn" ở vòng loại World Cup</td>
-                <td>
-                    <img src="https://media-cdn.laodong.vn/Storage/NewsPortal/2020/5/14/805420/Viet-Nam-Vs-Malaysia.jpg" width="100px" height="100px">
-                </td>
-                <td width="500px">
-                    Tuyển Việt Nam quyết tạo "địa chấn" ở vòng loại World Cup; Phan Văn Đức rách mu bàn chân; Văn Hậu bị chỉ trích ở SC Heerenveen; Ronaldo ngưỡng mộ sự nghiệp của Messi... là những tin tức thể thao nổi bật ngày 14.5.
-                </td>
-                <td>
-                    @include('admin.compoments.btn',[
-                      'href'=> route('admin.post.show',['id'=>1]),
-                      'type'=>'primary',
-                      'content'=>'<i class="fas fa-info"></i>'
-                      ])
-                    @include('admin.compoments.btn',[
-                        'href'=> route('admin.post.edit',['id'=>1]),
-                        'type'=>'success',
-                        'content'=>'<i class="fas fa-edit"></i>'
-                      ])
-                    @include('admin.compoments.btn',[
-                      'href'=> route('admin.post.destroy',['id'=>1]),
-                      'type'=>'danger',
-                      'content'=>'<i class="fas fa-trash-alt"></i>'
+              <td>{{$post->id}}</td>
+              <td>{{$post->title}}</td>
+              <td>
+                @foreach ($categories as $category)
+                  @if ($post->category_id == $category->id)
+                    {{$category->name}}   
+                  @endif 
+                @endforeach
+              </td>
+              <td>
+                @foreach ($users as $user)
+                  @if ($post->user_created_id == $user->id)
+                    {{$user->name}}   
+                  @endif 
+                @endforeach
+              </td>
+              <td>
+                @if ($post->status == 1)
+                  Hiện
+                @else
+                  Ẩn
+                @endif 
+              </td>
+              <td>
+                @if ($post->created_at)
+                    {{date('d-m-Y', strtotime($post->created_at))}}
+                @else
+                    Ko xác định
+                @endif
+              </td>
+              <td>
+                  @include('admin.compoments.btn',[
+                    'href'=> route('admin.post.show',['id'=>$post->id]),
+                    'type'=>'primary',
+                    'content'=>'<i class="fas fa-info"></i>'
                     ])
-                </td>
-            </tr>
+                  @include('admin.compoments.btn',[
+                      'href'=> route('admin.post.edit',['id'=>$post->id]),
+                      'type'=>'success',
+                      'content'=>'<i class="fas fa-edit"></i>'
+                    ])
+                  @include('admin.compoments.btn',[
+                    'href'=> route('admin.post.destroy',['id'=>$post->id]),
+                    'type'=>'danger',
+                    'content'=>'<i class="fas fa-trash-alt"></i>'
+                  ])
+              </td>
+            </tr> 
+            @endforeach
         </table>
     </div><!-- /.container-fluid -->
   </div>
