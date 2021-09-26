@@ -16,13 +16,10 @@ class CategoriesTableSeeder extends Seeder
     {
         DB::table('categories')->truncate();
         $categories = [
-            ['name'=>'Thời sự'],
-            ['name'=>'Thể thao'],
-            ['name'=>'Giải trí']
+            ['name'=>'Thời sự','slug'=>'thoi-su'],
+            ['name'=>'Thể thao','slug'=>'the-thao'],
+            ['name'=>'Giải trí','slug'=>'giai-tri']
         ];
-        foreach ($categories as $category)
-        {
-            DB::table('categories')->insert($category);
-        }
+        DB::table('categories')->insert($categories);
     }
 }

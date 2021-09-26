@@ -34,11 +34,31 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Tên</label>
-                    <input type="text" class="form-control" id="" placeholder="" name="name">
+                    <input type="text" class="form-control"  placeholder="" name="title">
                 </div>
                 @include('admin.compoments.summernote',[
-                  'title'=>'Mô tả'
+                  'title'=>'Mô tả',
+                  'name'=>'content'
                 ])
+                <div class="row">
+                  <div class="col-6">
+                    <label for="">Trạng thái</label>
+                    <select class="custom-select custom-select-lg mb-3" name="status">
+                      <option selected value="1">Hiện</option>
+                      <option value="0">Ẩn</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <label for="">Danh mục</label>
+                    <select class="custom-select custom-select-lg mb-3" name="category_id">
+                      <option selected value="0">Không</option>
+                      @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+                <br>
                 <input type="submit" class="btn btn-primary" value="Tạo">
             </form>
         </div><!-- /.container-fluid -->

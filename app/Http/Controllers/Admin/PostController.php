@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -25,6 +26,18 @@ class PostController extends Controller
         ]);
     }
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $categories=DB::table('categories')->select('id','name')->get();
+        return view('admin.post.create')->with([
+            'categories'=>$categories
+        ]);
+    }
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -32,8 +45,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data =$request->all();
+        $data =$request->only(['title','content','category_id','status']);
         if ($data) {
+            DB::table('posts')->insert([
+                'title'=>$data['title'],
+                'slug'=>Str::slug($data['title']),
+                'content'=>$data['content'],
+                'status'=>$data['status'],
+                'category_id'=>$data['category_id'],
+                'user_created_id'=>1,
+                'user_updated_id'=>1,
+                'created_at'=>now(),
+                'updated_at'=>now()
+            ]);
+            
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();
@@ -76,6 +101,7 @@ class PostController extends Controller
     {
         $data =$request->all();
         if ($data) {
+
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();

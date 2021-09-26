@@ -37,7 +37,8 @@
             <input type="text" class="form-control" id="" placeholder="" name="name">
         </div>
         @include('admin.compoments.summernote',[
-            'title'=>'Mô tả'
+            'title'=>'Mô tả',
+            'name'=>'content'
           ])
         <input type="submit" class="btn btn-primary" value="Create">
     </form>

@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="">{{$title}}</label>
-    <textarea id="summernote">
+    <textarea id="summernote" name="{{$name}}">
         
     </textarea>
 </div>

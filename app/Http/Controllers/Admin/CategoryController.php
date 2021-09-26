@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -39,8 +40,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data =$request->all();
+        $data =$request->only(['name']);
         if ($data) {
+            DB::table('categories')->insert([
+                'name'=>$data['name'],
+                'slug'=>Str::slug($data['name']),
+                'created_at'=>now(),
+                'updated_at'=>now()
+            ]);
             return redirect()->action([CategoryController::class, 'index']);
         }else{
             return redirect()->back();
