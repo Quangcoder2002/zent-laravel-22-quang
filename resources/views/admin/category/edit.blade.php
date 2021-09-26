@@ -30,16 +30,14 @@
   <!-- /.card-header -->
   <div class="card-body">
     <div class="container">
-      <form method="post" action="{{ route('admin.category.update',['id'=>1]) }}" role="form" enctype="multipart/form-data">
-          @csrf
+      <form method="post" action="{{ route('admin.category.update',['id'=>$category->id]) }}" role="form" enctype="multipart/form-data">
+        @method('PUT')  
+        @csrf
           <input type="hidden" name="_method" value="put">
           <div class="form-group">
               <label for="">Tên</label>
-              <input type="text" class="form-control" id="" placeholder="" name="name" value="ADMIN">
+              <input type="text" class="form-control" id="" placeholder="" name="name" value="{{$category->name}}">
           </div>
-          @include('admin.compoments.summernote',[
-            'title'=>'Mô tả'
-          ])
           <button type="submit" class="btn btn-primary">Cập nhật</button>
       </form>
     </div><!-- /.container-fluid -->

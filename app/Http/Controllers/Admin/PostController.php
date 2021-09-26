@@ -58,7 +58,6 @@ class PostController extends Controller
                 'created_at'=>now(),
                 'updated_at'=>now()
             ]);
-            
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();
@@ -87,7 +86,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.post.edit');
+        $post = DB::table('posts')->find($id);
+        $categories = DB::table('categories')->get();
+        return view('admin.post.edit')->with([
+            'post'=>$post,
+            'categories'=>$categories
+        ]);
     }
 
     /**
@@ -99,9 +103,17 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =$request->all();
+        $data =$request->only(['title','content','category_id','status']);
         if ($data) {
-
+            DB::table('posts')->where('id',$id)->update([
+                'title'=>$data['title'],
+                'slug'=>Str::slug($data['title']),
+                'content'=>$data['content'],
+                'status'=>$data['status'],
+                'category_id'=>$data['category_id'],
+                'user_updated_id'=>1,
+                'updated_at'=>now()
+            ]);
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();

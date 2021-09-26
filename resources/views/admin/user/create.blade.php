@@ -32,13 +32,33 @@
         <div class="container">
             <form method="POST" action="{{ route('admin.users.store') }}" role="form" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
-                    <label for="">Tên</label>
-                    <input type="text" class="form-control" id="" placeholder="" name="name">
-                </div>
-                @include('admin.compoments.summernote',[
-                  'title'=>'Mô tả'
-                ])
+              <div class="form-group">
+                  <label for="">Tên</label>
+                  <input type="text" class="form-control" id="" placeholder="" name="name">
+              </div>
+              <div class="form-group">
+                <label for="">Số điện thoại</label>
+                <input type="text" class="form-control" id="" placeholder="" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" class="form-control" id="" placeholder="" name="email">
+              </div>
+              <div class="form-group">
+                <label for="">Địa chỉ</label>
+                <input type="text" class="form-control" id="" placeholder="" name="address">
+              </div>
+              <div class="form-group">
+                <label for="">Avatar</label>
+                <input type="text" class="form-control" id="" placeholder="" name="avatar">
+              </div>
+              <div class="form-group">
+                <label for="">Trạng thái</label>
+                <select class="form-control" name="status">
+                  <option value="1">Hiện</option>
+                  <option value="0">Ẩn</option>
+                </select>
+              </div>
                 <input type="submit" class="btn btn-primary" value="Tạo">
             </form>
         </div><!-- /.container-fluid -->

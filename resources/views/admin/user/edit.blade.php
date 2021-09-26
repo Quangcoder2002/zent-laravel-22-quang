@@ -30,16 +30,26 @@
   <!-- /.card-header -->
   <div class="card-body">
     <div class="container">
-      <form method="POST" action="{{ route('admin.users.update',['id'=>1]) }}" role="form" enctype="multipart/form-data">
-          @csrf
+      <form method="POST" action="{{ route('admin.users.update',['id'=>$user->id]) }}" role="form" enctype="multipart/form-data">
+        @method('PUT')  
+        @csrf
           <input type="hidden" name="_method" value="put">
           <div class="form-group">
               <label for="">Tên</label>
-              <input type="text" class="form-control" id="" placeholder="" name="name" value="ADMIN">
+              <input type="text" class="form-control" id="" placeholder="" name="name" value="{{$user->name}}">
           </div>
-          @include('admin.compoments.summernote',[
-            'title'=>'Mô tả'
-          ])
+          <div class="form-group">
+            <label for="">Số điện thoại</label>
+            <input type="text" class="form-control" id="" placeholder="" name="phone" value="{{$user->phone}}">
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control" id="" placeholder="" name="email" value="{{$user->email}}">
+          </div>
+          <div class="form-group">
+            <label for="">Địa chỉ</label>
+            <input type="text" class="form-control" id="" placeholder="" name="address" value="{{$user->address}}">
+          </div>
           <button type="submit" class="btn btn-primary">Cập nhật</button>
       </form>
     </div><!-- /.container-fluid -->

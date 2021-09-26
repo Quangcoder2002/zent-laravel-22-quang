@@ -73,7 +73,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.category.edit');
+        $category = DB::table('categories')->find($id);
+        return view('admin.category.edit')->with([
+            'category'=>$category
+        ]);
     }
 
     /**
@@ -85,8 +88,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =$request->all();
+        $data =$request->only(['name']);
         if ($data) {
+            DB::table('categories')->where('id',$id)->update([
+                'name'=>$data['name'],
+                'slug'=>Str::slug($data['name']),
+                'updated_at'=>now()
+            ]);
             return redirect()->action([CategoryController::class, 'index']);
         }else{
             return redirect()->back();

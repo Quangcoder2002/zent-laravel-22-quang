@@ -39,8 +39,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data =$request->all();
+        $data =$request->only(['name','phone','address','email','status','avatar']);
         if ($data) {
+            DB::table('users')->insert([
+                'name'=>$data['name'],
+                'phone'=>$data['phone'],
+                'address'=>$data['address'],
+                'email'=>$data['email'],
+                'avatar'=>$data['avatar'],
+                'status'=>$data['status'],
+                'created_at'=>now(),
+                'updated_at'=>now()
+            ]);
             return redirect()->action([UserController::class, 'index']);
         }else{
             return redirect()->back();
@@ -68,10 +78,12 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        return view('admin.user.edit');
+    {   
+        $user = DB::table('users')->find($id);
+        return view('admin.user.edit')->with([
+            'user'=>$user
+        ]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -81,8 +93,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =$request->all();
+        $data =$request->only(['name','phone','address','email']);
         if ($data) {
+            DB::table('users')->where('id',$id)->update([
+                'name'=>$data['name'],
+                'phone'=>$data['phone'],
+                'address'=>$data['address'],
+                'email'=>$data['email'],
+                'updated_at'=>now()
+            ]);
             return redirect()->action([UserController::class, 'index']);
         }else{
             return redirect()->back();

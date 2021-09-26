@@ -1,7 +1,7 @@
 <div class="form-group">
     <label for="">{{$title}}</label>
     <textarea id="summernote" name="{{$name}}">
-        
+            {{$content}}
     </textarea>
 </div>
 @push('stack-scripts')

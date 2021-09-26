@@ -38,7 +38,8 @@
                 </div>
                 @include('admin.compoments.summernote',[
                   'title'=>'Mô tả',
-                  'name'=>'content'
+                  'name'=>'content',
+                  'content'=>''
                 ])
                 <div class="row">
                   <div class="col-6">
