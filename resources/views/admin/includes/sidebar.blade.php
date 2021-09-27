@@ -71,19 +71,7 @@
           <li class="nav-item">
             <a href="{{ route('admin.users.index') }}" class="nav-link @if (request()->routeIs('admin.users.index')) active @endif">
               <i class="far fa-circle nav-icon"></i>
-              <p>Danh sách users</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.users.create') }}" class="nav-link @if (request()->routeIs('admin.users.create')) active @endif">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Tạo mới User</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('admin.users.edit',['id'=>1]) }}" class="nav-link @if (request()->routeIs('admin.users.edit')) active @endif">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Chỉnh sửa User</p>
+              <p>Quản lý users</p>
             </a>
           </li>
         </ul>
