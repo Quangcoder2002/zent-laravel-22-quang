@@ -65,11 +65,11 @@
                       'type'=>'success',
                       'content'=>'<i class="fas fa-edit"></i>'
                     ])
-                  @include('admin.compoments.btn',[
-                    'href'=> route('admin.category.destroy',['id'=>$category->id]),
-                    'type'=>'danger',
-                    'content'=>'<i class="fas fa-trash-alt"></i>'
-                  ])
+                 <form action="{{route('admin.category.destroy',['id'=>$category->id])}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                </form>
               </td>
           </tr>
             @endforeach

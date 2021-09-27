@@ -109,6 +109,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        return 'xóa';
+        DB::table('categories')->where('id',$id)->delete();
+        return redirect()->route('admin.category.index');
     }
 }
