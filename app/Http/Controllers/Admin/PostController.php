@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -14,9 +15,18 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = DB::table('posts')->get();
+        $posts_query = DB::table('posts');
+        $title = $request->get('title');
+        if(!empty($title)){
+            $posts_query->where('title', 'like', "%" . $title . "%");
+        }
+        $status = $request->get('status');
+        if($status !== null){
+            $posts_query->where('status', $status);
+        }
+        $posts = $posts_query->get();
         $categories = DB::table('categories')->get();
         $users = DB::table('users')->select('name','id')->get();
         return view('admin.post.list')->with([
@@ -45,19 +55,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data =$request->only(['title','content','category_id','status']);
+        log::info('buoc 1');
+        $data = $request->only(['title','content','category_id','status']);
+        log::info('buoc 2');
         if ($data) {
-            DB::table('posts')->insert([
-                'title'=>$data['title'],
-                'slug'=>Str::slug($data['title']),
-                'content'=>$data['content'],
-                'status'=>$data['status'],
-                'category_id'=>$data['category_id'],
-                'user_created_id'=>1,
-                'user_updated_id'=>1,
-                'created_at'=>now(),
-                'updated_at'=>now()
-            ]);
+            try{
+                DB::table('posts')->insert([
+                    'title'=>$data['title'],
+                    'slug'=>Str::slug($data['title']),
+                    'content'=>$data['content'],
+                    'status'=>$data['status'],
+                    'category_id'=>$data['category_id'],
+                    'user_created_id'=>1,
+                    'user_updated_id'=>1,
+                    'created_at'=>now(),
+                    'updated_at'=>now()
+                ]);
+            }catch(\Exception $ex){
+                Log::error('PostController@store Error:'.$ex->getMessage());
+            }
+            
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();

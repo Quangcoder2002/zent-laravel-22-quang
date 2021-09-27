@@ -1,1 +1,1 @@
-<a href="{{ $href }}" class="btn btn-{{ $type }}">{!!$content!!}</a>
+<a href="{{ $href }}" class="btn btn-{{ $type }}" style="float:left; margin: 0 5px 0 0;min-width: 42px;">{!!$content!!}</a>

@@ -41,14 +41,14 @@
     </div>
   </div>
   <!-- /.card-header -->
-  <div class="card-body table-responsive p-0" style="height: 300px;">
+  <div class="card-body table-responsive p-0" style="max-height: 450px;">
     <div class="container-fluid">
       
         <table class="table table-head-fixed text-nowrap">
             <thead>
                 <th>ID</th>
                 <th>Tên</th>
-                <th>Hành động</th>
+                <th >Hành động</th>
             </thead>
             @foreach ($categories as $category)
             <tr>
@@ -65,7 +65,7 @@
                       'type'=>'success',
                       'content'=>'<i class="fas fa-edit"></i>'
                     ])
-                 <form action="{{route('admin.category.destroy',['id'=>$category->id])}}" method="POST">
+                 <form action="{{route('admin.category.destroy',['id'=>$category->id])}}" method="POST" style="float: left;">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>

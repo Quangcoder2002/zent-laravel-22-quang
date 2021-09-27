@@ -29,19 +29,25 @@
     </h3>
 
     <div class="card-tools">
-      <div class="input-group input-group-sm" style="width: 150px;">
-        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-        <div class="input-group-append">
-          <button type="submit" class="btn btn-default">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>  
+      
     </div>
+    
   </div>
+  <br>
+  <form method="GET" action="{{ route('admin.users.index')}}"  class="form-inline form-group">
+    <div class="col-3">
+      <input type="text" value="{{ request()->get('name')}}" name="name" class="form-control" placeholder="Tên" style="width: 100%;">
+    </div>
+    <div class="col-3" >
+      <input type="text" value="{{ request()->get('email')}}" name="email" class="form-control" placeholder="Email" style="width: 100%;">
+    </div>
+    <div class="col-3">
+      <button class="btn btn-info">Lọc</button>
+      <a class="btn btn-outline-primary" href="{{ route('admin.users.index')}}"><i class="fas fa-undo"></i></a>
+    </div>
+  </form>
   <!-- /.card-header -->
-  <div class="card-body table-responsive p-0" style="height: 300px;">
+  <div class="card-body table-responsive p-0" style="max-height: 450px;">
     <div class="container-fluid">
       
         <table class="table table-head-fixed text-nowrap">
@@ -77,7 +83,7 @@
                         'type'=>'success',
                         'content'=>'<i class="fas fa-edit"></i>'
                       ])
-                   <form action="{{route('admin.users.destroy',['id'=>$user->id])}}" method="POST">
+                   <form action="{{route('admin.users.destroy',['id'=>$user->id])}}" method="POST" style="float: left;">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
