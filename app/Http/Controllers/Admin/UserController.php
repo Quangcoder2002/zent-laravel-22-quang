@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
 
 class UserController extends Controller
 {
@@ -50,16 +52,20 @@ class UserController extends Controller
     {
         $data =$request->only(['name','phone','address','email','status','avatar']);
         if ($data) {
-            DB::table('users')->insert([
-                'name'=>$data['name'],
-                'phone'=>$data['phone'],
-                'address'=>$data['address'],
-                'email'=>$data['email'],
-                'avatar'=>$data['avatar'],
-                'status'=>$data['status'],
-                'created_at'=>now(),
-                'updated_at'=>now()
-            ]);
+           try{
+                DB::table('users')->insert([
+                    'name'=>$data['name'],
+                    'phone'=>$data['phone'],
+                    'address'=>$data['address'],
+                    'email'=>$data['email'],
+                    'avatar'=>$data['avatar'],
+                    'status'=>$data['status'],
+                    'created_at'=>now(),
+                    'updated_at'=>now()
+                ]);
+             }catch(\Exception $ex){
+                 Log::error('UserController@store Error:'.$ex->getMessage());
+            }
             return redirect()->action([UserController::class, 'index']);
         }else{
             return redirect()->back();
