@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -17,7 +18,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users_query = DB::table('users');
+        $users_query = User::query();
         $name = $request->get('name');
         if(!empty($name)){
             $users_query->where('name', 'like', "%" . $name . "%");
@@ -53,7 +54,7 @@ class UserController extends Controller
         $data =$request->only(['name','phone','address','email','status','avatar']);
         if ($data) {
            try{
-                DB::table('users')->insert([
+                User::insert([
                     'name'=>$data['name'],
                     'phone'=>$data['phone'],
                     'address'=>$data['address'],
@@ -80,7 +81,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = DB::table('users')->find($id);
+        $user = User::find($id);
         return view('admin.user.detail')->with([
             'user'=>$user
         ]);
@@ -94,7 +95,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {   
-        $user = DB::table('users')->find($id);
+        $user = User::find($id);
         return view('admin.user.edit')->with([
             'user'=>$user
         ]);
@@ -131,7 +132,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('users')->where('id',$id)->delete();
+        User::where('id',$id)->delete();
         return redirect()->route('admin.users.index');
     }
 }

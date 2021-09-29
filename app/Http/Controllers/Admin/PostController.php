@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -17,7 +20,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts_query = DB::table('posts');
+        $posts_query = Post::query();
         $title = $request->get('title');
         if(!empty($title)){
             $posts_query->where('title', 'like', "%" . $title . "%");
@@ -27,8 +30,8 @@ class PostController extends Controller
             $posts_query->where('status', $status);
         }
         $posts = $posts_query->get();
-        $categories = DB::table('categories')->get();
-        $users = DB::table('users')->select('name','id')->get();
+        $categories = Category::all();
+        $users = User::select('name','id')->get();
         return view('admin.post.list')->with([
             'posts'=> $posts,
             'categories'=>$categories,
@@ -42,7 +45,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories=DB::table('categories')->select('id','name')->get();
+        $categories = Category::select('id','name')->get();
         return view('admin.post.create')->with([
             'categories'=>$categories
         ]);
@@ -60,7 +63,7 @@ class PostController extends Controller
         log::info('buoc 2');
         if ($data) {
             try{
-                DB::table('posts')->insert([
+                Post::insert([
                     'title'=>$data['title'],
                     'slug'=>Str::slug($data['title']),
                     'content'=>$data['content'],
@@ -103,8 +106,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = DB::table('posts')->find($id);
-        $categories = DB::table('categories')->get();
+        $post = Post::find($id);
+        $categories = Category::all();
         return view('admin.post.edit')->with([
             'post'=>$post,
             'categories'=>$categories
@@ -122,7 +125,7 @@ class PostController extends Controller
     {
         $data =$request->only(['title','content','category_id','status']);
         if ($data) {
-            DB::table('posts')->where('id',$id)->update([
+            Post::where('id',$id)->update([
                 'title'=>$data['title'],
                 'slug'=>Str::slug($data['title']),
                 'content'=>$data['content'],
@@ -145,7 +148,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('posts')->where('id',$id)->delete();
+        Post::where('id',$id)->delete();
         return redirect()->route('admin.post.index');
     }
 }

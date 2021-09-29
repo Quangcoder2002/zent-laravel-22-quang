@@ -82,11 +82,7 @@
                 @endforeach
               </td>
               <td>
-                @if ($post->status == 1)
-                  Hiện
-                @else
-                  Ẩn
-                @endif 
+                {{ $post->status_text }}
               </td>
               <td>
                 @if ($post->created_at)
