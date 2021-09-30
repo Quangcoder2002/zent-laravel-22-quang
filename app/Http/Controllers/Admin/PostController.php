@@ -8,7 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Illuminate\Model\Flight;
 use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
@@ -89,7 +89,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = DB::table('posts')->find($id);
+        $post = Post::find($id);
         return view('admin.post.detail')->with([
             'post'=>$post
         ]);
@@ -122,15 +122,13 @@ class PostController extends Controller
     {
         $data =$request->only(['title','content','category_id','status']);
         if ($data) {
-            Post::where('id',$id)->update([
-                'title'=>$data['title'],
-                'slug'=>Str::slug($data['title']),
-                'content'=>$data['content'],
-                'status'=>$data['status'],
-                'category_id'=>$data['category_id'],
-                'user_updated_id'=>1,
-                'updated_at'=>now()
-            ]);
+            $post = Post::find($id);
+            $post->title = $data['title'];
+            $post->content = $data['content'];
+            $post->status = $data['status'];
+            $post->category_id = $data['category_id'];
+            $post->user_updated_id = 1;
+            $post->save();
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();

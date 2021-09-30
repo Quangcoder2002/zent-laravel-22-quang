@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Models\Flight;
 
 class CategoryController extends Controller
 {
@@ -88,11 +89,9 @@ class CategoryController extends Controller
     {
         $data =$request->only(['name']);
         if ($data) {
-            DB::table('categories')->where('id',$id)->update([
-                'name'=>$data['name'],
-                'slug'=>Str::slug($data['name']),
-                'updated_at'=>now()
-            ]);
+            $category = Category::find($id);
+            $category->name = $data['name'];
+            $category->save();
             return redirect()->action([CategoryController::class, 'index']);
         }else{
             return redirect()->back();
