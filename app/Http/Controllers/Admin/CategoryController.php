@@ -16,9 +16,14 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all();
+        if ($request->get('list_delete') == 'active') {
+            $categories_query = Category::onlyTrashed();
+        }else{
+            $categories_query = Category::query();
+        }
+        $categories = $categories_query->get();
         return view('admin.category.list')->with([
             'categories'=>$categories
         ]);
@@ -106,7 +111,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('categories')->where('id',$id)->delete();
-        return redirect()->route('admin.category.index');
+        if (request()->get('list_delete') == 'active') {
+            $category = Category::onlyTrashed()->where('id', $id)->first();
+            $category->restore();
+            return redirect()->route('admin.category.index',['list_delete' => 'active']);
+        }else{
+            Category::destroy($id);
+            return redirect()->route('admin.category.index');
+        }
     }
 }

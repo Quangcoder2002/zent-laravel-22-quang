@@ -22,19 +22,25 @@
 <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">
-      @include('admin.compoments.btn',[
-        'href'=> route('admin.users.create'),
-        'type'=>'primary',
-        'content'=>'Tạo users mới'])
+        @if (request()->get('list_delete') != 'active')
+          @include('admin.compoments.btn',[
+            'href'=> route('admin.users.create'),
+            'type'=>'primary',
+            'content'=>'Tạo users mới'])
+        @else
+          <a class="btn btn-outline-primary" href="{{ route('admin.users.index')}}">Trở lại </a>
+        @endif
     </h3>
 
     <div class="card-tools">
-      
+      @if (request()->get('list_delete') != 'active')
+        <a class="btn btn-outline-primary" href="{{ route('admin.users.index', ['list_delete'=>'active'])}}">Danh sách xóa</a>
+      @endif
     </div>
-    
   </div>
   <br>
-  <form method="GET" action="{{ route('admin.users.index')}}"  class="form-inline form-group">
+  <form method="GET" action="{{ route('admin.users.index',['list_delete'=>request()->get('list_delete')])}}"  class="form-inline form-group">
+    <input type="text" value="{{request()->get('list_delete')}}" name="list_delete" hidden>
     <div class="col-3">
       <input type="text" value="{{ request()->get('name')}}" name="name" class="form-control" placeholder="Tên" style="width: 100%;">
     </div>
@@ -42,14 +48,13 @@
       <input type="text" value="{{ request()->get('email')}}" name="email" class="form-control" placeholder="Email" style="width: 100%;">
     </div>
     <div class="col-3">
-      <button class="btn btn-info">Lọc</button>
-      <a class="btn btn-outline-primary" href="{{ route('admin.users.index')}}"><i class="fas fa-undo"></i></a>
+      <button class="btn btn-info" >Lọc</button>
+      <a class="btn btn-outline-primary" href="{{ route('admin.users.index',['list_delete'=>request()->get('list_delete')])}}"><i class="fas fa-undo"></i></a>
     </div>
   </form>
   <!-- /.card-header -->
   <div class="card-body table-responsive p-0" style="max-height: 450px;">
     <div class="container-fluid">
-      
         <table class="table table-head-fixed text-nowrap">
             <thead>
                 <th>ID</th>
@@ -71,6 +76,7 @@
                 </td>
                 <td>{{$user->address}}</td>
                 <td>
+                  @if (request()->get('list_delete') != 'active')
                     @include('admin.compoments.btn',[
                       'href'=> route('admin.users.show',[
                         'id'=>$user->id
@@ -82,12 +88,19 @@
                         'href'=> route('admin.users.edit',['id'=>$user->id]),
                         'type'=>'success',
                         'content'=>'<i class="fas fa-edit"></i>'
-                      ])
-                   <form action="{{route('admin.users.destroy',['id'=>$user->id])}}" method="POST" style="float: left;">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                  </form>
+                      ]) 
+                  @endif
+                    <form action="{{route('admin.users.destroy',['id'=>$user->id,'list_delete'=>request()->get('list_delete')])}}" method="POST" style="float: left;">
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn btn-danger">
+                        @if (request()->get('list_delete') != 'active')
+                          <i class="fas fa-trash-alt"></i>
+                        @else
+                          <i class="fas fa-undo"></i> 
+                        @endif 
+                      </button>
+                    </form>
                 </td>
             </tr>
           @endforeach

@@ -18,11 +18,16 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users_query = User::query();
-        $name = $request->get('name');
-        if(!empty($name)){
-            $users_query->where('name', 'like', "%" . $name . "%");
+        
+        if ($request->get('list_delete') == 'active') {
+            $users_query = User::onlyTrashed();
+        }else{
+            $users_query = User::query();
         }
+        $name = $request->get('name');
+            if(!empty($name)){
+                $users_query->where('name', 'like', "%" . $name . "%");
+            }
         $email = $request->get('email');
         if(!empty($email)){
             $users_query->where('email', $email);
@@ -132,7 +137,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::where('id',$id)->delete();
-        return redirect()->route('admin.users.index');
+        if (request()->get('list_delete') == 'active') {
+            $user = User::onlyTrashed()->where('id', $id)->first();
+            $user->restore();
+            return redirect()->route('admin.users.index',['list_delete' => 'active']);
+        }else{
+            User::destroy($id);
+            return redirect()->route('admin.users.index');
+        }
     }
 }

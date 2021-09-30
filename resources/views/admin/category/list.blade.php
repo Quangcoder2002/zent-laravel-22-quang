@@ -22,22 +22,18 @@
 <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">
-      @include('admin.compoments.btn',[
-        'href'=> route('admin.category.create'),
-        'type'=>'primary',
-        'content'=>'Tạo danh mục mới'])
+      @if (request()->get('list_delete') != 'active')
+        @include('admin.compoments.btn',[
+          'href'=> route('admin.category.create'),
+          'type'=>'primary',
+          'content'=>'Tạo danh mục mới'])
+      @else
+        <a class="btn btn-outline-primary" href="{{ route('admin.category.index')}}">Trở lại </a>
+      @endif
     </h3>
 
     <div class="card-tools">
-      <div class="input-group input-group-sm" style="width: 150px;">
-        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-        <div class="input-group-append">
-          <button type="submit" class="btn btn-default">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>  
+      <a class="btn btn-outline-primary" href="{{ route('admin.category.index',['list_delete'=>'active'])}}">Danh sách xóa</a>
     </div>
   </div>
   <!-- /.card-header -->
@@ -55,6 +51,7 @@
               <td>{{$category->id}}</td>
               <td>{{$category->name}}</td>
               <td>
+                @if (request()->get('list_delete') != 'active')
                   @include('admin.compoments.btn',[
                     'href'=> route('admin.category.show',['id'=>$category->id]),
                     'type'=>'primary',
@@ -65,10 +62,17 @@
                       'type'=>'success',
                       'content'=>'<i class="fas fa-edit"></i>'
                     ])
-                 <form action="{{route('admin.category.destroy',['id'=>$category->id])}}" method="POST" style="float: left;">
+                @endif
+                 <form action="{{route('admin.category.destroy',['id'=>$category->id,'list_delete'=>request()->get('list_delete')])}}" method="POST" style="float: left;">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn btn-danger">
+                    @if (request()->get('list_delete') != 'active')
+                      <i class="fas fa-trash-alt"></i>
+                    @else
+                      <i class="fas fa-undo"></i> 
+                    @endif 
+                  </button>
                 </form>
               </td>
           </tr>
