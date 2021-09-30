@@ -63,17 +63,14 @@ class PostController extends Controller
         log::info('buoc 2');
         if ($data) {
             try{
-                Post::insert([
-                    'title'=>$data['title'],
-                    'slug'=>Str::slug($data['title']),
-                    'content'=>$data['content'],
-                    'status'=>$data['status'],
-                    'category_id'=>$data['category_id'],
-                    'user_created_id'=>1,
-                    'user_updated_id'=>1,
-                    'created_at'=>now(),
-                    'updated_at'=>now()
-                ]);
+                Post::create([
+                     'title' => $data['title'],
+                     'content' => $data['content'],
+                     'status' => $data['status'],
+                     'category_id'=> $data['category_id'],
+                     'user_created_id' => 1,
+                     'user_updated_id' => 1,
+                 ]);
             }catch(\Exception $ex){
                 Log::error('PostController@store Error:'.$ex->getMessage());
             }

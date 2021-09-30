@@ -43,11 +43,8 @@ class CategoryController extends Controller
     {
         $data =$request->only(['name']);
         if ($data) {
-            DB::table('categories')->insert([
-                'name'=>$data['name'],
-                'slug'=>Str::slug($data['name']),
-                'created_at'=>now(),
-                'updated_at'=>now()
+            Category::create([
+                'name'=>$data['name']
             ]);
             return redirect()->action([CategoryController::class, 'index']);
         }else{
