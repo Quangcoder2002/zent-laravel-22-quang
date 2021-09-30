@@ -77,7 +77,9 @@
               </td>
           </tr>
             @endforeach
+           
         </table>
+        {{ $categories->links() }}
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.card-body -->

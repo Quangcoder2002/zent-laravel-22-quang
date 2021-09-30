@@ -56,7 +56,7 @@
         <table class="table">
             <thead>
                 <th>ID</th>
-                <th>Tên bài viết</th>
+                <th style="width:400px;">Tên bài viết</th>
                 <th>Danh mục</th>
                 <th>Người tạo</th>
                 <th>Trạng thái</th>
@@ -112,6 +112,7 @@
             </tr> 
             @endforeach
         </table>
+        {{ $posts->links() }}
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.card-body -->

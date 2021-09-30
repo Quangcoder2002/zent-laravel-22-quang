@@ -60,11 +60,17 @@ class UsersTableSeeder extends Seeder
                 'address' => 'Ha Noi',
                 'phone' => '1234232651',
                 'status' => '0'
+            ],
+            [
+                'name' => 'Admin5',
+                'email' => 'admin5@gmail.com',
+                'password' => bcrypt('12345678'),
+                'avatar' => '',
+                'address' => 'Ha Noi',
+                'phone' => '1234232651',
+                'status' => '1'
             ]
         ];
-        foreach ($users as $user)
-        {
-            DB::table('users')->insert($user);
-        }
+            DB::table('users')->insert($users);
     }
 }

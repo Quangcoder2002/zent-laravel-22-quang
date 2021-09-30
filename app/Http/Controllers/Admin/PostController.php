@@ -29,7 +29,7 @@ class PostController extends Controller
         if($status !== null){
             $posts_query->where('status', $status);
         }
-        $posts = $posts_query->get();
+        $posts = $posts_query->paginate(5);
         $categories = Category::all();
         $users = User::select('name','id')->get();
         return view('admin.post.list')->with([

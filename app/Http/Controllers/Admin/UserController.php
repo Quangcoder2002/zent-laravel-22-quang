@@ -32,7 +32,7 @@ class UserController extends Controller
         if(!empty($email)){
             $users_query->where('email', $email);
         }
-        $users = $users_query->get();
+        $users = $users_query->paginate(5);
         return view('admin.user.list')->with([
             'users'=> $users
         ]);
@@ -59,15 +59,15 @@ class UserController extends Controller
         $data =$request->only(['name','phone','address','email','status','avatar']);
         if ($data) {
            try{
-                User::insert([
-                    'name'=>$data['name'],
-                    'phone'=>$data['phone'],
-                    'address'=>$data['address'],
-                    'email'=>$data['email'],
-                    'avatar'=>$data['avatar'],
-                    'status'=>$data['status'],
-                    'created_at'=>now(),
-                    'updated_at'=>now()
+                User::create([
+                    'name' => $data['name'],
+                    'phone' => $data['phone'],
+                    'email' => $data['email'],
+                    'address'=> $data['address'],
+                    'avatar' => $data['avatar'],
+                    'status' => $data['status'],
+                    'password' =>'123456',
+                    'user_updated_id' => 1,
                 ]);
              }catch(\Exception $ex){
                  Log::error('UserController@store Error:'.$ex->getMessage());

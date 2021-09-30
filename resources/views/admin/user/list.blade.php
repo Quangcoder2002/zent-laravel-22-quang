@@ -105,6 +105,7 @@
             </tr>
           @endforeach
         </table>
+        {{ $users->links() }}
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.card-body -->

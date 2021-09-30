@@ -23,7 +23,7 @@ class CategoryController extends Controller
         }else{
             $categories_query = Category::query();
         }
-        $categories = $categories_query->get();
+        $categories = $categories_query->paginate(5);
         return view('admin.category.list')->with([
             'categories'=>$categories
         ]);
