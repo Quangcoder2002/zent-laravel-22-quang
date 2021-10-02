@@ -17,7 +17,7 @@ class Post extends Model
     protected $guarded = [];
 
     protected $statusArr = [
-        self::STATUS_DRAFT => 'Nhấp',
+        self::STATUS_DRAFT => 'Nhập',
         self::STATUS_DONE => 'Đã viết xong',
         self::STATUS_PUBLIC => 'Công khai'
     ];
