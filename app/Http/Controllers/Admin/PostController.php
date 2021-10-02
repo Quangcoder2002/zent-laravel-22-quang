@@ -30,10 +30,8 @@ class PostController extends Controller
             $posts_query->where('status', $status);
         }
         $posts = $posts_query->paginate(5);
-        $categories = Category::all();
         return view('admin.post.list')->with([
-            'posts'=> $posts,
-            'categories'=>$categories
+            'posts'=> $posts
         ]);
     }
     /**

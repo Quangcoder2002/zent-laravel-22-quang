@@ -39,4 +39,7 @@ class Post extends Model
     public function userUpdate(){
         return $this->belongsTo(User::class, 'user_updated_id');
     }
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

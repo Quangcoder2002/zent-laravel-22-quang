@@ -23,7 +23,15 @@
     <div class="container">
         <h3 align="center">Detail Category</h3>
         <hr>
-            <h1>Name</h1>
+            <h1>Name:{{ $category->name }}</h1>
+            <p>Slug: {{$category->slug}}</p>
+            <h3>Các bài viết thuộc danh mục:</h3>
+            <ul>
+              @foreach ($category->posts as $post)
+                <li>{{ $post->title }}</li>
+              @endforeach
+            </ul>
+          
         </div>
 </div><!-- /.container-fluid -->
 @endsection

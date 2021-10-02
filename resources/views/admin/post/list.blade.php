@@ -69,11 +69,9 @@
               <td>{{$post->id}}</td>
               <td>{{$post->title}}</td>
               <td>
-                @foreach ($categories as $category)
-                  @if ($post->category_id == $category->id)
-                    {{$category->name}}   
-                  @endif 
-                @endforeach
+                @if ($post->category_id != 0)
+                  {{$post->category->name}}
+                @endif
               </td>
               <td>
                   {{$post->user->name}}
