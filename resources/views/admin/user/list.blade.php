@@ -61,8 +61,8 @@
                 <th>Tên</th>
                 <th>Email</th>
                 <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
                 <th>Avatar</th>
-                <th>Nơi ở</th>
                 <th>Hành động</th>
             </thead>
             @foreach ($users as $user)
@@ -70,11 +70,11 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{$user->phone}}</td>
+                <td>{{$user->userInfo->phone}}</td>
+                <td>{{$user->userInfo->address}}</td>
                 <td>
                     <img src="@if ($user->avatar) {{$user->avatar}} @else https://lh3.googleusercontent.com/proxy/w9NA_6Kij_7GTq6Qt3U9qkAuh05yVgLXo3jAaWm3M_5MaHUnhNV9aSLxuJ8Y8ebAqCjZCEQltZVoaBHXsmwn-NA6N0fvp6l4 @endif" width="40px" height="40px">
                 </td>
-                <td>{{$user->address}}</td>
                 <td>
                   @if (request()->get('list_delete') != 'active')
                     @include('admin.compoments.btn',[

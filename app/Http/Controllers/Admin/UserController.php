@@ -88,7 +88,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return view('admin.user.detail')->with([
-            'user'=>$user
+            'user' => $user
         ]);
     }
 
