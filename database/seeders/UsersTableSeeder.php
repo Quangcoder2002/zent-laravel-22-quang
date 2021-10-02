@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
                     'password' => bcrypt('12345678'),
                     'avatar' => '',
                     'status' => '0',
-                    'create_at' => now(),
+                    'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
                     'password' => bcrypt('12345678'),
                     'avatar' => '',
                     'status' => '0',
-                    'create_at' => now(),
+                    'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder
                     'password' => bcrypt('12345678'),
                     'avatar' => '',
                     'status' => '0',
-                    'create_at' => now(),
+                    'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
@@ -68,7 +68,7 @@ class UsersTableSeeder extends Seeder
                     'password' => bcrypt('12345678'),
                     'avatar' => '',
                     'status' => '0',
-                    'create_at' => now(),
+                    'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
@@ -84,7 +84,7 @@ class UsersTableSeeder extends Seeder
                     'password' => bcrypt('12345678'),
                     'avatar' => '',
                     'status' => '0',
-                    'create_at' => now(),
+                    'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
@@ -99,7 +99,7 @@ class UsersTableSeeder extends Seeder
                     'password' => bcrypt('12345678'),
                     'avatar' => '',
                     'status' => '1',
-                    'create_at' => now(),
+                    'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
