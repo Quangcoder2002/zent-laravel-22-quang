@@ -22,7 +22,7 @@ class PostsTableSeeder extends Seeder
                 'slug' => 'posts',
                 'content' => 'content post',
                 'user_created_id' => 1,
-                'user_updated_id' =>1,
+                'user_updated_id' => 1,
                 'category_id' => 1,
                 'status' => 0
             ],
@@ -31,7 +31,7 @@ class PostsTableSeeder extends Seeder
                 'slug' => 'posts1',
                 'content' => 'content post1',
                 'user_created_id' => 1,
-                'user_updated_id' =>1,
+                'user_updated_id' => 1,
                 'category_id' => 1,
                 'status' => 2
             ],
@@ -90,11 +90,13 @@ class PostsTableSeeder extends Seeder
                 'status' => 0
             ],
             [
-             'title' => 'posts8',
-             'slug' => 'posts8',
-             'content' => 'content post8',
-             'user_created_id' => 1,
-             'user_updated_id' =>1,
+                'title' => 'posts8',
+                'slug' => 'posts8',
+                'content' => 'content post8',
+                'user_created_id' => 1,
+                'user_updated_id' =>1,
+                'category_id' => 1,
+                    'status' => 0
             ],
             [
                 'title' => 'posts9',
