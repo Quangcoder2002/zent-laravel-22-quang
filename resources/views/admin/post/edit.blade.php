@@ -59,8 +59,9 @@
               <div class="form-group" data-select2-id="90">
                 <label>Trạng thái</label>
                 <select class="form-control" name="status">
-                  <option @if ($post->status==1) selected @endif value="1">Hiện</option>
-                  <option @if ($post->status==0) selected @endif value="0">Ẩn</option>
+                  <option @if ($post->status== 2) selected @endif value="2">Công khai</option>
+                  <option @if ($post->status== 1) selected @endif value="1">Hiện</option>
+                  <option @if ($post->status== 0) selected @endif value="0">Bản nháp</option>
                 </select>
               </div>
             </div>

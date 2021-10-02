@@ -10,14 +10,27 @@ class Post extends Model
 {
     use HasFactory;
 
+    const STATUS_DRAFT = 0;
+    const STATUS_DONE = 1;
+    const STATUS_PUBLIC = 2;
+
     protected $guarded = [];
 
     protected $statusArr = [
-        0 => 'Ẩn',
-        1 => 'Hiện'
+        self::STATUS_DRAFT => 'Nhấp',
+        self::STATUS_DONE => 'Đã viết xong',
+        self::STATUS_PUBLIC => 'Công khai'
+    ];
+    protected $statusColor = [
+        self::STATUS_DRAFT =>'danger',
+        self::STATUS_DONE => 'warning',
+        self::STATUS_PUBLIC => 'success'
     ];
     public function setTitleAttribute($title){
         $this->attributes['title'] = $title;
         $this->attributes['slug'] = Str::slug($title);
+    }
+    public function getStatusTextAttribute(){
+        return '<span class="badge badge-' . $this->statusColor[$this->status] .'">' . $this->statusArr[$this->status] . '<span>';
     }
 }

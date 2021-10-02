@@ -82,7 +82,7 @@
                 @endforeach
               </td>
               <td>
-                {{ $post->status_text }}
+                {!! $post->status_text !!}
               </td>
               <td>
                 @if ($post->created_at)
@@ -112,7 +112,7 @@
             </tr> 
             @endforeach
         </table>
-        {{ $posts->links() }}
+        {{ $posts->links('admin.includes.simple-pagination') }}
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.card-body -->

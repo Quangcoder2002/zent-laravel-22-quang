@@ -22,3 +22,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::resource('category', CategoryController::class)->parameters(['category'=>'id']);
     Route::resource('post', PostController::class)->parameters(['post'=>'id']);
 });
+// Route::prefix('')->name('client.')->group(function(){
+//     Route::view('/','client.home')->name('index');
+// });
