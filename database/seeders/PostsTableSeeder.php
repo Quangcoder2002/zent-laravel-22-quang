@@ -24,7 +24,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' => 1,
                 'category_id' => 1,
-                'status' => 0
+                'status' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts1',
@@ -33,7 +35,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' => 1,
                 'category_id' => 1,
-                'status' => 2
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts2',
@@ -42,7 +46,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 3,
-                'status' => 1
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts3',
@@ -51,7 +57,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 2,
-                'status' => 1
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts4',
@@ -60,7 +68,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 1,
-                'status' => 0
+                'status' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts5',
@@ -69,7 +79,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 1,
-                'status' => 0
+                'status' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts6',
@@ -78,7 +90,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 1,
-                'status' => 0
+                'status' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts7',
@@ -87,7 +101,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 1,
-                'status' => 0
+                'status' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts8',
@@ -96,7 +112,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 1,
-                    'status' => 0
+                'status' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
                 'title' => 'posts9',
@@ -105,7 +123,9 @@ class PostsTableSeeder extends Seeder
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
                 'category_id' => 1,
-                'status' => 0
+                'status' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ],
          ];
          DB::table('posts')->insert($posts);
