@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    List Users
+    Detail Users
 @endsection
 @section('content-header')
 <div class="container-fluid">
@@ -69,7 +69,9 @@
             </div>
           </div>
         </div>
-
+        @foreach ($user->posts as $post)
+        Title: {{ $post->title }} <br>
+        @endforeach
       </div>
   </div>
 @endsection

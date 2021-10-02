@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,4 +46,8 @@ class User extends Authenticatable
     public function userInfo(){
         return $this->hasOne(UserInfo::class);
     }
+    public function posts (){
+        return $this->hasMany(Post::class, 'user_created_id');
+    }
+    
 }

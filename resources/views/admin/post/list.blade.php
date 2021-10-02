@@ -59,6 +59,7 @@
                 <th style="width:400px;">Tên bài viết</th>
                 <th>Danh mục</th>
                 <th>Người tạo</th>
+                <th>Người cập nhật</th>
                 <th>Trạng thái</th>
                 <th>Ngày tạo</th>
                 <th>Hành động</th>
@@ -75,11 +76,10 @@
                 @endforeach
               </td>
               <td>
-                @foreach ($users as $user)
-                  @if ($post->user_created_id == $user->id)
-                    {{$user->name}}   
-                  @endif 
-                @endforeach
+                  {{$post->user->name}}
+              </td>
+              <td>
+                {{$post->userUpdate->name}}
               </td>
               <td>
                 {!! $post->status_text !!}

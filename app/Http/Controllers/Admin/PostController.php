@@ -31,11 +31,9 @@ class PostController extends Controller
         }
         $posts = $posts_query->paginate(5);
         $categories = Category::all();
-        $users = User::select('name','id')->get();
         return view('admin.post.list')->with([
             'posts'=> $posts,
-            'categories'=>$categories,
-            'users'=> $users
+            'categories'=>$categories
         ]);
     }
     /**

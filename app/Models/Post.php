@@ -33,4 +33,10 @@ class Post extends Model
     public function getStatusTextAttribute(){
         return '<span class="badge badge-' . $this->statusColor[$this->status] .'">' . $this->statusArr[$this->status] . '<span>';
     }
+    public function user(){
+        return $this->belongsTo(User::class, 'user_created_id');
+    }
+    public function userUpdate(){
+        return $this->belongsTo(User::class, 'user_updated_id');
+    }
 }
