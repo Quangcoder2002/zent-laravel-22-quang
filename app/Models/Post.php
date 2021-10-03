@@ -21,11 +21,13 @@ class Post extends Model
         self::STATUS_DONE => 'Đã viết xong',
         self::STATUS_PUBLIC => 'Công khai'
     ];
+
     protected $statusColor = [
         self::STATUS_DRAFT =>'danger',
         self::STATUS_DONE => 'warning',
         self::STATUS_PUBLIC => 'success'
     ];
+
     public function setTitleAttribute($title){
         $this->attributes['title'] = $title;
         $this->attributes['slug'] = Str::slug($title);
@@ -33,13 +35,20 @@ class Post extends Model
     public function getStatusTextAttribute(){
         return '<span class="badge badge-' . $this->statusColor[$this->status] .'">' . $this->statusArr[$this->status] . '<span>';
     }
+
     public function user(){
         return $this->belongsTo(User::class, 'user_created_id');
     }
+
     public function userUpdate(){
         return $this->belongsTo(User::class, 'user_updated_id');
     }
+
     public function category(){
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
     }
 }

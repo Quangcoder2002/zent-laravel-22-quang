@@ -36,11 +36,12 @@
       <div class="col-3">
         <input type="text" value="{{ request()->get('title')}}" name="title" class="form-control" placeholder="Title" style="width: 100%;">
       </div>
-      <div class="col-1">
+      <div class="col-2">
         <select name="status" class="form-control">
           <option value="">Status</option>
-          <option @if ( request()->get('status')== 0 && request()->get('status') != '') selected @endif value="0">Ẩn</option>
-          <option @if ( request()->get('status')== 1) selected @endif value="1">Hiện</option>
+          <option @if ( request()->get('status')== 0 && request()->get('status') != '') selected @endif value="0">Nhập</option>
+          <option @if ( request()->get('status')== 1) selected @endif value="1">Đã viết xong</option>
+          <option @if ( request()->get('status')== 2) selected @endif value="2">Công khai</option>
         </select>
       </div>
       <div class="col-3">
@@ -60,6 +61,7 @@
                 <th>Danh mục</th>
                 <th>Người tạo</th>
                 <th>Người cập nhật</th>
+                <th>Tags</th>
                 <th>Trạng thái</th>
                 <th>Ngày tạo</th>
                 <th>Hành động</th>
@@ -79,6 +81,11 @@
               <td>
                 {{$post->userUpdate->name}}
               </td>
+              <th>
+                @foreach ($post->tags as $tag)
+                    <span class="badge badge-info">{{ $tag->name }}</span>
+                @endforeach
+              </th>
               <td>
                 {!! $post->status_text !!}
               </td>

@@ -36,14 +36,14 @@
       </li>
       <li class="nav-header">Quản lý chung</li>
       <li class="nav-item @if (request()->routeIs('admin.category.*')) menu-is-opening menu-open @endif">
-        <a href="#" class="nav-link @if (request()->routeIs('admin.category.*')||request()->routeIs('admin.post.*')) active @endif">
+        <a href="#" class="nav-link @if (request()->routeIs('admin.category.*')||request()->routeIs('admin.post.*')||request()->routeIs('admin.tag.*')) active @endif">
           <i class="nav-icon fas fa-copy"></i>
           <p>
             Quản lý Blog
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview" style="display:@if (request()->routeIs('admin.category.*') || request()->routeIs('admin.post.*')) block @endif;">
+        <ul class="nav nav-treeview" style="display:@if (request()->routeIs('admin.category.*') || request()->routeIs('admin.post.*')||request()->routeIs('admin.tag.*')) block @endif;">
           <li class="nav-item">
             <a href="{{ route('admin.category.index') }}" class="nav-link @if (request()->routeIs('admin.category.*')) active @endif">
               <i class="far fa-circle nav-icon"></i>
@@ -54,6 +54,12 @@
             <a href="{{ route('admin.post.index') }}" class="nav-link @if (request()->routeIs('admin.post.*')) active @endif">
               <i class="far fa-circle nav-icon"></i>
               <p>Quản lý bài viết</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.tag.index') }}" class="nav-link @if (request()->routeIs('admin.tag.*')) active @endif">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Quản lý Tags</p>
             </a>
           </li>
         </ul>  
@@ -80,17 +86,6 @@
   </nav>
   <!-- /.sidebar-menu -->
 </div>
-
-<div class="sidebar">
-  <!-- Sidebar user panel (optional) -->
-  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-    <div class="image">
-      <img src="/backend/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-    </div>
-    <div class="info">
-      <a href="#" class="d-block">Nguyễn Công Hoan</a>
-    </div>
-  </div>
 
   <!-- SidebarSearch Form -->
   <div class="form-inline">
