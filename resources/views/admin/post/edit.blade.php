@@ -49,16 +49,18 @@
                 <label for="">Tags</label>
                 <select name="tags[]" multiple="" class="form-control">
                   @foreach ($tags as $tag)
+                      @php
+                            $selected = "";
+                      @endphp
                       @foreach ($post->tags as $post_tag)
                           @php
-                              $selected = "";
                               if ($post_tag->id == $tag->id) {
                                 $selected = "selected";
                                 break;
                               }
                           @endphp
                         @endforeach
-                    <option value="{{ $tag->id }}" {{$selected}}>{{$tag->name}}</option>
+                    <option value="{{ $tag->id }}"  {{$selected}} >{{$tag->name}}</option>
                   @endforeach
                 </select>
               </div>
