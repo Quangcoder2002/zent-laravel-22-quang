@@ -42,11 +42,22 @@
                   'content'=>''
                 ])
                 <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="">Tags</label>
+                      <select name="tag[]" multiple="" class="form-control">
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{$tag->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
                   <div class="col-6">
                     <label for="">Trạng thái</label>
                     <select class="custom-select custom-select-lg mb-3" name="status">
-                      <option selected value="1">Hiện</option>
-                      <option value="0">Ẩn</option>
+                      <option selected value="2">Công khai</option>
+                      <option value="0">Đã viết xong</option>
+                      <option value="0">Nhập</option>
                     </select>
                   </div>
                   <div class="col-6">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -42,8 +43,10 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::select('id','name')->get();
+        $tags = Tag::get();
         return view('admin.post.create')->with([
-            'categories'=>$categories
+            'categories'=>$categories,
+            'tags' => $tags
         ]);
     }
     /**
@@ -56,21 +59,22 @@ class PostController extends Controller
     {
         log::info('buoc 1');
         $data = $request->only(['title','content','category_id','status']);
+        $tags = $request->get('tag');
         log::info('buoc 2');
         if ($data) {
             try{
-                Post::create([
-                     'title' => $data['title'],
-                     'content' => $data['content'],
-                     'status' => $data['status'],
-                     'category_id'=> $data['category_id'],
-                     'user_created_id' => 1,
-                     'user_updated_id' => 1,
-                 ]);
+                 $post = new Post();
+                 $post->title = $data['title'];
+                 $post->content = $data['content'];
+                 $post->status = $data['status'];
+                 $post->category_id = $data['category_id'];
+                 $post->user_created_id = 1;
+                 $post->user_updated_id = 1;
+                 $post->save();
+                 $post->tags()->attach($tags);
             }catch(\Exception $ex){
                 Log::error('PostController@store Error:'.$ex->getMessage());
             }
-            
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();
@@ -100,10 +104,12 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $tags = Tag::get();
         $categories = Category::all();
         return view('admin.post.edit')->with([
             'post'=>$post,
-            'categories'=>$categories
+            'categories'=>$categories,
+            'tags' => $tags
         ]);
     }
 
@@ -116,7 +122,8 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =$request->only(['title','content','category_id','status']);
+        $data = $request->only(['title','content','category_id','status']);
+        $tags = $request->get('tags');
         if ($data) {
             $post = Post::find($id);
             $post->title = $data['title'];
@@ -125,6 +132,7 @@ class PostController extends Controller
             $post->category_id = $data['category_id'];
             $post->user_updated_id = 1;
             $post->save();
+            $post->tags()->sync($tags);
             return redirect()->action([PostController::class, 'index']);
         }else{
             return redirect()->back();

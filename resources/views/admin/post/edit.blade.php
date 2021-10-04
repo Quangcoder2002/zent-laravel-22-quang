@@ -44,6 +44,25 @@
             'content'=>$post->content
           ])
           <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="">Tags</label>
+                <select name="tags[]" multiple="" class="form-control">
+                  @foreach ($tags as $tag)
+                      @foreach ($post->tags as $post_tag)
+                          @php
+                              $selected = "";
+                              if ($post_tag->id == $tag->id) {
+                                $selected = "selected";
+                                break;
+                              }
+                          @endphp
+                        @endforeach
+                    <option value="{{ $tag->id }}" {{$selected}}>{{$tag->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
             <div class="col-md-6">
               <div class="form-group" data-select2-id="90">
                 <label>Danh mục</label>
