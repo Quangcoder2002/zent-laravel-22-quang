@@ -13,7 +13,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/','welcome');
+
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
         Route::get('','DashboardController@index')->name('index');
@@ -22,7 +22,26 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::resource('category', CategoryController::class)->parameters(['category'=>'id']);
     Route::resource('post', PostController::class)->parameters(['post'=>'id']);
     Route::resource('tag', TagController::class)->parameter('tag','id');
+    Route::prefix('auth')->name('auth.')->group( function(){
+        Route::get('login', function(){
+            return view('admin.auth.login');
+        });
+        Route::get('register', function(){
+            return view('admin.auth.register');
+        });
+    });
+    
 });
-// Route::prefix('')->name('client.')->group(function(){
-//     Route::view('/','client.home')->name('index');
-// });
+Route::prefix('')->group(function(){
+    Route::view('/','client.home')->name('index');
+    Route::prefix('blog')->group(function(){
+        Route::view('','client.blog')->name('index');
+        Route::get('/{id}', function($id){
+            return view('client.blog-single-post');
+        })->name('show');
+    });
+    Route::prefix('category') ->group(function(){
+        Route::view('','client.categories-post')->name('index');
+    });
+});
+// Route::view('/','welcome');

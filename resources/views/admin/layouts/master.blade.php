@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ADMIN | @yield('title')</title>
   @include('admin.compoments.css_base')
+  @stack('stack-css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
