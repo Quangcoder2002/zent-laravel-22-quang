@@ -22,12 +22,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::resource('category', CategoryController::class)->parameters(['category'=>'id']);
     Route::resource('post', PostController::class)->parameters(['post'=>'id']);
     Route::resource('tag', TagController::class)->parameter('tag','id');
-    Route::prefix('auth')->name('auth.')->group( function(){
-        Route::get('login', function(){
-            return view('admin.auth.login');
-        });
-    });
-    
 });
 Route::prefix('')->group(function(){
     Route::view('/','client.home')->name('index');
@@ -44,5 +38,7 @@ Route::prefix('')->group(function(){
 Route::prefix('/admin')->namespace('Auth')->name('auth.')->group(function(){
     Route::get('/register', 'RegisteredUserController@create')->middleware('guest')->name('register');
     Route::post('/register', 'RegisteredUserController@store')->middleware('guest');
+    Route::get('/login', 'LoginController@create')->middleware('guest')->name('login');
+    Route::post('/login', 'LoginController@authenticate')->middleware('guest')->name('login');
 });
-// Route::view('/','welcome');
+//Route::view('/','welcome');
