@@ -134,10 +134,15 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
+          <form method="post" action="{{ route('auth.logout')}}">
+            @csrf
+            <a href="#" class="nav-link"
+            onclick="this.closest('form').submit();return false;">
+            Logout
+            </a>
+         </form>
       </li>
+      
     </ul>
   </nav>
   <!-- /.navbar -->

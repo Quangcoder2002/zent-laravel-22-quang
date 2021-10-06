@@ -40,5 +40,6 @@ Route::prefix('/admin')->namespace('Auth')->name('auth.')->group(function(){
     Route::post('/register', 'RegisteredUserController@store')->middleware('guest');
     Route::get('/login', 'LoginController@create')->middleware('guest')->name('login');
     Route::post('/login', 'LoginController@authenticate')->middleware('guest')->name('login');
+    Route::post('/logout', 'LoginController@logout')->name('logout');
 });
 //Route::view('/','welcome');

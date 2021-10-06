@@ -11,8 +11,7 @@ class LoginController extends Controller
     public function create(){
         return view('admin.auth.login');
     }
-    public function authenticate(Request $request)
-    {
+    public function authenticate(Request $request){
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -25,5 +24,11 @@ class LoginController extends Controller
         return back()->withErrors([
             'email' => 'The pro',
         ]);
+    }
+    public function logout(Request $request){
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
