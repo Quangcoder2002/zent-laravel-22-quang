@@ -17,6 +17,8 @@ class CreateUserInfosTable extends Migration
             $table->integer('user_id');
            $table->string('address')->nullable();
            $table->string('phone')->nullable();
+           $table->string('avatar')->nullable();
+            $table->integer('status')->nullable();
         });
     }
 

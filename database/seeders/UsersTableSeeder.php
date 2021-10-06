@@ -21,12 +21,12 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Admin',
                     'email' => 'admin12@gmail.com',
                     'password' => bcrypt('12345678'),
-                    'avatar' => '',
-                    'status' => '0',
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
+                    'avatar' => '1',
+                    'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1231231231'
                 ]  
@@ -36,12 +36,12 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Admin1',
                     'email' => 'admin121@gmail.com',
                     'password' => bcrypt('12345678'),
-                    'avatar' => '',
-                    'status' => '0',
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
+                    'avatar' => '1',
+                    'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1231231231',
                 ] 
@@ -51,12 +51,12 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Admin2',
                     'email' => 'admin1221@gmail.com',
                     'password' => bcrypt('12345678'),
-                    'avatar' => '',
-                    'status' => '0',
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
+                    'avatar' => '1',
+                    'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1231313131',
                 ]
@@ -66,12 +66,12 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Admin3',
                     'email' => 'admin1211@gmail.com',
                     'password' => bcrypt('12345678'),
-                    'avatar' => '',
-                    'status' => '0',
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
+                    'avatar' => '1',
+                    'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '123465651'
                 ]
@@ -82,12 +82,12 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Admin4',
                     'email' => 'admin12121@gmail.com',
                     'password' => bcrypt('12345678'),
-                    'avatar' => '',
-                    'status' => '0',
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
+                    'avatar' => '1',
+                    'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1234232651'
                 ]
@@ -97,12 +97,12 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Admin5',
                     'email' => 'admin5@gmail.com',
                     'password' => bcrypt('12345678'),
-                    'avatar' => '',
-                    'status' => '1',
                     'created_at' => now(),
                     'updated_at' => now()
                 ],
                 'info' => [
+                    'avatar' => '1',
+                    'status' => '1',
                     'address' => 'Ha Noi',
                     'phone' => '1234232651'
                 ]
