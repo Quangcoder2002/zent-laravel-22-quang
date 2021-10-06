@@ -26,9 +26,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('login', function(){
             return view('admin.auth.login');
         });
-        Route::get('register', function(){
-            return view('admin.auth.register');
-        });
     });
     
 });
@@ -43,5 +40,9 @@ Route::prefix('')->group(function(){
     Route::prefix('category') ->group(function(){
         Route::view('','client.categories-post')->name('index');
     });
+});
+Route::prefix('/admin')->namespace('Auth')->name('auth.')->group(function(){
+    Route::get('/register', 'RegisteredUserController@create')->middleware('guest')->name('register');
+    Route::post('/register', 'RegisteredUserController@store')->middleware('guest');
 });
 // Route::view('/','welcome');
