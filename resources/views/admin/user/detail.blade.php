@@ -52,7 +52,9 @@
                     <h6 class="mb-0">Phone</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    {{$user->userInfo->phone}}
+                    @if ($user->userInfo != null)
+                      {{$user->userInfo->phone}}
+                    @endif
                   </div>
                 </div>
                 <hr>
@@ -61,7 +63,9 @@
                     <h6 class="mb-0">Address</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    {{$user->userInfo->address}}
+                    @if ($user->userInfo != null)
+                      {{$user->userInfo->address}}
+                    @endif
                   </div>
                 </div>
                 </div>

@@ -70,8 +70,16 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{$user->userInfo->phone}}</td>
-                <td>{{$user->userInfo->address}}</td>
+                <td>
+                  @if ($user->userInfo != null)
+                  {{$user->userInfo->phone}}
+                  @endif
+                </td>
+                <td>
+                  @if ($user->userInfo != null)
+                  {{$user->userInfo->address}}
+                  @endif
+                </td>
                 <td>
                     <img src="@if ($user->avatar) {{$user->avatar}} @else https://lh3.googleusercontent.com/proxy/w9NA_6Kij_7GTq6Qt3U9qkAuh05yVgLXo3jAaWm3M_5MaHUnhNV9aSLxuJ8Y8ebAqCjZCEQltZVoaBHXsmwn-NA6N0fvp6l4 @endif" width="40px" height="40px">
                 </td>
