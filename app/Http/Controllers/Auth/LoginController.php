@@ -16,8 +16,12 @@ class LoginController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
-        if (Auth::attempt($credentials)) {
+        if($request->get('remember')){
+            $remember = true;
+        }else{
+            $remember = false;
+        }
+        if (Auth::attempt($credentials, $remember)) {
            $request->session()->regenerate();
            return redirect()->intended('admin/dashboard');       
         }

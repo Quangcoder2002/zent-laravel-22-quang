@@ -43,8 +43,15 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12">
+          <div class="col-7">
+            <input type="checkbox" id="remember" name="remember" value="true">
+            <label for="remember">Remember Me</label>
+          </div>
+          <div class="col-5">
             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+          </div>
+          <div class="col-12">
+            <p style="text-align:center;"><span>Chưa có tài khoản? </span><a href="{{route('auth.register')}}">Đăng ký</a></p>
           </div>
           <!-- /.col -->
         </div>
