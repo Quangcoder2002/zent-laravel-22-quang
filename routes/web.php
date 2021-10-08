@@ -14,14 +14,16 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 |
 */
 
-Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
+Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function(){
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
-        Route::get('','DashboardController@index')->name('index')->middleware('auth');
+        Route::get('','DashboardController@index')->name('index');
     });
-    Route::resource('users', UserController::class)->parameters(['users'=>'id'])->middleware('auth');
-    Route::resource('category', CategoryController::class)->parameters(['category'=>'id'])->middleware('auth');
-    Route::resource('post', PostController::class)->parameters(['post'=>'id'])->middleware('auth');
-    Route::resource('tag', TagController::class)->parameter('tag','id')->middleware('auth');
+    Route::resource('users', UserController::class)->parameters(['users'=>'id']);
+    Route::resource('category', CategoryController::class)->parameters(['category'=>'id']);
+    Route::resource('post', PostController::class)->parameters(['post'=>'id']);
+    Route::resource('tag', TagController::class)->parameter('tag','id');
+    Route::post('/login/user/{id}', 'UserController@loginWithUser')
+    ->name('users.login');
 });
 Route::prefix('')->group(function(){
     Route::view('/','client.home')->name('index');
@@ -34,6 +36,7 @@ Route::prefix('')->group(function(){
     Route::prefix('category') ->group(function(){
         Route::view('','client.categories-post')->name('index');
     });
+   
 });
 Route::prefix('admin')->namespace('Auth')->name('auth.')->group(function(){
     Route::get('/register', 'RegisteredUserController@create')->middleware('guest')->name('register');

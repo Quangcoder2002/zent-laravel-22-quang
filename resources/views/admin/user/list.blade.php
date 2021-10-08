@@ -98,6 +98,13 @@
                         'content'=>'<i class="fas fa-edit"></i>'
                       ]) 
                   @endif
+                  <form method="POST" action="{{ route('admin.users.login', $user->id )}}">
+                    @csrf
+                    <button class="btn btn-outline-danger">
+                      <i class="fas fa-user"></i>
+                    </button>
+                  </form>
+                  
                     <form action="{{route('admin.users.destroy',['id'=>$user->id,'list_delete'=>request()->get('list_delete')])}}" method="POST" style="float: left;">
                       @csrf
                       @method('DELETE')
