@@ -80,8 +80,12 @@
                   {{$user->userInfo->address}}
                   @endif
                 </td>
-                <td>
-                    <img src="@if ($user->avatar) {{$user->avatar}} @else https://lh3.googleusercontent.com/proxy/w9NA_6Kij_7GTq6Qt3U9qkAuh05yVgLXo3jAaWm3M_5MaHUnhNV9aSLxuJ8Y8ebAqCjZCEQltZVoaBHXsmwn-NA6N0fvp6l4 @endif" width="40px" height="40px">
+                <td>  
+                  @if ($user->userInfo != null)
+                  <img src="@if ($user->userInfo->avatar != null) {{$user->userInfo->avatar}} @else https://lh3.googleusercontent.com/proxy/w9NA_6Kij_7GTq6Qt3U9qkAuh05yVgLXo3jAaWm3M_5MaHUnhNV9aSLxuJ8Y8ebAqCjZCEQltZVoaBHXsmwn-NA6N0fvp6l4 @endif" width="40px" height="40px">
+                  @else
+                  <img src="https://lh3.googleusercontent.com/proxy/w9NA_6Kij_7GTq6Qt3U9qkAuh05yVgLXo3jAaWm3M_5MaHUnhNV9aSLxuJ8Y8ebAqCjZCEQltZVoaBHXsmwn-NA6N0fvp6l4" width="40px" height="40px">
+                  @endif
                 </td>
                 <td>
                   @if (request()->get('list_delete') != 'active')

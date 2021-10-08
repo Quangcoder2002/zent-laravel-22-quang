@@ -25,15 +25,15 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::post('/login/user/{id}', 'UserController@loginWithUser')
     ->name('users.login');
 });
-Route::prefix('')->group(function(){
+Route::prefix('')->name('client.')->group(function(){
     Route::view('/','client.home')->name('index');
-    Route::prefix('blog')->group(function(){
+    Route::prefix('blog')->name('blog.')->group(function(){
         Route::view('','client.blog')->name('index');
         Route::get('/{id}', function($id){
             return view('client.blog-single-post');
         })->name('show');
     });
-    Route::prefix('category') ->group(function(){
+    Route::prefix('category')->name('category.')->group(function(){
         Route::view('','client.categories-post')->name('index');
     });
    

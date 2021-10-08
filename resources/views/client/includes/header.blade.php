@@ -20,10 +20,7 @@
                             </ul>
                         </div>
                         <div class="element hidden-xs hidden-sm">
-                            <a href="#"><img src="/client/img/icon-track.png" alt=""><span>Track Your Order</span></a>
-                        </div>
-                        <div class="element element-account hidden-md hidden-lg">
-                            <a href="#">My Account</a>
+                            <a href="#"><img src="/client/img/icon- track.png" alt=""><span>Track Your Order</span></a>
                         </div>
                     </div>
                 </div>
@@ -35,33 +32,38 @@
                         <div class="element hidden-xs hidden-sm">
                             <a href="#">Help</a>
                         </div>
-                        <div class="element hidden-xs hidden-sm">
-                            <a href="#"><img src="/client/img/icon-phone.png" alt=""><span>Save big on our app!</span></a>
-                        </div>
-                        <div class="element element-leaguage">
-                            <a id="label2" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img src="/client/img/icon-l.png" alt="">
-                              <span>English</span>
-                              <span class="ion-ios-arrow-down f-10 e-arrow"></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="label2">
-                                <li><a href="#">EN</a></li>
-                                <li><a href="#">DE</a></li>
-                                <li><a href="#">FR</a></li>
+                           
+                        @if (auth()->check())
+                            <ul class="js-menubar element element-account">
+                                <form method="post" action="{{ route('auth.logout')}}">
+                                    @csrf
+                                <li class="level1 active dropdown">
+                                    <a href=""> 
+                                        <img style="width: 25px; height: 25px; border-radius:50%;" src=" 
+                                        @if (auth()->user()->userInfo != null)
+                                        {{auth()->user()->userInfo->avatar}}
+                                        @else
+                                        https://cf.shopee.vn/file/1e3af998f7f1e1adebe028fa509db69f_tn
+                                        @endif" alt="">
+                                        {{auth()->user()->name}}
+                                    </a>
+                                    <ul class="dropdown-menu-left menu-level-1">
+                                        <li class="level2"><a href="aboutus.html" >Quản lý tài khoản</a></li>
+                                        <li class="level2">
+                                            <a href="" class="nav-link"onclick="this.closest('form').submit();return false;">Logout</a>
+                                        </li>   
+                                    </ul>
+                                </li>
+                            </form>
                             </ul>
-                        </div>
-                        <div class="element element-currency">
-                            <a id="label3" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            
-                              <span>USD</span>
-                              <span class="ion-ios-arrow-down f-10 e-arrow"></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="label3">
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">AUD</a></li>
-                                <li><a href="#">EUR</a></li>
-                            </ul>
-                        </div>
+                        @else
+                            <div class="element element-account">
+                                <a href="#">Register</a>
+                            </div> 
+                            <div class="element element-account">
+                                <a href="{{ route('auth.login')}}">Login</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -155,7 +157,6 @@
                             </div>
                         </div>
                         <div class="header-sub-element row">
-                            <a class="hidden-xs hidden-sm" href=""><img src="/client/img/icon-user.png" alt=""></a>
                             <a href="#"><img src="/client/img/icon-heart.png" alt=""></a>
                             <div class="cart">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="label5">
