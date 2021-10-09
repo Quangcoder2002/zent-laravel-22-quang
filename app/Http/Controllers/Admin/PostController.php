@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Model\Flight;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Gate;    
 
 class PostController extends Controller
 {
@@ -124,8 +125,11 @@ class PostController extends Controller
     {
         $data = $request->only(['title','content','category_id','status']);
         $tags = $request->get('tags');
+        $post = Post::find($id);
+        if (!Gate::allows('update-post', $post)) {
+           abort(403);
+        }
         if ($data) {
-            $post = Post::find($id);
             $post->title = $data['title'];
             $post->content = $data['content'];
             $post->status = $data['status'];
@@ -148,6 +152,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        if (!Gate::allows('update-post', $post)) {
+           abort(403);
+        }
         $post->delete();
         return redirect()->route('admin.post.index');
     }

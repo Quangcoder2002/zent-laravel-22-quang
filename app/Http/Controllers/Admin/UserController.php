@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Gate; 
 
 
 class UserController extends Controller
@@ -138,6 +139,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $user = User::find($id);
+        if (!Gate::allows('delete-user', $user)) {
+            abort(403);
+        }
         if (request()->get('list_delete') == 'active') {
             $user = User::onlyTrashed()->where('id', $id)->first();
             $user->restore();
@@ -147,6 +152,7 @@ class UserController extends Controller
             return redirect()->route('admin.users.index');
         }
     }
+
     public function loginWithUser($id){
          Auth::loginUsingId($id);
          return redirect()->route('admin.dashboard.index');
