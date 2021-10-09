@@ -58,7 +58,7 @@
                             </ul>
                         @else
                             <div class="element element-account">
-                                <a href="#">Register</a>
+                                <a href="{{ route('auth.register') }}">Register</a>
                             </div> 
                             <div class="element element-account">
                                 <a href="{{ route('auth.login')}}">Login</a>
