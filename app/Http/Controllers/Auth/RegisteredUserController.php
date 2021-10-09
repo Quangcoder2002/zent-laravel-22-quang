@@ -26,6 +26,6 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         Auth::login($user);
-        return redirect('admin/dashboard');
+        return redirect('');
     }
 }

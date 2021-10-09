@@ -60,6 +60,7 @@
                 <th>ID</th>
                 <th>Tên</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Số điện thoại</th>
                 <th>Địa chỉ</th>
                 <th>Avatar</th>
@@ -70,6 +71,7 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
+                <td>{{$user->role}}</td>
                 <td>
                   @if ($user->userInfo != null)
                   {{$user->userInfo->phone}}
