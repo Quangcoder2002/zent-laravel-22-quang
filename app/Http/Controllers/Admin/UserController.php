@@ -124,7 +124,7 @@ class UserController extends Controller
                 'email'=>$data['email'],
                 'updated_at'=>now()
             ]);
-            return redirect()->action([UserController::class, 'index']);
+             return redirect()->action([UserController::class, 'index']);
         }else{
             return redirect()->back();
         }

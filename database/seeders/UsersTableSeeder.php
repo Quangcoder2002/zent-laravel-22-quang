@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
                 'user' => [
                     'name' => 'Admin',
                     'email' => 'admin12@gmail.com',
+                    'role' => 'admin',
                     'password' => bcrypt('12345678'),
                     'created_at' => now(),
                     'updated_at' => now()
@@ -35,6 +36,7 @@ class UsersTableSeeder extends Seeder
                 'user' => [
                     'name' => 'Admin1',
                     'email' => 'admin121@gmail.com',
+                    'role' => 'admin',
                     'password' => bcrypt('12345678'),
                     'created_at' => now(),
                     'updated_at' => now()
@@ -50,6 +52,7 @@ class UsersTableSeeder extends Seeder
                 'user' => [
                     'name' => 'Admin2',
                     'email' => 'admin1221@gmail.com',
+                    'role' => 'admin',
                     'password' => bcrypt('12345678'),
                     'created_at' => now(),
                     'updated_at' => now()
@@ -65,6 +68,7 @@ class UsersTableSeeder extends Seeder
                 'user' => [
                     'name' => 'Admin3',
                     'email' => 'admin1211@gmail.com',
+                    'role' => 'admin',
                     'password' => bcrypt('12345678'),
                     'created_at' => now(),
                     'updated_at' => now()
@@ -81,6 +85,7 @@ class UsersTableSeeder extends Seeder
                 'user' => [
                     'name' => 'Admin4',
                     'email' => 'admin12121@gmail.com',
+                    'role' => 'admin',
                     'password' => bcrypt('12345678'),
                     'created_at' => now(),
                     'updated_at' => now()
@@ -96,6 +101,7 @@ class UsersTableSeeder extends Seeder
                 'user' => [
                     'name' => 'Admin5',
                     'email' => 'admin5@gmail.com',
+                    'role' => 'admod',
                     'password' => bcrypt('12345678'),
                     'created_at' => now(),
                     'updated_at' => now()

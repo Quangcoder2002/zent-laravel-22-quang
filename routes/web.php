@@ -14,7 +14,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 |
 */
 
-Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function(){
+Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','role:admin,admod'])->group(function(){
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
         Route::get('','DashboardController@index')->name('index');
     });
@@ -25,6 +25,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::post('/login/user/{id}', 'UserController@loginWithUser')
     ->name('users.login');
 });
+
 Route::prefix('')->name('client.')->group(function(){
     Route::view('/','client.home')->name('index');
     Route::prefix('blog')->name('blog.')->group(function(){
@@ -36,7 +37,6 @@ Route::prefix('')->name('client.')->group(function(){
     Route::prefix('category')->name('category.')->group(function(){
         Route::view('','client.categories-post')->name('index');
     });
-   
 });
 Route::prefix('admin')->namespace('Auth')->name('auth.')->group(function(){
     Route::get('/register', 'RegisteredUserController@create')->middleware('guest')->name('register');
