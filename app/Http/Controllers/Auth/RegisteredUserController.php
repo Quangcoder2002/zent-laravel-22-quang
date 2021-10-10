@@ -19,12 +19,15 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:250'],
             'email' => ['required', 'string', 'email','max:250' ,'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role' => 'user',
         ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user',
         ]);
+        dd($user->role);
         Auth::login($user);
         return redirect('');
     }

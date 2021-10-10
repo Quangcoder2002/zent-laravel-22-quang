@@ -14,7 +14,16 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Gate;    
 
 class PostController extends Controller
-{
+{   
+    /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    // public function __construct()
+    //  {
+    //      $this->authorizeResource(Post::class , 'post');
+    //  }
     /**
      * Display a listing of the resource.
      *
@@ -43,6 +52,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        $this->authorize('create' , Post::class);
         $categories = Category::select('id','name')->get();
         $tags = Tag::get();
         return view('admin.post.create')->with([
@@ -62,6 +72,7 @@ class PostController extends Controller
         $data = $request->only(['title','content','category_id','status']);
         $tags = $request->get('tag');
         log::info('buoc 2');
+        $this->authorize('create' , Post::class);
         if ($data) {
             try{
                  $post = new Post();
@@ -88,9 +99,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $post = Post::find($id);
+        $this->authorize('view' , $post);
         return view('admin.post.detail')->with([
             'post'=>$post
         ]);
@@ -102,11 +114,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $post = Post::find($id);
         $tags = Tag::get();
         $categories = Category::all();
+        $this->authorize('update' , $post);
         return view('admin.post.edit')->with([
             'post'=>$post,
             'categories'=>$categories,
@@ -126,9 +139,13 @@ class PostController extends Controller
         $data = $request->only(['title','content','category_id','status']);
         $tags = $request->get('tags');
         $post = Post::find($id);
-        if (!Gate::allows('update-post', $post)) {
-           abort(403);
-        }
+        $this->authorize('create' , $post);
+        // if (!Gate::allows('update-post', $post)) {
+        //    abort(403);
+        // }
+        // if ($request->user()->cannot('update', $post)) {
+        //     abort(403);
+        // }
         if ($data) {
             $post->title = $data['title'];
             $post->content = $data['content'];
@@ -149,12 +166,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $post = Post::find($id);
-        if (!Gate::allows('update-post', $post)) {
-           abort(403);
-        }
+       
+        $this->authorize('create' , Post::class);
         $post->delete();
         return redirect()->route('admin.post.index');
     }

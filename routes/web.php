@@ -14,7 +14,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 |
 */
 
-Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','role:admin,admod'])->group(function(){
+Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','role:admin,admod,writer'])->group(function(){
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
         Route::get('','DashboardController@index')->name('index');
     });

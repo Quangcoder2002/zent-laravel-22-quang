@@ -22,10 +22,13 @@
 <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">
-      @include('admin.compoments.btn',[
-        'href'=> route('admin.post.create'),
-        'type'=>'primary',
-        'content'=>'Tạo bài viết mới'])
+      @can('create', App\Models\Post::class)
+        @include('admin.compoments.btn',[
+          'href'=> route('admin.post.create'),
+          'type'=>'primary',
+          'content'=>'Tạo bài viết mới'])
+      @endcan
+      
     </h3>
     <div class="card-tools">
      
@@ -97,21 +100,26 @@
                 @endif
               </td>
               <td>
-                  @include('admin.compoments.btn',[
+                @include('admin.compoments.btn',[
                     'href'=> route('admin.post.show',['id'=>$post->id]),
                     'type'=>'primary',
                     'content'=>'<i class="fas fa-info"></i>'
                     ])
+                @can('update', $post)
                   @include('admin.compoments.btn',[
-                      'href'=> route('admin.post.edit',['id'=>$post->id]),
-                      'type'=>'success',
-                      'content'=>'<i class="fas fa-edit"></i>'
-                    ])
-                <form action="{{route('admin.post.destroy',['id'=>$post->id])}}" method="POST" style="float: left;">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                </form>
+                    'href'=> route('admin.post.edit',['id'=>$post->id]),
+                    'type'=>'success',
+                    'content'=>'<i class="fas fa-edit"></i>'
+                  ])
+                @endcan
+                  
+                 @can('delete', $post)
+                  <form action="{{route('admin.post.destroy',['id'=>$post->id])}}" method="POST" style="float: left;">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  </form>
+                 @endcan
                   
               </td>
             </tr> 

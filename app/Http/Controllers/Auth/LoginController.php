@@ -23,13 +23,11 @@ class LoginController extends Controller
         }
         if (Auth::attempt($credentials, $remember)) {
            $request->session()->regenerate();
-           if (auth()->user()->role == 'user') {
+           if (auth()->user()->role == 'user' || auth()->user()->role == null) {
             return redirect()->intended('');
            }else{
             return redirect()->intended('admin/dashboard'); 
            }
-
-              
         }
         return back()->withErrors([
             'email' => 'The pro',

@@ -14,7 +14,7 @@ class AddRoleColumnUsersTables extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-           $table->string('role')->nullable()->after('email');
+           $table->string('role')->nullable()->after('email')->default('user');
         });
     }
 
