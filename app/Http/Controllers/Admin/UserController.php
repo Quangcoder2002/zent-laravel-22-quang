@@ -125,9 +125,12 @@ class UserController extends Controller
         if ($data) {
             $user->name = $request['name'];
             $user->email = $request['email'];
-            $user->userInfo()->phone = $data['phone'];
             $user->save();
             $user->roles()->sync($roles);
+            DB::table('user_infos')->where('user_id',$id)->update([
+                    'phone'=> $data['phone'],
+                    'address'=> $data['address'],
+                ]);
             // DB::table('users')->where('id',$id)->update([
             //     'name'=>$data['name'],
             //     'phone'=> $data['phone'],
