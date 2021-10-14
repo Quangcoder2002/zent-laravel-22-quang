@@ -35,7 +35,7 @@
         </a>
       </li>
       <li class="nav-header">Quản lý chung</li>
-      <li class="nav-item @if (request()->routeIs('admin.category.*')) menu-is-opening menu-open @endif">
+      <li class="nav-item @if (request()->routeIs('admin.category.*')||request()->routeIs('admin.post.*')||request()->routeIs('admin.tag.*')) menu-is-opening menu-open @endif">
         <a href="#" class="nav-link @if (request()->routeIs('admin.category.*')||request()->routeIs('admin.post.*')||request()->routeIs('admin.tag.*')) active @endif">
           <i class="nav-icon fas fa-copy"></i>
           <p>
@@ -43,7 +43,7 @@
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview" style="display:@if (request()->routeIs('admin.category.*') || request()->routeIs('admin.post.*')||request()->routeIs('admin.tag.*')) block @endif;">
+        <ul class="nav nav-treeview" style="display:@if (request()->routeIs('admin.category.*') || request()->routeIs('admin.post.*')||request()->routeIs('admin.tag.*'))block @endif;">
           <li class="nav-item">
             <a href="{{ route('admin.category.index') }}" class="nav-link @if (request()->routeIs('admin.category.*')) active @endif">
               <i class="far fa-circle nav-icon"></i>
@@ -57,11 +57,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.tag.index') }}" class="nav-link @if (request()->routeIs('admin.tag.*')) active @endif">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Quản lý Tags</p>
-            </a>
-          </li>
+            <li class="nav-item">
+              <a href="{{ route('admin.tag.index') }}" class="nav-link @if (request()->routeIs('admin.tag.*')) active @endif">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Quản lý Tags</p>
+              </a>
+            </li>
+         
         </ul>  
       </li>
       <li class="nav-header">Quản lý hệ thống</li>
@@ -81,6 +83,32 @@
             </a>
           </li>
         </ul>
+      </li>
+        {{-- <li class="nav-header">Quản lý phân quyền</li> --}}
+        <li class="nav-item @if (request()->routeIs('admin.permission.*')||request()->routeIs('admin.role.*')) menu-is-opening menu-open @endif">
+          <a href="#" class="nav-link @if (request()->routeIs('admin.permission.*')||request()->routeIs('admin.role.*')) active @endif">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Quản lý phân quyền
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('admin.permission.index') }}" class="nav-link @if (request()->routeIs('admin.permission.*')) active @endif">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Quản lý permissions</p>
+              </a>
+            </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.role.index') }}" class="nav-link @if (request()->routeIs('admin.role.*')) active @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Quản lý rols</p>
+                </a>
+              </li>
+          </ul>
+        </li>
+          
       </li>
     </ul>
   </nav>

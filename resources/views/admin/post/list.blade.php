@@ -22,7 +22,7 @@
 <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">
-      @can('create', App\Models\Post::class)
+      @can('create-post', App\Models\Post::class)
         @include('admin.compoments.btn',[
           'href'=> route('admin.post.create'),
           'type'=>'primary',
@@ -105,7 +105,7 @@
                     'type'=>'primary',
                     'content'=>'<i class="fas fa-info"></i>'
                     ])
-                @can('update', $post)
+                @can('update-post', $post)
                   @include('admin.compoments.btn',[
                     'href'=> route('admin.post.edit',['id'=>$post->id]),
                     'type'=>'success',
@@ -113,13 +113,13 @@
                   ])
                 @endcan
                   
-                 @can('delete', $post)
+                @can('delete-post', $post)
                   <form action="{{route('admin.post.destroy',['id'=>$post->id])}}" method="POST" style="float: left;">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                   </form>
-                 @endcan
+                @endcan
                   
               </td>
             </tr> 

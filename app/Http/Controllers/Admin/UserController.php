@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -103,8 +104,10 @@ class UserController extends Controller
     public function edit($id)
     {   
         $user = User::find($id);
+        $roles = Role::get();
         return view('admin.user.edit')->with([
-            'user'=>$user
+            'user'=>$user,
+            'roles' => $roles
         ]);
     }
     /**
@@ -116,15 +119,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =$request->only(['name','phone','address','email']);
+        $data =$request->only(['name','email','phone','address']);
+        $user = User::find($id);
+        $roles = $request->get('roles');
         if ($data) {
-            DB::table('users')->where('id',$id)->update([
-                'name'=>$data['name'],
-                'phone'=>$data['phone'],
-                'address'=>$data['address'],
-                'email'=>$data['email'],
-                'updated_at'=>now()
-            ]);
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->userInfo()->phone = $data['phone'];
+            $user->save();
+            $user->roles()->sync($roles);
+            // DB::table('users')->where('id',$id)->update([
+            //     'name'=>$data['name'],
+            //     'phone'=> $data['phone'],
+            //     'address'=> $data['address'],
+            //     'email'=> $data['email'],
+            //     'updated_at'=>now()
+            // ]);
              return redirect()->action([UserController::class, 'index']);
         }else{
             return redirect()->back();

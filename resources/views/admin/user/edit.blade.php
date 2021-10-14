@@ -40,7 +40,7 @@
           </div>
           <div class="form-group">
             <label for="">Số điện thoại</label>
-            <input type="text" class="form-control" id="" placeholder="" name="phone" value="{{$user->phone}}">
+            <input type="text" class="form-control" id="" placeholder="" name="phone" value="{{$user->userInfo->phone}}">
           </div>
           <div class="form-group">
             <label for="">Email</label>
@@ -48,8 +48,31 @@
           </div>
           <div class="form-group">
             <label for="">Địa chỉ</label>
-            <input type="text" class="form-control" id="" placeholder="" name="address" value="{{$user->address}}">
+            <input type="text" class="form-control" id="" placeholder="" name="address" value="{{$user->userInfo->address}}">
           </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="">Role</label>
+                <select name="roles[]" multiple class="form-control">
+                  @foreach ($roles as $role)
+                    @php
+                          $selected = "";
+                    @endphp
+                    @foreach ($user->roles as $user_role)
+                        @php
+                            if ($user_role->id == $role->id) {
+                              $selected = "selected";
+                              break;
+                            }
+                        @endphp
+                    @endforeach
+                        <option value="{{ $role->id }}"  {{$selected}} >{{$role->name}}</option>
+                    @endforeach
+                        </select>
+                      </div>
+                    </div>
+                  </div>
           <button type="submit" class="btn btn-primary">Cập nhật</button>
       </form>
     </div><!-- /.container-fluid -->

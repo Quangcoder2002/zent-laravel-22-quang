@@ -18,10 +18,12 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
         Route::get('','DashboardController@index')->name('index');
     });
-    Route::resource('users', UserController::class)->parameters(['users'=>'id']);
-    Route::resource('category', CategoryController::class)->parameters(['category'=>'id']);
-    Route::resource('post', PostController::class)->parameters(['post'=>'id']);
+    Route::resource('permission', PermissionController::class)->parameters(['permission' => 'id']);
+    Route::resource('users', UserController::class)->parameters(['users' => 'id']);
+    Route::resource('category', CategoryController::class)->parameters(['category' => 'id']);
+    Route::resource('post', PostController::class)->parameters(['post' => 'id']);
     Route::resource('tag', TagController::class)->parameter('tag','id');
+    Route::resource('role', RoleController::class)->parameters(['role' => 'id']);
     Route::post('/login/user/{id}', 'UserController@loginWithUser')
     ->name('users.login');
 });
