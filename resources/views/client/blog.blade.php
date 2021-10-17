@@ -12,7 +12,7 @@
         <div class="blog-grid">
             <h1 class="blog-heading text-center">Blog</h1>
             <div class="row">
-                @foreach ($posts as $post)
+                {{-- @foreach ($posts as $post)
                     <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
                         <div class="blog-img">
                             <a href="{{route('client.blog.show',['id'=>$post->id])}}" class="hover-images"><img src="/client/img/blog/blog_1.jpg" alt="" class="img-reponsive"></a>
@@ -30,10 +30,10 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
-        {{ $posts->links('client.includes.simple-pagination') }}
+        {{ $posts->links() }}
     </div>
 </div>
 @endsection
