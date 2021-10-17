@@ -148,7 +148,6 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
         $data = $request->only(['title', 'content', 'short_content', 'category_id', 'status']);
         $tags = $request->get('tags');
         $post = Post::find($id);
