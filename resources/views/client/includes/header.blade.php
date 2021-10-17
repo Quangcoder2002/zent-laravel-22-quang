@@ -525,7 +525,7 @@
                                         <span class="plus js-plus-icon"></span>
                                         <ul class="dropdown-menu menu-level-1">
                                             <li class="level2"><a href="{{route('client.blog.index')}}" title="404">Các bài viết</a></li>
-                                            <li class="level2"><a href="{{route('client.blog.category')}}" title="Coming Soon">Coming Soon</a></li>
+                                            <li class="level2"><a href="" title="Coming Soon">Coming Soon</a></li>
                                         </ul>
                                     </li>
                                 </ul>
