@@ -448,54 +448,8 @@
                             </button>
                             <div class="collapse navbar-collapse" id="myNavbar">
                                 <ul class="nav navbar-nav js-menubar">
-                                    <li class="level1 active hassub"><a href="{{route('client.index')}}">Home</a>
+                                    <li class="level1 active hassub"><a href="">Home</a>
                                         <span class="plus js-plus-icon"></span>
-                                        {{-- <div class="menu-level-1 ver2 dropdown-menu">
-                                            <div class="row">
-                                                <div class="cate-item col-md-4 col-sm-12">
-                                                    <div class="demo-img">
-                                                        <a href="home1.html">
-                                                                <img src="/client/img/demo/demo1.jpg" alt="" class="img-reponsive">
-
-                                                            </a>
-                                                    </div>
-                                                    <div class="demo-text">Demo 1</div>
-                                                </div>
-                                                <div class="cate-item col-md-4 col-sm-12">
-                                                    <div class="demo-img">
-                                                        <a href="home2.html"><img src="/client/img/demo/demo2.jpg" alt="" class="img-reponsive"></a>
-                                                    </div>
-                                                    <div class="demo-text">Demo 2</div>
-                                                </div>
-                                                <div class="cate-item col-md-4 col-sm-12">
-                                                    <div class="demo-img">
-                                                        <a href="home3.html"><img src="/client/img/demo/demo3.jpg" alt="" class="img-reponsive"></a>
-                                                    </div>
-                                                    <div class="demo-text">Demo 3</div>
-                                                </div>
-                                                <div class="cate-item col-md-4 col-sm-12">
-                                                    <div class="demo-img">
-                                                        <a href="home4.html"><img src="/client/img/demo/demo4.jpg" alt="" class="img-reponsive"></a>
-                                                    </div>
-                                                    <div class="demo-text">Demo 4</div>
-                                                </div>
-                                                <div class="cate-item col-md-4 col-sm-12">
-                                                    <div class="demo-img">
-                                                        <a href="home5.html"><img src="/client/img/demo/demo5.jpg" alt="" class="img-reponsive"></a>
-                                                    </div>
-                                                    <div class="demo-text">Demo 5</div>
-                                                </div>
-                                                <div class="cate-item col-md-4 col-sm-12">
-                                                    <div class="demo-img">
-                                                        <a href="#"><img src="/client/img/demo/demo6.jpg" alt="" class="img-reponsive"></a>
-                                                        <div class="overlay-img box-center">
-                                                            <a href="#" class="btn-gradient btn-csoon">Coming soon</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="demo-text">Demo 6</div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                     </li>
                                     <li class="level1 dropdown hassub"><a href="#">Shop<span class="h-ribbon h-pos e-green">sale</span></a>
                                         <span class="plus js-plus-icon"></span>
