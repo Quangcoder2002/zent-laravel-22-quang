@@ -35,6 +35,7 @@ class BlogController extends Controller
             'posts' => $posts,
             'categories' => $categories
         ]);
+        
     }
     /**
      * Show the form for creating a new resource.

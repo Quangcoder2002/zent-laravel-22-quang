@@ -27,7 +27,20 @@
             </div>
             <div class="blog-grid">
                 <div class="ecome-heading style3 spc3" style="margin-top: 35px;">
-                    <h1>{!!$categories[request('cate')-1]->name!!}</h1>
+                    {{-- @php
+                        dd($categories);
+                    @endphp --}}
+                    @if (request('cate') != null)
+                        @foreach ($categories as $key => $category)
+                            @if ($category->id == request('cate') )
+                                <h1>{{$category->name}}</h1> 
+                            @endif
+                    @endforeach
+                        
+                    @else
+                        <h1>{!!$categories[0]->name!!}</h1> 
+                    @endif
+                    
                 </div>
                     @foreach ($posts as $post)
                         <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
