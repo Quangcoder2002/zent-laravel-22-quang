@@ -19,7 +19,7 @@
 </div><!-- /.container-fluid -->
 @endsection
 @section('content')
-<div class="card card-default">
+{{-- <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">
       @include('admin.compoments.btn',[
@@ -86,5 +86,5 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.card-body -->
-</div>
+</div> --}}
 @endsection
