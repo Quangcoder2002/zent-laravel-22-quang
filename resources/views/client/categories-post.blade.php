@@ -7,80 +7,23 @@
         </div>
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active">Cell Phones & Accessories</li>
+            <li><a href="#">Blog</a></li>
+            <li class="active">Danh mục</li>
         </ul>
         <div class="section-cate">
-            <h1 class="e-title text-center">Categories</h1>
+            <h1 class="e-title text-center">Danh mục</h1>
             <div class="owl-carousel owl-theme owl-cate js-owl-cate">
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/pd1.jpg" alt="" class="img-reponsive"></a>
+                @foreach ($categories as $category)
+                <form action="">
+                    <input type="text" value="{{$category->name}}" name="cate" hidden>
+                    <div class="item item-pd">
+                        <div class="product-img">
+                            <button type="submit" ><img src="/client/img/product/pd1.jpg" alt="" class="img-reponsive"></button>
+                        </div>
+                        <h3>{{$category->name}}</h3>
                     </div>
-                    <h3>  Category1</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung3.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category2</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/pd3.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category3</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/phonecase.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category4</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung2.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category5</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category6</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung3.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category7</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung2.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category8</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung3.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category9</h3>
-                </div>
-
-                <div class="item item-pd">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung4.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <h3>  Category10</h3>
-                </div>
+                </form>
+                @endforeach
             </div>
         </div>
         <div class="bestseller">

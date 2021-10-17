@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
@@ -28,14 +29,17 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','
     ->name('users.login');
 });
 
-Route::prefix('')->name('client.')->group(function(){
-    Route::view('/','client.home')->name('index');
-    Route::prefix('blog')->name('blog.')->group(function(){
-        Route::view('','client.blog')->name('index');
-        Route::get('/{id}', function($id){
-            return view('client.blog-single-post');
-        })->name('show');
-    });
+Route::prefix('')->name('client.')->namespace('Client')->group(function(){
+    Route::get('','HomeController@index')->name('index');
+    Route::resource('blog', BlogController::class)->parameters(['blog' => 'id'])->whereNumber('id');
+    Route::get('blog/category/{cate?}','BlogController@category')->name('blog.category');
+    // Route::view('/','client.home')
+    // Route::prefix('blog')->name('blog.')->group(function(){
+    //     Route::view('','client.blog')->name('index');
+    //     Route::get('/{id}', function($id){
+    //         return view('client.blog-single-post');
+    //     })->name('show');
+    // });
     Route::prefix('category')->name('category.')->group(function(){
         Route::view('','client.categories-post')->name('index');
     });

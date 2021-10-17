@@ -10,7 +10,7 @@
                         <div class="element element-store hidden-xs hidden-sm">
                             <a id="label1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <img src="/client/img/icon-map.png" alt="">
-                              <span>Store Location</span>
+                              <span>Địa chỉ shop</span>
                               
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="label1">
@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                         <div class="element hidden-xs hidden-sm">
-                            <a href="#"><img src="/client/img/icon- track.png" alt=""><span>Track Your Order</span></a>
+                            <a href="#"><img src="/client/img/icon- track.png" alt=""><span>Theo dõi đơn hàng</span></a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                             <a href="#">Buyer Protection </a>
                         </div>
                         <div class="element hidden-xs hidden-sm">
-                            <a href="#">Help</a>
+                            <a href="#">Hỗ trợ</a>
                         </div>
                            
                         @if (auth()->check())
@@ -58,10 +58,10 @@
                             </ul>
                         @else
                             <div class="element element-account">
-                                <a href="{{ route('auth.register') }}">Register</a>
+                                <a href="{{ route('auth.register') }}">Đăng ký</a>
                             </div> 
                             <div class="element element-account">
-                                <a href="{{ route('auth.login')}}">Login</a>
+                                <a href="{{ route('auth.login')}}">Đăng nhập</a>
                             </div>
                         @endif
                     </div>
@@ -448,9 +448,9 @@
                             </button>
                             <div class="collapse navbar-collapse" id="myNavbar">
                                 <ul class="nav navbar-nav js-menubar">
-                                    <li class="level1 active hassub"><a href="#">Home</a>
+                                    <li class="level1 active hassub"><a href="{{route('client.index')}}">Home</a>
                                         <span class="plus js-plus-icon"></span>
-                                        <div class="menu-level-1 ver2 dropdown-menu">
+                                        {{-- <div class="menu-level-1 ver2 dropdown-menu">
                                             <div class="row">
                                                 <div class="cate-item col-md-4 col-sm-12">
                                                     <div class="demo-img">
@@ -495,7 +495,7 @@
                                                     <div class="demo-text">Demo 6</div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </li>
                                     <li class="level1 dropdown hassub"><a href="#">Shop<span class="h-ribbon h-pos e-green">sale</span></a>
                                         <span class="plus js-plus-icon"></span>
@@ -556,9 +556,6 @@
                                         </div>
                                     </li>
                                     <li class="level1 active dropdown">
-                                        <a href="#">Mega menu</a>
-                                    </li>
-                                    <li class="level1 active dropdown">
                                         <a href="#">Pages<span class="h-ribbon h-pos e-skyblue">new</span></a>
                                         <span class="plus js-plus-icon"></span>
                                         <ul class="dropdown-menu menu-level-1">
@@ -570,12 +567,11 @@
                                         </ul>
                                     </li>
                                     <li class="level1 active dropdown">
-                                        <a href="#">Blog</a>
+                                        <a href="{{route('client.blog.index')}}">Blog</a>
+                                        <span class="plus js-plus-icon"></span>
                                         <ul class="dropdown-menu menu-level-1">
-                                            <li class="level2"><a href="blog-standar.html" title="Blog Standar">Blog Standar</a></li>
-                                            <li class="level2"><a href="blog_grid.html" title="Blog Gird">Blog Gird</a></li>
-                                            <li class="level2"><a href="blog-standar.html" title="Blog Sidebar">Blog Sidebar</a></li>
-                                            <li class="level2"><a href="blog-single-post.html" title="Blog Single Post">Blog Single Post</a></li>
+                                            <li class="level2"><a href="{{route('client.blog.index')}}" title="404">Các bài viết</a></li>
+                                            <li class="level2"><a href="{{route('client.blog.category')}}" title="Coming Soon">Coming Soon</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -583,7 +579,7 @@
                         </nav>
                         <div class="header-bottom-right hidden-xs hidden-sm">
                             <img src="/client/img/icon-ship.png" alt="" class="img-reponsive">
-                            <span>Free Shipping on Orders $100</span>
+                            <span>Giao hàng miễn phí cho đơn đặt hàng $ 100</span>
                         </div>
                     </div>
                 </div>

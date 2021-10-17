@@ -6,287 +6,34 @@
     </div>
     <div class="blog spc1">
         <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{route('client.index')}}">Home</a></li>
             <li class="active">Blog</li>
         </ul>
         <div class="blog-grid">
             <h1 class="blog-heading text-center">Blog</h1>
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_1.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
+                @foreach ($posts as $post)
+                    <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
+                        <div class="blog-img">
+                            <a href="{{route('client.blog.show',['id'=>$post->id])}}" class="hover-images"><img src="/client/img/blog/blog_1.jpg" alt="" class="img-reponsive"></a>
+                            <div class="blog-post-date e-gradient abs">
+                                <span class="b-date">{{$post->created_at->format('d')}}</span>
+                                <span class="b-month">{{'Tháng:'.$post->created_at->format('m')}}</span>
+                            </div>
+                        </div>
+                        <div class="blog-info">
+                            <h3 class="blog-post-title"><a href="{{route('client.blog.show',['id'=>$post->id])}}">{{$post->title}}</a></h3>
+                            {{-- <p class="blog-post-desc" style="text-size:12px; ">{!!$post->short_content!!}</p> --}}
+                            <div class="blog-post-author">
+                                <div class="author">Viết bởi <span class="c-black">{{$post->user->name}}</span></div>
+                                <div class="blog-post-comment"><span class="c-black"></span>2</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_2.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_3.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_4.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_5.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_6.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_7.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_8.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_9.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-        <ul class="pagination">
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
-        </ul>
-    </div>
-</div>
-<div class="e-category">
-    <div class="container container-240">
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h1 class="cate-title">Featured Products</h1>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/usb.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/macbook.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/flycam.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h1 class="cate-title">Top Rated Products</h1>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/headphone2.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/anker.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h1 class="cate-title">Top Selling Products</h1>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/headphone.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung2.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/sound.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+        {{ $posts->links('client.includes.simple-pagination') }}
     </div>
 </div>
 @endsection

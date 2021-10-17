@@ -21,7 +21,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        
+        if (Auth::user()->cannot('view-user')){
+            return abort(403);
+        }
         if ($request->get('list_delete') == 'active') {
             $users_query = User::onlyTrashed();
         }else{
@@ -48,6 +50,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->cannot('create-user')){
+            return abort(403);
+        }
         return view('admin.user.create');
     }
 
@@ -60,6 +65,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data =$request->only(['name','phone','address','email','status','avatar']);
+        if (Auth::user()->cannot('create-user')){
+            return abort(403);
+        }
         if ($data) {
            try{
                 User::create([
@@ -90,6 +98,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        if (Auth::user()->cannot('viem-user')){
+            return abort(403);
+        }
         return view('admin.user.detail')->with([
             'user' => $user
         ]);
@@ -105,6 +116,9 @@ class UserController extends Controller
     {   
         $user = User::find($id);
         $roles = Role::get();
+        if (Auth::user()->cannot('update-user')){
+            return abort(403);
+        }
         return view('admin.user.edit')->with([
             'user'=>$user,
             'roles' => $roles
@@ -121,6 +135,9 @@ class UserController extends Controller
     {
         $data =$request->only(['name','email','phone','address']);
         $user = User::find($id);
+        if (Auth::user()->cannot('update-user')){
+            return abort(403);
+        }
         $roles = $request->get('roles');
         if ($data) {
             $user->name = $request['name'];
@@ -131,13 +148,6 @@ class UserController extends Controller
                     'phone'=> $data['phone'],
                     'address'=> $data['address'],
                 ]);
-            // DB::table('users')->where('id',$id)->update([
-            //     'name'=>$data['name'],
-            //     'phone'=> $data['phone'],
-            //     'address'=> $data['address'],
-            //     'email'=> $data['email'],
-            //     'updated_at'=>now()
-            // ]);
              return redirect()->action([UserController::class, 'index']);
         }else{
             return redirect()->back();
@@ -153,8 +163,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        if (!Gate::allows('delete-user', $user)) {
-            abort(403);
+        if (Auth::user()->cannot('delete-user')){
+            return abort(403);
         }
         if (request()->get('list_delete') == 'active') {
             $user = User::onlyTrashed()->where('id', $id)->first();

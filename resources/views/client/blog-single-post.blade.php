@@ -6,7 +6,7 @@
     </div>
     <div class="blog spc1">
         <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{route('client.index')}}">Home</a></li>
             <li class="active">Blog</li>
         </ul>
         <div class="blog-single-post">
@@ -16,21 +16,28 @@
                         <div class="blog-img">
                             <a href="#" class="hover-images"><img src="/client/img/blog/single-post.jpg" alt="" class="img-reponsive"></a>
                             <div class="blog-post-date e-gradient abs v2">
-                                <span class="b-date">14</span>
-                                <span class="b-month">dec</span>
+                                <span class="b-date">{{$post->created_at->format('d')}}</span>
+                                <span class="b-month">Tháng:{{$post->created_at->format('m')}}</span>
                             </div>
                         </div>
                         <div class="blog-info-bd">
                             <div class="blog-info">
-                                <h3 class="blog-post-title v2">Ricoh's latest spherical camera nets quality images</h3>
+                                <h1 class="blog-post-title v2">{{$post->title}}</h1>
                                 <div class="blog-post-desc">
-                                    <p>We may encounter many defeats but we must not be defeated.<br>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the lorem ipsum generators on the internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour.</p>
-                                    <p>If you don't like how things are, change it! You're not a tree.<br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like aldus pagemaker including versions. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                   {!!$post->content!!}
                                 </div>
                             </div>
                             <div class="blog-post-author v2">
                                 <div class="blog-post-tags">
-                                    <a href="#">Design</a>,<a href="#">Tecnology</a>
+                                    Biên tập bởi  {{$post->user->name}}
+                                    {{-- @foreach ($post->tags as $key => $tag)
+                                        @if ($key>0)
+                                            ,<a href="#">{{ $tag->name }}</a>
+                                        @else 
+                                            <a href="#">{{ $tag->name }}</a>
+                                        @endif
+                                       
+                                    @endforeach --}}
                                 </div>
 
                                 <div class="blog-post-social">

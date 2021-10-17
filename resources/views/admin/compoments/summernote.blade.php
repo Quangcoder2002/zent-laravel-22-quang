@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="">{{$title}}</label>
-    <textarea id="summernote" name="{{$name}}">
+    <textarea id="{{$id}}" name="{{$name}}" style="min-height: 200px">
             {{$content}}
     </textarea>
 </div>
@@ -8,8 +8,7 @@
 <script>
     $(function () {
       // Summernote
-      $('#summernote').summernote()
-  
+      $('#{{$id}}').summernote()
       // CodeMirror
       CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
         mode: "htmlmixed",

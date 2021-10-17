@@ -40,7 +40,14 @@
           </div>
           @include('admin.compoments.summernote',[
             'title'=>'Mô tả',
+            'name'=>'short_content',
+            'id' => 'short_content',
+            'content'=>$post->short_content
+          ])
+          @include('admin.compoments.summernote',[
+            'title'=>'Nội dung',
             'name'=>'content',
+            'id' => 'content',
             'content'=>$post->content
           ])
           <div class="row">
@@ -81,7 +88,7 @@
                 <label>Trạng thái</label>
                 <select class="form-control" name="status">
                   <option @if ($post->status== 2) selected @endif value="2">Công khai</option>
-                  <option @if ($post->status== 1) selected @endif value="1">Hiện</option>
+                  <option @if ($post->status== 1) selected @endif value="1">Đã viết xong</option>
                   <option @if ($post->status== 0) selected @endif value="0">Bản nháp</option>
                 </select>
               </div>

@@ -73,9 +73,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         log::info('buoc 1');
-        $data = $request->only(['title','content','category_id','status']);
+        $data = $request->only(['title','content','short_content','category_id','status']);
         $tags = $request->get('tag');
         log::info('buoc 2');
+
         if (Auth::user()->cannot('create-post')){
             return abort(403);
         }
@@ -84,11 +85,12 @@ class PostController extends Controller
             try{
                  $post = new Post();
                  $post->title = $data['title'];
+                 $post->short_content = $data['short_content'];
                  $post->content = $data['content'];
                  $post->status = $data['status'];
                  $post->category_id = $data['category_id'];
                  $post->user_created_id = auth()->user()->id;
-                 $post->user_updated_id = 1;
+                 $post->user_updated_id = auth()->user()->id;
                  $post->save();
                  $post->tags()->attach($tags);
             }catch(\Exception $ex){
@@ -146,7 +148,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only(['title','content','category_id','status']);
+        $data = $request->only(['title','content','short_content','category_id','status']);
         $tags = $request->get('tags');
         $post = Post::find($id);
         if (Auth::user()->cannot('update-post')){
@@ -161,10 +163,11 @@ class PostController extends Controller
         // }
         if ($data) {
             $post->title = $data['title'];
+            $post->short_content = $data['short_content'];
             $post->content = $data['content'];
             $post->status = $data['status'];
             $post->category_id = $data['category_id'];
-            $post->user_updated_id = 1;
+            $post->user_updated_id = auth()->user()->id;
             $post->save();
             $post->tags()->sync($tags);
             return redirect()->action([PostController::class, 'index']);

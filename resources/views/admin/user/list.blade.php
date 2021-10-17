@@ -71,7 +71,15 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{$user->role}}</td>
+                <td>
+                  @foreach ($user->roles as $key => $role)
+                      @if ($key == 0)
+                      {{ $role->name }} 
+                      @else
+                          {{'-'.$role->name}}
+                      @endif
+                  @endforeach  
+                </td>
                 <td>
                   @if ($user->userInfo != null)
                   {{$user->userInfo->phone}}
@@ -98,12 +106,15 @@
                       'type'=>'primary',
                       'content'=>'<i class="fas fa-info"></i>'
                       ])
+                    @can('update-user', $user)
                     @include('admin.compoments.btn',[
                         'href'=> route('admin.users.edit',['id'=>$user->id]),
                         'type'=>'success',
                         'content'=>'<i class="fas fa-edit"></i>'
                       ]) 
+                    @endcan
                   @endif
+                  @can('delete-user', $user)
                   <form method="POST" action="{{ route('admin.users.login', $user->id )}}">
                     @csrf
                     <button class="btn btn-outline-danger">
@@ -121,6 +132,7 @@
                         @endif 
                       </button>
                     </form>
+                    @endcan
                 </td>
             </tr>
           @endforeach
