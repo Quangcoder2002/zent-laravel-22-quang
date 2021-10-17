@@ -15,68 +15,42 @@
             <div class="owl-carousel owl-theme owl-cate js-owl-cate">
                 @foreach ($categories as $category)
                 <form action="">
-                    <input type="text" value="{{$category->name}}" name="cate" hidden>
+                    <input type="text" value="{{$category->id}}" name="cate" hidden>
                     <div class="item item-pd">
-                        <div class="product-img">
+                        {{-- <div class="product-img">
                             <button type="submit" ><img src="/client/img/product/pd1.jpg" alt="" class="img-reponsive"></button>
-                        </div>
-                        <h3>{{$category->name}}</h3>
+                        </div> --}}
+                        <h3 style="width: 100%;"><button style="width: 100%; background:white;" type="submit">{{$category->name}}</button></h3>
                     </div>
                 </form>
                 @endforeach
             </div>
-        </div>
-        <div class="bestseller">
-            <div class="ecome-heading style3 spc3">
-                <h1>Hot</h1>
-                <a href="#" class="btn-show">See more<i class="ion-ios-arrow-forward"></i></a>
-            </div>
-            <div class="owl-carousel owl-theme owl-cate v2 js-owl-cate">
-                <div class="blog-post-item">
-                    <div class="blog-img">
-                        <a href="#" class="hover-images"><img src="/client/img/blog/blog_1.jpg" alt="" class="img-reponsive"></a>
-                        <div class="blog-post-date e-gradient abs">
-                            <span class="b-date">14</span>
-                            <span class="b-month">dec</span>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                        <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                        <div class="blog-post-author">
-                            <div class="author">Posted by <span class="c-black">Admin</span></div>
-                             <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                        </div>
-                    </div>
+            <div class="blog-grid">
+                <div class="ecome-heading style3 spc3" style="margin-top: 35px;">
+                    <h1>Bài viết</h1>
                 </div>
-            </div>
-        </div>
-
-        <div class="onsale">
-            <div class="ecome-heading style3 spc3">
-                <h1>New</h1>
-                <a href="#" class="btn-show">See more<i class="ion-ios-arrow-forward"></i></a>
-            </div>
-            <div class="owl-carousel owl-theme owl-cate v3 js-owl-cate">
-                <div class="blog-post-item">
-                        <div class="blog-img">
-                            <a href="#" class="hover-images"><img src="/client/img/blog/blog_1.jpg" alt="" class="img-reponsive"></a>
-                            <div class="blog-post-date e-gradient abs">
-                                <span class="b-date">14</span>
-                                <span class="b-month">dec</span>
+                    @foreach ($posts as $post)
+                        <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
+                            <div class="blog-img">
+                                <a href="{{route('client.blog.show',['id'=>$post->id])}}" class="hover-images"><img src="/client/img/blog/blog_1.jpg" alt="" class="img-reponsive"></a>
+                                <div class="blog-post-date e-gradient abs">
+                                    <span class="b-date">{{$post->created_at->format('d')}}</span>
+                                    <span class="b-month">{{'Tháng:'.$post->created_at->format('m')}}</span>
+                                </div>
+                            </div>
+                            <div class="blog-info">
+                                <h3 class="blog-post-title"><a href="{{route('client.blog.show',['id'=>$post->id])}}">{{$post->title}}</a></h3>
+                                {{-- <p class="blog-post-desc" style="text-size:12px; ">{!!$post->short_content!!}</p> --}}
+                                <div class="blog-post-author">
+                                    <div class="author">Viết bởi <span class="c-black">{{$post->user->name}}</span></div>
+                                    <div class="blog-post-comment"><span class="c-black"></span>2</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="blog-info">
-                            <h3 class="blog-post-title"><a href="#">Ricoh's latest spherical camera nets quality images</a></h3>
-                            <p class="blog-post-desc">Here are many variations of passages of Lorem Ipsum availablethe majority have suffered alteration in some form...</p>
-                            <div class="blog-post-author">
-                                <div class="author">Posted by <span class="c-black">Admin</span></div>
-                                 <div class="blog-post-comment"><span class="c-black"></span>2</div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
+            {{ $posts->links() }}
         </div>
     </div>
 </div>

@@ -15,22 +15,26 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $posts = Post::where('status', Post::STATUS_PUBLIC)->orderBy('created_at', 'desc')->paginate(6);
         return view('client.blog')->with([
             'posts' => $posts
         ]);
     }
-    // public function category()
-    // {
-    //     $categories = Category::get();
-    //     $posts = Post::where('status', Post::STATUS_PUBLIC)->orderBy('created_at', 'desc')->paginate(6);
-    //     return view('client.categories-post')->with([
-    //         'posts' => $posts,
-    //         'categories' => $categories
-    //     ]);
-    // }
+    public function category(Request $request)
+    {
+        if (!$request->only(['cate'])) {
+            $cate = 1;
+        }
+        $cate = $request->only(['cate']);
+        $categories = Category::get();
+        $posts = Post::where('status', Post::STATUS_PUBLIC)->where('category_id', $cate)->orderBy('created_at', 'desc')->paginate(6);
+        return view('client.categories-post')->with([
+            'posts' => $posts,
+            'categories' => $categories
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

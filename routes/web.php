@@ -32,7 +32,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','
 Route::prefix('')->name('client.')->namespace('Client')->group(function(){
     Route::get('','HomeController@index')->name('index');
     Route::resource('blog', BlogController::class)->parameters(['blog' => 'id'])->whereNumber('id');
-    // Route::get('blog/category','BlogController@category')->name('blog.category');
+    Route::get('blog/category','BlogController@category')->name('blog.category');
     // // Route::view('/','client.home')
     // // Route::prefix('blog')->name('blog.')->group(function(){
     // //     Route::view('','client.blog')->name('index');
