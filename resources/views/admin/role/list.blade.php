@@ -19,7 +19,7 @@
 </div><!-- /.container-fluid -->
 @endsection
 @section('content')
-{{-- <div class="card card-default">
+<div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">
       @include('admin.compoments.btn',[
@@ -32,16 +32,6 @@
     </div>
   </div>
   <br>
-    <form method="GET" action="{{ route('admin.role.index')}}"  class="form-inline form-group">
-      <div class="col-3">
-        <input type="text" value="{{ request()->get('name')}}" name="name" class="form-control" placeholder="Name" style="width: 100%;">
-      </div>
-      <div class="col-3">
-        <button class="btn btn-info">Lọc</button>
-        <a class="btn btn-outline-primary" href="{{ route('admin.role.index')}}"><i class="fas fa-undo"></i></a>
-      </div>
-    </form>
-  
   <!-- /.card-header -->
   <div class="card-body table-responsive p-0" style="max-height: 450px;">
     <div class="container-fluid">
@@ -82,9 +72,9 @@
             </tr> 
             @endforeach
         </table>
-        {{ $roles->links('admin.includes.simple-pagination') }}
+        {{ $roles->links() }}
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.card-body -->
-</div> --}}
+</div>
 @endsection
