@@ -85,7 +85,7 @@
             </tr> 
             @endforeach
         </table>
-        {{ $tags->links('admin.includes.simple-pagination') }}
+        {{ $tags->links() }}
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.card-body -->
