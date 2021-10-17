@@ -20,6 +20,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts',
                 'slug' => 'posts',
+                'short_content' => 'adsadasd',
                 'content' => 'content post',
                 'user_created_id' => 1,
                 'user_updated_id' => 1,
@@ -31,6 +32,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts1',
                 'slug' => 'posts1',
+                'short_content' => 'adsadasd',
                 'content' => 'content post1',
                 'user_created_id' => 2,
                 'user_updated_id' => 2,
@@ -42,6 +44,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts2',
                 'slug' => 'posts2',
+                'short_content' => 'adsadasd',
                 'content' => 'content post2',
                 'user_created_id' => 3,
                 'user_updated_id' => 3,
@@ -53,6 +56,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts3',
                 'slug' => 'posts3',
+                'short_content' => 'adsadasd',
                 'content' => 'content post3',
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
@@ -64,6 +68,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts4',
                 'slug' => 'posts4',
+                'short_content' => 'adsadasd',
                 'content' => 'content post4',
                 'user_created_id' => 4,
                 'user_updated_id' =>4,
@@ -75,6 +80,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts5',
                 'slug' => 'posts5',
+                'short_content' => 'adsadasd',
                 'content' => 'content post5',
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
@@ -86,6 +92,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts6',
                 'slug' => 'posts6',
+                'short_content' => 'adsadasd',
                 'content' => 'content post6',
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
@@ -97,6 +104,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts7',
                 'slug' => 'posts7',
+                'short_content' => 'adsadasd',
                 'content' => 'content post7',
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
@@ -108,6 +116,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts8',
                 'slug' => 'posts8',
+                'short_content' => 'adsadasd',
                 'content' => 'content post8',
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
@@ -119,6 +128,7 @@ class PostsTableSeeder extends Seeder
             [
                 'title' => 'posts9',
                 'slug' => 'posts9',
+                'short_content' => 'adsadasd',
                 'content' => 'content post9',
                 'user_created_id' => 1,
                 'user_updated_id' =>1,
