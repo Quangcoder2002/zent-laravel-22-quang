@@ -154,20 +154,13 @@ class PostController extends Controller
         if (Auth::user()->cannot('update-post')){
             return abort(403);
         }
-        // $this->authorize('create' , $post);
-        // if (!Gate::allows('update-post', $post)) {
-        //    abort(403);
-        // }
-        // if ($request->user()->cannot('update', $post)) {
-        //     abort(403);
-        // }
         if ($data) {
             $post->title = $data['title'];
             $post->short_content = $data['short_content'];
             $post->content = $data['content'];
             $post->status = $data['status'];
             $post->category_id = $data['category_id'];
-            $post->user_updated_id = auth()->user()->id;
+            // $post->user_updated_id = auth()->user()->id;
             $post->save();
             $post->tags()->sync($tags);
             return redirect()->action([PostController::class, 'index']);
