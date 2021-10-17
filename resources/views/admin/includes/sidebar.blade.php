@@ -103,7 +103,7 @@
               <li class="nav-item">
                 <a href="{{ route('admin.role.index') }}" class="nav-link @if (request()->routeIs('admin.role.*')) active @endif">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý rols</p>
+                  <p>Quản lý roles</p>
                 </a>
               </li>
           </ul>
