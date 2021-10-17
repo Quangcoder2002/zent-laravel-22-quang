@@ -24,10 +24,11 @@ class BlogController extends Controller
     }
     public function category(Request $request)
     {
-        if (!$request->only(['cate'])) {
+        if ($request->only(['cate']) == null) {
             $cate = 1;
+        }else{
+            $cate = $request->only(['cate']);
         }
-        $cate = $request->only(['cate']);
         $categories = Category::get();
         $posts = Post::where('status', Post::STATUS_PUBLIC)->where('category_id', $cate)->orderBy('created_at', 'desc')->paginate(6);
         return view('client.categories-post')->with([
