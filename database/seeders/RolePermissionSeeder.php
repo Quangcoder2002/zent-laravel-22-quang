@@ -35,6 +35,22 @@ class RolePermissionSeeder extends Seeder
                 'name' => 'Delete Post',
                 'slug' => 'delete-post'
             ],
+            [
+                'name' => 'Update User',
+                'slug' => 'update-user'
+            ],
+            [
+                'name' => 'Create User',
+                'slug' => 'create-post'
+            ],
+            [
+                'name' => 'Delete Userr',
+                'slug' => 'delete-user'
+            ],
+            [
+                'name' => '	View User',
+                'slug' => 'view-user'
+            ],
         ]);
         DB::table('roles')->insert([
             [
@@ -54,11 +70,19 @@ class RolePermissionSeeder extends Seeder
         $create_post_permission = Permission::where('slug','create-post')->first();
         $update_post_permission = Permission::where('slug', 'update-post')->first();
         $delete_post_permission = Permission::where('slug', 'delete-post')->first();
+        $create_user_permission = Permission::where('slug','create-user')->first();
+        $update_user_permission = Permission::where('slug', 'update-user')->first();
+        $delete_user_permission = Permission::where('slug', 'delete-user')->first();
+        $view_user_permission = Permission::where('slug', 'view-user')->first();
 
         $admin_role = Role::where('slug','admin')->first();
         $admin_role->permissions()->attach($create_post_permission);
         $admin_role->permissions()->attach($update_post_permission);
         $admin_role->permissions()->attach($delete_post_permission);
+        $admin_role->permissions()->attach($create_user_permission);
+        $admin_role->permissions()->attach($update_user_permission);
+        $admin_role->permissions()->attach($delete_user_permission);
+        $admin_role->permissions()->attach($view_user_permission);
 
         $admod_role = Role::where('slug','admod')->first();
         $admod_role->permissions()->attach($create_post_permission);

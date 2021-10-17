@@ -98,7 +98,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        if (Auth::user()->cannot('viem-user')){
+        if (Auth::user()->cannot('view-user')){
             return abort(403);
         }
         return view('admin.user.detail')->with([
