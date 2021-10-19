@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -70,9 +71,13 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         log::info('buoc 1');
+        // $validated = $request->validate([
+        //     'title' => 'required|unique:posts|min:20|max:255',
+        //     'content' => 'required',
+        // ]);
         $data = $request->only(['title', 'content', 'short_content', 'category_id', 'status']);
         $tags = $request->get('tag');
         log::info('buoc 2');
