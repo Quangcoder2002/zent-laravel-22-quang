@@ -44,7 +44,7 @@ class RolePermissionSeeder extends Seeder
                 'slug' => 'create-post'
             ],
             [
-                'name' => 'Delete Userr',
+                'name' => 'Delete User',
                 'slug' => 'delete-user'
             ],
             [

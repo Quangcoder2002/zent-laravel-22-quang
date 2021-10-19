@@ -22,7 +22,7 @@
 <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">
-      @can('create-post', App\Models\Post::class)
+      @can('create-post', $posts)
         @include('admin.compoments.btn',[
           'href'=> route('admin.post.create'),
           'type'=>'primary',
