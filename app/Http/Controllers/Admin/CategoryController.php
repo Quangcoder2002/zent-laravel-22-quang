@@ -18,14 +18,10 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->get('list_delete') == 'active') {
-            $categories_query = Category::onlyTrashed();
-        }else{
-            $categories_query = Category::query();
-        }
+        $categories_query = Category::query();
         $categories = $categories_query->paginate(5);
         return view('admin.category.list')->with([
-            'categories'=>$categories
+            'categories' => $categories
         ]);
     }
 
@@ -47,13 +43,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data =$request->only(['name']);
+        $validated = $request->validate([
+                'name' => 'required|unique:categories|min:10|max:255',
+            ]);
+        $data = $request->only(['name']);
         if ($data) {
             Category::create([
-                'name'=>$data['name']
+                'name' => $data['name']
             ]);
             return redirect()->action([CategoryController::class, 'index']);
-        }else{
+        } else {
             return redirect()->back();
         }
     }
@@ -68,7 +67,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         return view('admin.category.detail')->with([
-            'category'=>$category
+            'category' => $category
         ]);
     }
 
@@ -82,7 +81,7 @@ class CategoryController extends Controller
     {
         $category = DB::table('categories')->find($id);
         return view('admin.category.edit')->with([
-            'category'=>$category
+            'category' => $category
         ]);
     }
 
@@ -95,13 +94,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =$request->only(['name']);
+        $validated = $request->validate([
+            'name' => 'required|unique:categories|min:10|max:255',
+        ]);
+        $data = $request->only(['name']);
         if ($data) {
             $category = Category::find($id);
             $category->name = $data['name'];
             $category->save();
             return redirect()->action([CategoryController::class, 'index']);
-        }else{
+        } else {
             return redirect()->back();
         }
     }
@@ -117,8 +119,8 @@ class CategoryController extends Controller
         if (request()->get('list_delete') == 'active') {
             $category = Category::onlyTrashed()->where('id', $id)->first();
             $category->restore();
-            return redirect()->route('admin.category.index',['list_delete' => 'active']);
-        }else{
+            return redirect()->route('admin.category.index', ['list_delete' => 'active']);
+        } else {
             Category::destroy($id);
             return redirect()->route('admin.category.index');
         }
