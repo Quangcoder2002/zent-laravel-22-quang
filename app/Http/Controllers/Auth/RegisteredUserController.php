@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisteredRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class RegisteredUserController extends Controller
     public function create(){
         return view('admin.auth.register');
     }
-    public function store(Request $request){
+    public function store(RegisteredRequest $request){
         $request->validate([
             'name' => ['required', 'string', 'max:250'],
             'email' => ['required', 'string', 'email','max:250' ,'unique:users'],

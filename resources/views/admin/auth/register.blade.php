@@ -23,7 +23,13 @@
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg"></p>
-
+      @if ($errors->any())
+        <div class="alert alert-danger"><ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul></div>
+       @endif
       <form action="{{ route('auth.register') }}" method="POST">
         @csrf
         <div class="input-group mb-3">
