@@ -73,7 +73,7 @@
                     <label for="">Trạng thái</label>
                     <select class="custom-select custom-select-lg mb-3" name="status">
                       <option selected value="2">Công khai</option>
-                      <option value="0">Đã viết xong</option>
+                      <option value="1">Đã viết xong</option>
                       <option value="0">Nhập</option>
                     </select>
                   </div>

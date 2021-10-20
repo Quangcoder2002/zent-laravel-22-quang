@@ -27,6 +27,7 @@ class StorePostRequest extends FormRequest
             'title' => 'required|unique:posts|min:20|max:255',
             'short_content' => 'required',
             'content' => 'required',
+            'status' => 'in:0,1,2'
         ];
     }
     /**
@@ -43,6 +44,7 @@ class StorePostRequest extends FormRequest
             ], 
             'short_content.required' => ':attribute bắt buộc phải có.',
             'content.required' => ':attribute bắt buộc phải có.',
+            'unique' => ':attribute đã tồn tại.',
         ];
     }
     /**

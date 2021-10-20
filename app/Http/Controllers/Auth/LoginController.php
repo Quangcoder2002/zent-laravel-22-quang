@@ -34,7 +34,7 @@ class LoginController extends Controller
             }
         }
         return back()->withErrors([
-            'email' => 'The pro',
+            'email' => 'Email hoặc mật khẩu không chính xác',
         ]);
     }
     public function logout(Request $request)

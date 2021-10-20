@@ -9,12 +9,14 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Model\Flight;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -75,12 +77,12 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         log::info('buoc 1');
+        $data = $request->only(['title', 'content', 'short_content', 'category_id', 'status']);
+        $tags = $request->get('tag');
         // $validated = $request->validate([
         //     'title' => 'required|unique:posts|min:20|max:255',
         //     'content' => 'required',
         // ]);
-        $data = $request->only(['title', 'content', 'short_content', 'category_id', 'status']);
-        $tags = $request->get('tag');
         log::info('buoc 2');
 
         if (Auth::user()->cannot('create-post')) {

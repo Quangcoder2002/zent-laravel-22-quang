@@ -28,7 +28,6 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'role' => 'user',
         ]);
-        dd($user->role);
         Auth::login($user);
         return redirect('');
     }
