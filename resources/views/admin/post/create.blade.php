@@ -53,7 +53,7 @@
                   'id' => 'short_content'
                 ])
                 @include('admin.compoments.summernote',[
-                  'title'=>'Nôi dùng',
+                  'title'=>'Nôi dung',
                   'name'=>'content',
                   'id' => 'content',
                   'content'=>''
