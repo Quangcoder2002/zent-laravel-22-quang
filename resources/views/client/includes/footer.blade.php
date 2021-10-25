@@ -9,7 +9,7 @@
                         </div>
                         <ul class="footer-block-content">
                             <li class="address">
-                                <span>45 Grand Central Terminal New York,NY 1017 United State USA</span>
+                                <span>Hai Bà Trưng, Hà Nội, Việt Nam</span>
                             </li>
                             <li class="phone">
                                 <span>(+123) 456 789 - (+123) 666 888</span>
@@ -18,7 +18,7 @@
                                 <span>Contact@yourcompany.com</span>
                             </li>
                             <li class="time">
-                                <span>Mon-Sat 9:00pm - 5:00pm  &nbsp;&nbsp;&nbsp;  Sun : Closed</span>
+                                <span>Thứ hai-Chủ nhật 9:00pm - 5:00pm  &nbsp;&nbsp;&nbsp;  Chủ nhật : Đóng cửa</span>
                             </li>
                         </ul>
                         <div class="footer-social social">
@@ -47,13 +47,13 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
                     <div class="footer-block">
-                        <h3 class="footer-block-title">Customer Service</h3>
+                        <h3 class="footer-block-title">Dịch vụ khách hàng</h3>
                         <ul class="footer-block-content">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Track your Order</a></li>
-                            <li><a href="#">Returns/Exchange</a></li>
+                            <li><a href="#">Tài khoản</a></li>
+                            <li><a href="#">Theo dõi đơn hàng</a></li>
+                            <li><a href="#">Trả hàng / Trao đổi</a></li>
                             <li><a href="#">FAQs</a></li>
-                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Dịch vụ khách hàng</a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,16 +61,16 @@
                     <div class="footer-block">
                         <div class="footer-block-phone">
                             <h3 class="footer-block-title">Hot Line</h3>
-                            <p class="phone-desc">Call Us toll Free</p>
-                            <p class="phone-light">(+123) 456 789 or (+123) 666 888</p>
+                            <p class="phone-desc">Call Us to Free</p>
+                            <p class="phone-light">(+123) 456 789 hoặc (+123) 666 888</p>
                         </div>
                         <div class="footer-block-newsletter">
-                            <h3 class="footer-block-title">Subscription</h3>
-                            <p>Register now to get updates on promotions and coupons.</p>
+                            <h3 class="footer-block-title">Đăng ký</h3>
+                            <p>Đăng ký ngay để nhận được cập nhật về các chương trình khuyến mãi và phiếu giảm giá.</p>
                             <form class="form_newsletter" action="#" method="post">
-                                <input type="email" value="" placeholder="Enter your emaill adress" name="EMAIL" id="mail" class="newsletter-input form-control">
+                                <input type="email" value="" placeholder="Nhập địa chỉ emaill của bạn" name="EMAIL" id="mail" class="newsletter-input form-control">
                                 <button id="subscribe" class="button_mini btn btn-gradient" type="submit">
-                                    Subscribe
+                                    Đăng ký
                                 </button>
                             </form>
                         </div>
@@ -82,7 +82,7 @@
     <div class="f-bottom">
         <div class="container container-240">
             <div class="row flex lr">
-                <div class="col-xs-6 f-copyright"><span>© 2010-2018 EngoTheme. All rights reserved.</span></div>
+                <div class="col-xs-6 f-copyright"><span>© Copyright 2021 Quang. All rights reserved.</span></div>
                 <div class="col-xs-6 f-payment hidden-xs">
                     <a href="#"><img src="/client/img/payment/mastercard.png" alt="" class="img-reponsive"></a>
                     <a href="#"><img src="/client/img/payment/paypal.png" alt="" class="img-reponsive"></a>

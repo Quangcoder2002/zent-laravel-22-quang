@@ -44,7 +44,6 @@
             <thead>
                 <th>ID</th>
                 <th>Tên</th>
-                <th >Hành động</th>
             </thead>
             @foreach ($permissions as $permission)
             <tr>

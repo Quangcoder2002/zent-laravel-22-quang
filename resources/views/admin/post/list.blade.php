@@ -63,7 +63,6 @@
                 <th style="width:400px;">Tên bài viết</th>
                 <th>Danh mục</th>
                 <th>Người tạo</th>
-                <th>Người cập nhật</th>
                 <th>Tags</th>
                 <th>Trạng thái</th>
                 <th>Ngày tạo</th>
@@ -80,9 +79,6 @@
               </td>
               <td>
                   {{$post->user->name}}
-              </td>
-              <td>
-                {{$post->userUpdate->name}}
               </td>
               <th>
                 @foreach ($post->tags as $tag)

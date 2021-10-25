@@ -25,8 +25,9 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','
     Route::resource('post', PostController::class)->parameters(['post' => 'id']);
     Route::resource('tag', TagController::class)->parameter('tag','id');
     Route::resource('role', RoleController::class)->parameters(['role' => 'id']);
-    Route::post('/login/user/{id}', 'UserController@loginWithUser')
-    ->name('users.login');
+    Route::post('/login/user/{id}', 'UserController@loginWithUser')->name('users.login');
+    Route::resource('storage', StorageController::class)->parameters(['storage' => 'id']);
+    Route::get('storage/download','StorageController@download')->name('storage.download');
 });
 
 Route::prefix('')->name('client.')->namespace('Client')->group(function(){

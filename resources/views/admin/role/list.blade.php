@@ -62,12 +62,11 @@
                       'type'=>'success',
                       'content'=>'<i class="fas fa-edit"></i>'
                     ])
-                <form action="{{route('admin.role.destroy',['id'=>$role->id])}}" method="POST" style="float: left;">
+                {{-- <form action="{{route('admin.role.destroy',['id'=>$role->id])}}" method="POST" style="float: left;">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                </form>
-                  
+                </form>   --}}
               </td>
             </tr> 
             @endforeach
