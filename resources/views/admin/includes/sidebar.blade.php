@@ -112,7 +112,22 @@
               </li>
           </ul>
         </li>
-          
+        <li class="nav-item @if (request()->routeIs('admin.storage.*')) menu-is-opening menu-open @endif">
+          <a href="#" class="nav-link @if (request()->routeIs('admin.storage.*')||request()->routeIs('admin.role.*')) active @endif">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Quản lý storage
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('admin.storage.index') }}" class="nav-link @if (request()->routeIs('admin.storage.*')) active @endif">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Quản lý storage</p>
+              </a>
+          </ul>
+        </li>
       </li>
     </ul>
   </nav>
