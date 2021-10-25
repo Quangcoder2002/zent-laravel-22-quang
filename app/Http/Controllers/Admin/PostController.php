@@ -99,6 +99,12 @@ class PostController extends Controller
                 $post->category_id = $data['category_id'];
                 $post->user_created_id = auth()->user()->id;
                 $post->user_updated_id = auth()->user()->id;
+                if($request->hasFile('images')){
+                    $disk = 'public';
+                    $path = $request->file('images')->store('images', $disk);
+                    $post->disk = $disk;
+                    $post->image_url = $path;             
+                }
                 $post->save();
                 $post->tags()->attach($tags);
             } catch (\Exception $ex) {
@@ -169,6 +175,12 @@ class PostController extends Controller
             $post->status = $data['status'];
             $post->category_id = $data['category_id'];
             $post->user_updated_id = auth()->user()->id;
+            if($request->hasFile('images')){
+                $disk = 'public';
+                $path = $request->file('images')->store('images', $disk);
+                $post->disk = $disk;
+                $post->image_url = $path;             
+            }
             $post->save();
             $post->tags()->sync($tags);
             return redirect()->action([PostController::class, 'index']);

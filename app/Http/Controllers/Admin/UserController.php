@@ -133,7 +133,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =$request->only(['name','email','phone','address']);
+        $data =$request->only(['name','email','phone','address']);    
         $user = User::find($id);
         if (Auth::user()->cannot('update-user')){
             return abort(403);
@@ -142,13 +142,20 @@ class UserController extends Controller
         if ($data) {
             $user->name = $request['name'];
             $user->email = $request['email'];
+            $path = null;
+            if($request->hasFile('avatar')){
+                $disk = 'public';
+                $path = $request->file('avatar')->store('avatars', $disk);
+                $user->disk = $disk;               
+            }
+            DB::table('user_infos')->where('user_id',$id)->update([
+                'phone'=> $data['phone'],
+                'address'=> $data['address'],
+                'avatar' => $path,
+            ]);
             $user->save();
             $user->roles()->sync($roles);
-            DB::table('user_infos')->where('user_id',$id)->update([
-                    'phone'=> $data['phone'],
-                    'address'=> $data['address'],
-                ]);
-             return redirect()->action([UserController::class, 'index']);
+            return redirect()->action([UserController::class, 'index']);
         }else{
             return redirect()->back();
         }

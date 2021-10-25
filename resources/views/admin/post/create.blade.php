@@ -86,6 +86,18 @@
                       @endforeach
                     </select>
                   </div>
+                  <div class="form-group col-12">
+                    <label for="exampleInputFile">Ảnh</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="images">
+                        <label class="custom-file-label" for="exampleInputFile">Chọn file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <br>
                 <input type="submit" class="btn btn-primary" value="Tạo">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddShortContentColumnPostsTable extends Migration
+class AddDiskImageColumnPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddShortContentColumnPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->text('short_content')->nullable();
+            $table->string('disk')->nullable()->after('slug');
         });
     }
 
@@ -26,7 +26,7 @@ class AddShortContentColumnPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('short_content');
+            $table->dropColumn(['disk']);
         });
     }
 }
