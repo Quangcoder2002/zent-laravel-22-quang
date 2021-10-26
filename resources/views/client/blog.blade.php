@@ -15,7 +15,7 @@
                 @foreach ($posts as $post)
                     <div class="col-md-4 col-sm-6 col-xs-12 blog-post-item">
                         <div class="blog-img">
-                            <a href="{{route('client.blog.show',['id'=>$post->id])}}" class="hover-images"><img src="/client/img/blog/blog_1.jpg" alt="" class="img-reponsive"></a>
+                            <a href="{{route('client.blog.show',['id'=>$post->id])}}" class="hover-images"><img src="{{$post->image_url_full}}" alt="" class="img-reponsive" style="width: 442px; height: 328px;"></a>
                             <div class="blog-post-date e-gradient abs">
                                 <span class="b-date">{{$post->created_at->format('d')}}</span>
                                 <span class="b-month">{{'Tháng:'.$post->created_at->format('m')}}</span>

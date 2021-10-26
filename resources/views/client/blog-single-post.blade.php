@@ -14,7 +14,7 @@
                 <div class="blog-content  col-md-9  col-xs-12">
                     <div class="blog-post-item v2">
                         <div class="blog-img">
-                            <a href="#" class="hover-images"><img src="/client/img/blog/single-post.jpg" alt="" class="img-reponsive"></a>
+                            <a href="#" class="hover-images"><img src="{{$post->image_url_full}}" alt="" class="img-reponsive"></a>
                             <div class="blog-post-date e-gradient abs v2">
                                 <span class="b-date">{{$post->created_at->format('d')}}</span>
                                 <span class="b-month">Tháng:{{$post->created_at->format('m')}}</span>

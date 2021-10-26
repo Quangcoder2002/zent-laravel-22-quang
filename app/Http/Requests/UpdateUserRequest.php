@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePostRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,10 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:20|max:255',
-            'short_content' => 'required',
-            'content' => 'required',
-            'status' => 'in:0,1,2',
-            'images' => 'file|mimes:jpg,bmp,png|max:3072',
+            'name' => 'min:4|max:255',
+            'phone' => 'regex:/(0)(\d{9})$/|min:10',
+            'email' => 'regex:/^.+@.+$/i',
+            'avatar' => 'file|mimes:jpg,bmp,png|max:3072',
         ];
     }
     /**
@@ -39,13 +38,11 @@ class UpdatePostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => ':attribute bắt buộc phải có.',
-            'title.min' => [
+            'name.required' => ':attribute bắt buộc phải có.',
+            'name.min' => [
                 'string' => ':attribute phải có :min kí tự trở lên.',
             ], 
-            'short_content.required' => ':attribute bắt buộc phải có.',
-            'content.required' => ':attribute bắt buộc phải có.',
-            'images.mimes' => ':attribute không phải file ảnh. File ảnh gồm các định dạng: :values.',
+            'avatar.mimes' => ':attribute không phải file ảnh. File ảnh gồm các định dạng: :values.',
         ];
     }
     /**
@@ -56,10 +53,9 @@ class UpdatePostRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'Tiêu đề',
-            'short_content' => 'Mô tả',
-            'content' => 'Nội dung',
-            'images' => 'File',
+            'name' => 'Họ tên',
+            'phone' => 'Số điện thoại',
+            'avatar' => 'File',
         ];
     }
 }

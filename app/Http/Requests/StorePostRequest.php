@@ -27,7 +27,8 @@ class StorePostRequest extends FormRequest
             'title' => 'required|unique:posts|min:20|max:255',
             'short_content' => 'required',
             'content' => 'required',
-            'status' => 'in:0,1,2'
+            'status' => 'in:0,1,2',
+            'images' => 'file|mimes:jpg,bmp,png|max:3072',
         ];
     }
     /**
@@ -45,6 +46,7 @@ class StorePostRequest extends FormRequest
             'short_content.required' => ':attribute bắt buộc phải có.',
             'content.required' => ':attribute bắt buộc phải có.',
             'unique' => ':attribute đã tồn tại.',
+            'images.mimes' => ':attribute không phải file ảnh. File ảnh gồm các định dạng: :values.',
         ];
     }
     /**
@@ -58,6 +60,7 @@ class StorePostRequest extends FormRequest
             'title' => 'Tiêu đề',
             'short_content' => 'Mô tả',
             'content' => 'Nội dung',
+            'images' => 'File',
         ];
     }
 }

@@ -16,6 +16,7 @@ use Illuminate\Model\Flight;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class PostController extends Controller
@@ -101,7 +102,10 @@ class PostController extends Controller
                 $post->user_updated_id = auth()->user()->id;
                 if($request->hasFile('images')){
                     $disk = 'public';
-                    $path = $request->file('images')->store('images', $disk);
+                    $name = $request->file('image')->getClientOriginalName();
+                    $path = Storage::disk($disk)->putFileAs(
+                        'images', $request->file('images'), $name
+                        );
                     $post->disk = $disk;
                     $post->image_url = $path;             
                 }

@@ -25,7 +25,10 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
-                  <img src="@if ($user->avatar) {{$user->avatar}} @else https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEzy37KsQmCvQvjDeap4heO6hXR46cbpVfPw&usqp=CAU @endif" alt="Admin" class="rounded-circle" height="150" width="150">
+                  @if(!empty($user->userInfo->avatar))
+                  <img src="{{ $user->userInfo->avatar_full }}"
+                  alt="{{$user->name}}" class="rounded-circle" height="150" width="150">
+                  @endif
                   <div class="mt-3">
                     <h4>{{$user->name}}</h4>
                     <p class="text-secondary mb-1">Full Stack Developer</p>

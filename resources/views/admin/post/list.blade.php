@@ -60,6 +60,7 @@
         <table class="table">
             <thead>
                 <th>ID</th>
+                <th>Ảnh</th>
                 <th style="width:400px;">Tên bài viết</th>
                 <th>Danh mục</th>
                 <th>Người tạo</th>
@@ -71,6 +72,10 @@
             @foreach ($posts as $post)
             <tr >
               <td>{{$post->id}}</td>
+              <td>
+                <img src="{{ $post->image_url_full }}"
+                width="100px">
+              </td>
               <td>{{$post->title}}</td>
               <td>
                 @if ($post->category_id != 0)

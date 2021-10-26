@@ -2,11 +2,10 @@
   <!-- Sidebar user panel (optional) -->
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-     @if (auth()->user()->userInfo != null)
-      <img src="@if (auth()->user()->userInfo->avatar != null) {{ asset('/storage/'.auth()->user()->userInfo->avatar)}} @else https://lh3.googleusercontent.com/proxy/w9NA_6Kij_7GTq6Qt3U9qkAuh05yVgLXo3jAaWm3M_5MaHUnhNV9aSLxuJ8Y8ebAqCjZCEQltZVoaBHXsmwn-NA6N0fvp6l4 @endif" width="40px" height="40px">
-      @else
-      <img src="https://lh3.googleusercontent.com/proxy/w9NA_6Kij_7GTq6Qt3U9qkAuh05yVgLXo3jAaWm3M_5MaHUnhNV9aSLxuJ8Y8ebAqCjZCEQltZVoaBHXsmwn-NA6N0fvp6l4" width="40px" height="40px">
-    @endif
+      @if(!empty(auth()->user()->userInfo->avatar))
+        <img src="{{ auth()->user()->userInfo->avatar_full }}"
+        alt="{{auth()->user()->name}}" class="rounded-circle">
+      @endif
     </div>
     <div class="info">
       <a href="#" class="d-block">{{ auth()->user()->name }}</a>

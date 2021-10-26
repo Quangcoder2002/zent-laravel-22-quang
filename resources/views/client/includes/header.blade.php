@@ -39,18 +39,13 @@
                                     @csrf
                                 <li class="level1 active dropdown">
                                     <a href=""> 
-                                        <img style="width: 25px; height: 25px; border-radius:50%;" src=" 
-                                        @if (auth()->user()->userInfo != null)
-                                        {{auth()->user()->userInfo->avatar}}
-                                        @else
-                                        https://cf.shopee.vn/file/1e3af998f7f1e1adebe028fa509db69f_tn
-                                        @endif" alt="">
+                                        <img src="{{ auth()->user()->userInfo->avatar_full }}" width="30px" height="30px" style="border-radius:50%;">
                                         {{auth()->user()->name}}
                                     </a>
                                     <ul class="dropdown-menu-left menu-level-1">
                                         <li class="level2"><a href="aboutus.html" >Quản lý tài khoản</a></li>
                                         <li class="level2">
-                                            <a href="" class="nav-link"onclick="this.closest('form').submit();return false;">Logout</a>
+                                            <a href="" class="nav-link"onclick="this.closest('form').submit();return false;">Đăng xuất</a>
                                         </li>   
                                     </ul>
                                 </li>
