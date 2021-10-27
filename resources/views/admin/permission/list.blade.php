@@ -19,6 +19,10 @@
 </div><!-- /.container-fluid -->
 @endsection
 @section('content')
+@if (session('success'))
+<div class="alert alert-success" role="alert">
+{{ session('success') }}
+</div>
 <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">

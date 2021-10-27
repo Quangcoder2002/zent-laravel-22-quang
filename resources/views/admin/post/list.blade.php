@@ -19,7 +19,18 @@
 </div><!-- /.container-fluid -->
 @endsection
 @section('content')
+
 <div class="card card-default">
+  @if (session('error'))
+  <div class="alert alert-danger" role="alert">
+  {{ session('error') }}
+  </div>
+  @endif
+  @if (session('success'))
+  <div class="alert alert-success" role="alert">
+  {{ session('success') }}
+  </div>
+  @endif
   <div class="card-header">
     <h3 class="card-title">
       @can('create-post', $posts)

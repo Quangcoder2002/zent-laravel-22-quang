@@ -19,6 +19,7 @@
 </div><!-- /.container-fluid -->
 @endsection
 @section('content')
+
 <div class="card card-default">
   <div class="card-header">
     <h3 class="card-title">Chỉnh sửa bài viết</h3>
@@ -30,6 +31,11 @@
   <!-- /.card-header -->
   <div class="card-body">
     <div class="container">
+      @if (session('error'))
+      <div class="alert alert-danger" role="alert">
+      {{ session('error') }}
+      </div>
+      @endif
       @if ($errors->any())
         <div class="alert alert-danger"><ul>
           @foreach ($errors->all() as $error)

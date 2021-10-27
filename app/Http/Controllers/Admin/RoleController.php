@@ -59,8 +59,10 @@ class RoleController extends Controller
             }catch(\Exception $ex){
                 Log::error('RoleController@store Error:'.$ex->getMessage());
             }
+            $request->session()->flash('success', 'Tạo mới thành công!');
             return redirect()->action([RoleController::class, 'index']);
         }else{
+            $request->session()->flash('error', 'Xóa thành công!');
             return redirect()->back();
         }
     }
@@ -108,6 +110,7 @@ class RoleController extends Controller
             $role->name = $data['name'];
             $role->save();
             $role->permissions()->sync($permissions);
+            $request->session()->flash('success', 'Cập nhật thành công!');
             return redirect()->action([RoleController::class, 'index']);
         }else{
             return redirect()->back();
@@ -124,6 +127,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $role->delete();
+        $request->session()->flash('success', 'Xóa thành công!');
         return redirect()->route('admin.role.index');
     }
 }

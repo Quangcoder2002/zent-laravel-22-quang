@@ -51,6 +51,7 @@ class CategoryController extends Controller
             Category::create([
                 'name' => $data['name']
             ]);
+            $request->session()->flash('success', 'tạo mới thành công!');
             return redirect()->action([CategoryController::class, 'index']);
         } else {
             return redirect()->back();
@@ -102,6 +103,7 @@ class CategoryController extends Controller
             $category = Category::find($id);
             $category->name = $data['name'];
             $category->save();
+            $request->session()->flash('success', 'Cập nhật thành công!');
             return redirect()->action([CategoryController::class, 'index']);
         } else {
             return redirect()->back();
@@ -116,13 +118,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        if (request()->get('list_delete') == 'active') {
-            $category = Category::onlyTrashed()->where('id', $id)->first();
-            $category->restore();
-            return redirect()->route('admin.category.index', ['list_delete' => 'active']);
-        } else {
+            $request->session()->flash('success', 'Xóa thành công!');
             Category::destroy($id);
             return redirect()->route('admin.category.index');
-        }
     }
 }

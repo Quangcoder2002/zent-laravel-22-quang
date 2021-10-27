@@ -3,6 +3,10 @@
     List Category
 @endsection
 @section('content-header')
+@if (session('success'))
+<div class="alert alert-success" role="alert">
+{{ session('success') }}
+</div>
 <div class="container-fluid">
   <div class="row mb-2">
     <div class="col-sm-6">

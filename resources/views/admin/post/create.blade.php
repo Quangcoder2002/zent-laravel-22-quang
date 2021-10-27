@@ -29,6 +29,11 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+      @if (session('error'))
+      <div class="alert alert-danger" role="alert">
+      {{ session('error') }}
+      </div>
+    @endif
         <div class="container">
           @if ($errors->any())
             <div class="alert alert-danger"><ul>

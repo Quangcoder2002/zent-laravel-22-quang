@@ -114,8 +114,10 @@ class PostController extends Controller
             } catch (\Exception $ex) {
                 Log::error('PostController@store Error:' . $ex->getMessage());
             }
+            $request->session()->flash('success', 'Tạo mới thành công!');
             return redirect()->action([PostController::class, 'index']);
         } else {
+            $request->session()->flash('error', 'Tạo mới thất bại!');
             return redirect()->back();
         }
     }
@@ -187,8 +189,10 @@ class PostController extends Controller
             }
             $post->save();
             $post->tags()->sync($tags);
+            $request->session()->flash('success', 'Cập nhật thành công!');
             return redirect()->action([PostController::class, 'index']);
         } else {
+            $request->session()->flash('error', 'Cập nhật thất bại!');
             return redirect()->back();
         }
     }
@@ -206,7 +210,11 @@ class PostController extends Controller
             return abort(403);
         }
         // $this->authorize('create' , Post::class);
-        $post->delete();
-        return redirect()->route('admin.post.index');
+        if ($post->delete()==true) {
+            $request->session()->flash('success', 'Xoá thành công!');
+            $post->delete();
+            return redirect()->route('admin.post.index');
+        }
+       
     }
 }
