@@ -27,6 +27,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','
     Route::resource('role', RoleController::class)->parameters(['role' => 'id']);
     Route::post('/login/user/{id}', 'UserController@loginWithUser')->name('users.login');
     Route::resource('storage', StorageController::class)->parameters(['storage' => 'id']);
+    Route::resource('menu', MenuController::class)->parameters(['menu' => 'id']);
     Route::get('storage/download','StorageController@download')->name('storage.download');
 });
 

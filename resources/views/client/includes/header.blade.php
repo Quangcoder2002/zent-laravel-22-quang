@@ -443,7 +443,12 @@
                             </button>
                             <div class="collapse navbar-collapse" id="myNavbar">
                                 <ul class="nav navbar-nav js-menubar">
-                                    <li class="level1 active hassub"><a href="">Home</a>
+                                    @foreach ($menus as $item)
+                                        <li class="level1 active hassub"><a href="">{{$item->name}}</a>
+                                            <span class="plus js-plus-icon"></span>
+                                        </li>
+                                    @endforeach
+                                    {{-- <li class="level1 active hassub"><a href="">Home</a>
                                         <span class="plus js-plus-icon"></span>
                                     </li>
                                     <li class="level1 dropdown hassub"><a href="#">Shop<span class="h-ribbon h-pos e-green">sale</span></a>
@@ -522,7 +527,7 @@
                                             <li class="level2"><a href="{{route('client.blog.index')}}" title="404">Các bài viết</a></li>
                                             <li class="level2"><a href="{{route('client.blog.category')}}" title="404">Các bài viết theo danh mục</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </nav>

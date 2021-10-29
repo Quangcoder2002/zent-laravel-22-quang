@@ -97,6 +97,13 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="{{route('admin.menu.index')}}">
+                <div class="parent-icon icon-color-4"><i class="fadeIn animated bx bx-menu"></i></i>
+                </div>
+                <div class="menu-title">Quản lý menu</div>
+            </a>
+        </li>
     </ul>
     <!--end navigation-->
 </div>

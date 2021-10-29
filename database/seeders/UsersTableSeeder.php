@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->truncate();
-        DB::table('users_info')->truncate();
+        DB::table('user_infos')->truncate();
         $users =[
             [
                 'user' => [
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
                 'info' => [
-                    'avatar' => '1',
+                    'avatar' => null,
                     'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1231231231'
@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
                 'info' => [
-                    'avatar' => '1',
+                    'avatar' => null,
                     'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1231231231',
@@ -59,7 +59,7 @@ class UsersTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
                 'info' => [
-                    'avatar' => '1',
+                    'avatar' => null,
                     'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1231313131',
@@ -75,7 +75,7 @@ class UsersTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
                 'info' => [
-                    'avatar' => '1',
+                    'avatar' => null,
                     'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '123465651'
@@ -92,7 +92,7 @@ class UsersTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
                 'info' => [
-                    'avatar' => '1',
+                    'avatar' => null,
                     'status' => '0',
                     'address' => 'Ha Noi',
                     'phone' => '1234232651'
@@ -108,7 +108,7 @@ class UsersTableSeeder extends Seeder
                     'updated_at' => now()
                 ],
                 'info' => [
-                    'avatar' => '1',
+                    'avatar' => null,
                     'status' => '1',
                     'address' => 'Ha Noi',
                     'phone' => '1234232651'

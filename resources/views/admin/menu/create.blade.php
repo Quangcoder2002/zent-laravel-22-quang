@@ -6,85 +6,67 @@
 <link href="/admin/plugins/summernote/summernote-bs4.min.css">
 @endpush
 @section('title')
-    Bài viết
+    Quản lý menu
 @endsection
 @section('url-home')
-{{ route('admin.post.index')}}
+{{ route('admin.menu.index')}}
 @endsection
 @section('breadcrumb')
-    Tạo mới bài viết
+    Tạo trang mới
 @endsection
 @section('content')
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
-                    <a href="{{ route('admin.post.index') }}" class="btn btn-outline radius-30"><i class="fadeIn animated bx bx-arrow-back" data-toggle="tooltip" data-placement="top" data-original-title="Nhấn để trở lại danh sách"></i></a>
+                    <a href="{{ route('admin.menu.index') }}" class="btn btn-outline radius-30"><i class="fadeIn animated bx bx-arrow-back" data-toggle="tooltip" data-placement="top" data-original-title="Nhấn để trở lại danh sách"></i></a>
                 </div>
-                <form method="POST" action="{{route('admin.post.store')}}" role="form" enctype="multipart/form-data" novalidate="">
+                <form method="POST" action="{{route('admin.menu.store')}}" role="form" enctype="multipart/form-data" novalidate="">
                     @csrf
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
-                            <label for="validationCustom01">Tiêu đề</label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="validationCustom01"  value="{{ old('title') }}" name="title">
-                            @error('title')
+                            <label for="validationCustom01">Tên trang</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="validationCustom01"  value="{{ old('name') }}" name="name">
+                            @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="short_content">Mô tả</label>
-                            <textarea class="form-control @error('short_content') is-invalid @enderror" name="short_content" id="short_content" required="">{{ old('short_content') }}</textarea>
-                            @error('short_content')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="content">Nội dung</label>
-                            <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" required="">{{ old('content') }}</textarea>
-                            @error('content')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <div class="form-group">
-								<label>Tags</label>
-								<select class="multiple-select" name="tag[]" data-placeholder="Choose anything" multiple="multiple">
-                                    @foreach ($tags as $tag)
-                                    <option value="{{ $tag->id}}">{{$tag->name}}</option>
-                                 @endforeach
-								</select>
+								<label for="validationCustom03">Đường dẫn</label>
+                            <input type="text" class="form-control @error('url') is-invalid @enderror" id="validationCustom03"  value="{{ old('url') }}" name="url">
+                            @error('url')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
 							</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="validationCustom04">Danh mục</label>
-                                <select class="custom-select" id="validationCustom04" name="category_id" required="">
-                                    <option selected value="0">Không</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-feedback"></div>
+								<label for="validationCustom02">Vị trí</label>
+                            <input type="text" class="form-control @error('sort') is-invalid @enderror" id="validationCustom02"  value="{{ old('sort') }}" name="sort">
+                            @error('sort')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
 							</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="validationCustom05">Trạng thái</label>
                                 <select class="custom-select" id="validationCustom05" name="status" required="">
-                                    <option value="0">Đang nhập</option>
-                                    <option value="1">Đã xong</option>
-                                    <option value="2">Công khai</option>
+                                    <option value="1">Hiện</option>
+                                    <option value="0">Ẩn</option>
                                 </select>
                                 <div class="invalid-feedback"></div>
-							</div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label>Ảnh(Đang cập nhật)</label>
-                            <div class="custom-file mb-3">
-                                <input class="custom-file-input"  id="upload" type="file" name="images" accept=".jpg, .png, image/jpeg, image/png" multiple>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
-                            </div>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Tạo</button>
                 </form>
+                
             </div>
         </div>
 @endsection
@@ -139,7 +121,7 @@
 		params: {
 			action: 'fileupload'
 		},
-		maxfilesize: 1000000
+		maxfilesize: 1000000000
 	})
 </script>
 @endpush
