@@ -168,7 +168,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         $user = User::find($id);
         if (Auth::user()->cannot('delete-user')){
@@ -177,9 +177,11 @@ class UserController extends Controller
         if (request()->get('list_delete') == 'active') {
             $user = User::onlyTrashed()->where('id', $id)->first();
             $user->restore();
+            $request->session()->flash('success', 'Khôi phục thành công!');
             return redirect()->route('admin.users.index',['list_delete' => 'active']);
         }else{
             User::destroy($id);
+            $request->session()->flash('success', 'Xóa thành công!');
             return redirect()->route('admin.users.index');
         }
     }

@@ -1,84 +1,61 @@
 @extends('admin.layouts.master')
 @section('title')
-    Detail Users
+    Quản lý người dùng
 @endsection
-@section('content-header')
-<div class="container-fluid">
-  <div class="row mb-2">
-    <div class="col-sm-6">
-      <h1 class="m-0">Users</h1>
-    </div><!-- /.col -->
-    <div class="col-sm-6">
-      <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active">Users</li>
-      </ol>
-    </div><!-- /.col -->
-  </div><!-- /.row -->
-</div><!-- /.container-fluid -->
+@section('url-home')
+{{ route('admin.users.index')}}
+@endsection
+@section('breadcrumb')
+    Thông tin người dùng
 @endsection
 @section('content')
-<div class="container">
-  <div class="main-body"> 
-        <div class="row gutters-sm">
-          <div class="col-md-4 mb-3">
-            <div class="card">
-              <div class="card-body">
-                <div class="d-flex flex-column align-items-center text-center">
-                  @if(!empty($user->userInfo->avatar))
-                  <img src="{{ $user->userInfo->avatar_full }}"
-                  alt="{{$user->name}}" class="rounded-circle" height="150" width="150">
-                  @endif
-                  <div class="mt-3">
-                    <h4>{{$user->name}}</h4>
-                    <p class="text-secondary mb-1">Full Stack Developer</p>
-                    <p class="text-muted font-size-sm">{{$user->address}}</p>
-                  </div>
+            <div class="user-profile-page">
+                <div class="card radius-15">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-lg-7 border-right">
+                                <div class="d-md-flex align-items-center">
+                                    <div class="mb-md-0 mb-3">
+                                        <img src="{{$user->userInfo->avatar_full}}" class="rounded-circle shadow" width="130" height="130" alt="" />
+                                    </div>
+                                    <div class="ml-md-4 flex-grow-1">
+                                        <div class="d-flex align-items-center mb-1">
+                                            <h4 class="mb-0">{{$user->name}}</h4>
+                                        </div>
+                                        <p class="mb-0 text-muted">Quản trị viên</p>
+                                        <p class="text-primary"><i class='bx bx-buildings'></i>{{$user->userInfo->address}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <table class="table table-sm table-borderless mt-md-0 mt-3">
+                                    <tbody>
+                                        <tr>
+                                            <th>Availability:</th>
+                                            <td>Full-time <span class="badge badge-success">available</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Age:</th>
+                                            <td>27</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Địa chỉ:</th>
+                                            <td>{{$user->userInfo->address}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Years experience:</th>
+                                            <td>6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--end row-->
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="col-md-8">
-            <div class="card mb-3">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Email</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    {{$user->email}}
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Phone</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    @if ($user->userInfo != null)
-                      {{$user->userInfo->phone}}
-                    @endif
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Address</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    @if ($user->userInfo != null)
-                      {{$user->userInfo->address}}
-                    @endif
-                  </div>
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        @foreach ($user->posts as $post)
-        Title: {{ $post->title }} <br>
-        @endforeach
-      </div>
-  </div>
+<!--end page-wrapper-->
+<!--start overlay-->    
 @endsection

@@ -19,6 +19,10 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $categories_query = Category::query();
+        $name = $request->get('name');
+        if (!empty($name)) {
+            $categories_query->where('name', 'like', "%" . $name . "%");
+        }
         $categories = $categories_query->paginate(5);
         return view('admin.category.list')->with([
             'categories' => $categories
@@ -43,10 +47,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->only(['name']);
         $validated = $request->validate([
                 'name' => 'required|unique:categories|min:10|max:255',
             ]);
-        $data = $request->only(['name']);
+       
         if ($data) {
             Category::create([
                 'name' => $data['name']
@@ -95,10 +100,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->only(['name']);
         $validated = $request->validate([
             'name' => 'required|unique:categories|min:10|max:255',
         ]);
-        $data = $request->only(['name']);
         if ($data) {
             $category = Category::find($id);
             $category->name = $data['name'];
@@ -116,10 +121,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-            $request->session()->flash('success', 'Xóa thành công!');
+            
             Category::destroy($id);
+            $request->session()->flash('success', 'Xóa thành công!');
             return redirect()->route('admin.category.index');
     }
 }

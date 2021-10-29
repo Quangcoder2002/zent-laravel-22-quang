@@ -1,14 +1,4 @@
- <!-- Control Sidebar -->
- <aside class="control-sidebar control-sidebar-dark">
-  <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
+<div class="footer">
+    <p class="mb-0">Quang @2021 | Developed By : <a href="https://www.facebook.com/profile.php?id=100055720445400" target="_blank">Quang</a>
+    </p>
 </div>
-<!-- ./wrapper -->
-<footer class="main-footer">
-  <strong>Copyright &copy; 2021 <a href="https://adminlte.io">Quang</a>.</strong>
-  All rights reserved.
-  <div class="float-right d-none d-sm-inline-block">
-    <b>Version</b> 3.1.0
-  </div>
-</footer>

@@ -30,6 +30,8 @@ class LoginController extends Controller
             if (auth()->user()->role == 'user' || auth()->user()->role == null) {
                 return redirect()->intended('');
             } else {
+                $title = 'Chào mừng '.auth()->user()->name.' trở lại.';
+                $request->session()->flash('login', $title);
                 return redirect()->intended('admin/dashboard');
             }
         }
