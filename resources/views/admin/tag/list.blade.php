@@ -86,7 +86,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                Bạn có muốn xóa bài viết này không?
+                                                Bạn có muốn xóa thẻ này không?
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>

@@ -1,3 +1,4 @@
+
 <header id="header" class="header-v5">
     <div class="header-top-banner">
         <a href="#"><img src="/client/img/banner-top.jpg" alt="" class="img-reponsive"></a>
@@ -38,8 +39,17 @@
                                 <form method="post" action="{{ route('auth.logout')}}">
                                     @csrf
                                 <li class="level1 active dropdown">
-                                    <a href=""> 
-                                        <img src="{{ auth()->user()->userInfo->avatar_full }}" width="30px" height="30px" style="border-radius:50%;">
+                                    <a href="">
+                                        {{-- @php
+                                            dd(auth()->user()->checkUserInfoAvatar());
+                                       
+                                        @endphp  --}}
+                                        <img src="@if (auth()->user()->checkUserInfoAvatar() == null)
+                                        {{ auth()->user()->userInfo->avatar_full }}
+                                        @else
+                                        {{auth()->user()->checkUserInfoAvatar()}}  
+                                        @endif
+                                        " width="30px" height="30px" style="border-radius:50%;">
                                         {{auth()->user()->name}}
                                     </a>
                                     <ul class="dropdown-menu-left menu-level-1">

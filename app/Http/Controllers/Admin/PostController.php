@@ -61,9 +61,9 @@ class PostController extends Controller
         //$this->authorize('create' , Post::class);
         $categories = Category::select('id', 'name')->get();
         $tags = Tag::get();
-        if (Auth::user()->cannot('create-post')) {
-            return abort(403);
-        }
+        // if (Auth::user()->cannot('create-post')) {
+        //     return abort(403);
+        // }
         return view('admin.post.create')->with([
             'categories' => $categories,
             'tags' => $tags

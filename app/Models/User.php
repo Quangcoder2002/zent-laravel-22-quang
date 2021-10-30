@@ -78,6 +78,13 @@ class User extends Authenticatable
         }
         return false;
     }
-   
+   public function checkUserInfoAvatar(){
+       if (empty($this->userInfo)) {
+        return Storage::disk('public')->url('avatar.jpg');
+       }else{
+        return null;
+       }
+       
+   }
     
 }

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class BlogController extends Controller
 {
@@ -17,7 +18,7 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::where('status', Post::STATUS_PUBLIC)->orderBy('created_at', 'desc')->paginate(6);
+        $posts =  Post::where('status', Post::STATUS_PUBLIC)->orderBy('created_at', 'desc')->paginate(6);
         return view('client.blog')->with([
             'posts' => $posts
         ]);

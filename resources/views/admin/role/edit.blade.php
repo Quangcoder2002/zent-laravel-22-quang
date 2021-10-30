@@ -32,11 +32,10 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-12">
                             <div class="form-group">
 								<label>Xét quyền</label>
-								<select class="multiple-select" name="permission[]" data-placeholder="Choose anything" multiple="multiple">
+								<select class="multiple-select" name="permissions[]" data-placeholder="Choose anything" multiple="multiple">
                                     @foreach ($permissions as $permission)
                                             @php
                                                     $selected = "";

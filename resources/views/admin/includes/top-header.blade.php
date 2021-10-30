@@ -1,3 +1,4 @@
+
 <header class="top-header">
     <nav class="navbar navbar-expand">
         <div class="left-topbar d-flex align-items-center">
@@ -297,7 +298,12 @@
                                 <p class="user-name mb-0">{{auth()->user()->name}}</p>
                                 <p class="designattion mb-0">Quản trị viên</p>
                             </div>
-                            <img src="{{ auth()->user()->userInfo->avatar_full }}" class="user-img" alt="user avatar">
+                            
+                            <img src="@if (auth()->user()->checkUserInfoAvatar() == null)
+                            {{ auth()->user()->userInfo->avatar_full }}
+                            @else
+                            {{auth()->user()->checkUserInfoAvatar()}}  
+                            @endif" class="user-img" alt="user avatar">
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">	<a class="dropdown-item" href="{{route('admin.users.show',['id' => auth()->user()->id ])}}"><i

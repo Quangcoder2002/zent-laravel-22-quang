@@ -49,10 +49,12 @@ class MenuController extends Controller
                 $menu->url = $data['url'];
                 $menu->status = $data['status'];
                 $menu->sort = 1;
+                
                 $menu->save();
             } catch (\Exception $ex) {
                 Log::error('MenuController@store Error:' . $ex->getMessage());
             }
+            Cache::forget('menus');
             $request->session()->flash('success', 'Tạo mới thành công!');
             return redirect()->action([MenuController::class, 'index']);
         } else {
@@ -107,6 +109,7 @@ class MenuController extends Controller
             } catch (\Exception $ex) {
                 Log::error('MenuController@store Error:' . $ex->getMessage());
             }
+            Cache::forget('menus');
             $request->session()->flash('success', 'Cập nhật thành công!');
             return redirect()->action([MenuController::class, 'index']);
         } else {

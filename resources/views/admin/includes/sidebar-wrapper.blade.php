@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li> 
-                    <a href="index2.html">
+                    <a href="{{ route('admin.permission.index') }}">
                         <i class="fadeIn animated bx bx-right-arrow"></i> 
                         Các quyền truy cập
                     </a>
