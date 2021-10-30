@@ -28,10 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $menus = Cache::remember('menus', 60*60*60, function () {
-        //     return Menu::get();
-        // });
-        // View::share('menus', $menus);
+        $menus = Cache::remember('menus', 60*60*60, function () {
+            return Menu::get();
+        });
+        View::share('menus', $menus);
         Paginator::useBootstrap();
     }
 }
