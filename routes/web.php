@@ -37,6 +37,13 @@ Route::prefix('')->name('client.')->namespace('Client')->group(function(){
     Route::get('cart/{id}', function($id){
         return view('client.cart');
     });
+    Route::get('product/{id}', function($id){
+        return view('client.detail_product');
+    });
+    Route::get('product/categories/{id}', function($id){
+        return view('client.categories_product');
+    });
+    Route::view('checkout','client.checkout');
     Route::get('blog/category','BlogController@category')->name('blog.category');
     // // Route::view('/','client.home')
     // // Route::prefix('blog')->name('blog.')->group(function(){
