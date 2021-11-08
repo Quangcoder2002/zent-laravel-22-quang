@@ -78,7 +78,15 @@ class User extends Authenticatable
         }
         return false;
     }
-   public function checkUserInfoAvatar(){
+
+    public function reviews (){
+        return $this->hasMany(Review::class, 'user_id');
+    }
+    public function comments (){
+        return $this->hasMany(Comment::class, 'user_id');
+    }
+
+    public function checkUserInfoAvatar(){
        if (empty($this->userInfo)) {
         return Storage::disk('public')->url('avatar.jpg');
        }else{

@@ -48,6 +48,7 @@ class RoleController extends Controller
     {
         $data = $request->only(['name']);
         $permissions = $request->get('permission');
+        // dd($permissions);
         if ($data) {
             try{
                  $role = new Role();
@@ -123,7 +124,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $role = Role::find($id);
         $role->delete();

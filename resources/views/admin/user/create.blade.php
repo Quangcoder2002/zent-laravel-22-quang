@@ -25,12 +25,12 @@
                     <div class="form-row">
                         <div class="col-md-6 mb-3 ">
                             <label for="validationCustom01">Họ Tên</label>
-                            <input type="text" class="form-control is-valid" id="validationCustom01" required="">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="validationCustom01" required="">
                             <div class="invalid-feedback"></div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Email</label>
-                            <input type="text" class="form-control is-invalid" id="validationCustom02" name="email" required="">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="validationCustom02" name="email" required="">
                             <div class="invalid-feedback"></div>
                         </div>
                     </div>

@@ -126,7 +126,7 @@
                             </li>
                         </ul>
                         <div class="search-panel">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href='#'>All categories <span class="fa fa-caret-down"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href='#'>Các danh mục <span class="fa fa-caret-down"></span></a>
                             <ul id="category" class="dropdown-menu dropdown-category">
                                 <li><a href="#">TV & Video</a></li>
                                 <li><a href="#">Home Audio & Theater</a></li>
@@ -142,7 +142,7 @@
                         </span>
                     </form>
                     <div class="tags">
-                        <span>Most searched :</span>
+                        <span>Tìm kiếm nhiều nhất :</span>
                         <a href="#">umbrella</a>
                         <a href="#">hair accessories </a>
                         <a href="#">diamond</a>
@@ -225,7 +225,7 @@
             <div class="row flex lr2">
                 <div class="col-lg-3 widget-verticalmenu">
                     <div class="navbar-vertical">
-                        <button class="navbar-toggles navbar-drop js-vertical-menu"><span>All Departments</span></button>
+                        <button class="navbar-toggles navbar-drop js-vertical-menu"><span>Các gian hàng</span></button>
                     </div>
                     <div class="vertical-wrapper">
                         <ul class="vertical-group">

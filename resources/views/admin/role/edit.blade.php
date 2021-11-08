@@ -35,22 +35,23 @@
                         <div class="col-md-12 mb-12">
                             <div class="form-group">
 								<label>Xét quyền</label>
-								<select class="multiple-select" name="permissions[]" data-placeholder="Choose anything" multiple="multiple">
-                                    @foreach ($permissions as $permission)
+                                @foreach ($permissions as $permission)
+                                    <div class="custom-control custom-switch">
+                                        @php
+                                        $checked = "";
+                                        @endphp
+                                        @foreach ($role->permissions as $role_permission)
                                             @php
-                                                    $selected = "";
-                                            @endphp
-                                            @foreach ($role->permissions as $role_permission)
-                                                @php
-                                                    if ($role_permission->id == $permission->id) {
-                                                        $selected = "selected";
-                                                        break;
-                                                    }
-                                                @endphp
-                                                @endforeach
-                                        <option value="{{ $permission->id }}"  {{$selected}} >{{$permission->name}}</option>
-                                    @endforeach
-								</select>
+                                                if ($role_permission->id == $permission->id) {
+                                                    $checked = "checked";
+                                                    break;
+                                                }
+                                        @endphp
+                                        @endforeach
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch{{$permission->id}}" name="permissions[]" value="{{$permission->id}}" {{$checked}}>
+                                        <label class="custom-control-label" for="customSwitch{{$permission->id}}">{{$permission->name}}</label>
+                                    </div>
+                                @endforeach
 							</div>
                         </div>
                     </div>

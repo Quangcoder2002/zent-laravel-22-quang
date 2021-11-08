@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Models\Flight;
+use Psr\Log\LogLevel;
 
 class CategoryController extends Controller
 {
@@ -49,7 +50,7 @@ class CategoryController extends Controller
     {
         $data = $request->only(['name']);
         $validated = $request->validate([
-                'name' => 'required|unique:categories|min:10|max:255',
+                'name' => 'required|unique:categories|min:5|max:255',
             ]);
        
         if ($data) {
@@ -128,4 +129,5 @@ class CategoryController extends Controller
             $request->session()->flash('success', 'Xóa thành công!');
             return redirect()->route('admin.category.index');
     }
+    
 }

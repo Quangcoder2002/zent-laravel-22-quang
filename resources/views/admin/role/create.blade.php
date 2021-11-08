@@ -35,11 +35,18 @@
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
 								<label>Xét quyền</label>
-								<select class="multiple-select" name="permission[]" data-placeholder="Choose anything" multiple="multiple">
+                                @foreach ($permissions as $permission)
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch{{$permission->id}}" name="permission[]" value="{{$permission->id}}">
+                                        <label class="custom-control-label" for="customSwitch{{$permission->id}}">{{$permission->name}}</label>
+                                    </div>
+                                @endforeach
+								{{-- <select class="multiple-select" name="permission[]" data-placeholder="Choose anything" multiple="multiple">
                                     @foreach ($permissions as $permission)
+                                       
                                         <option value="{{ $permission->id }}">{{$permission->name}}</option>
                                     @endforeach
-								</select>
+								</select> --}}
 							</div>
                         </div>
                     </div>

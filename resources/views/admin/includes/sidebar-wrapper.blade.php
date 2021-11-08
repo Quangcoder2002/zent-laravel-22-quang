@@ -104,6 +104,28 @@
                 <div class="menu-title">Quản lý menu</div>
             </a>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon icon-color-1">
+                    <i class="fadeIn animated bx bx-error-circle"></i>
+                </div>
+                <div class="menu-title" style="width: 150px;">Quản lý sự cố hệ thống</div>
+            </a>
+            <ul>
+                <li> 
+                    <a href="http://myweb.test.com/log-viewer">
+                        <i class="bx bx-cog"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li> 
+                    <a href="http://myweb.test.com/log-viewer/logs">
+                        <i class="fadeIn animated bx bx-right-arrow"></i> 
+                        Danh sách
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
     <!--end navigation-->
 </div>

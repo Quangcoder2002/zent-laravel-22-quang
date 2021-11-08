@@ -54,6 +54,9 @@
                             </td>
                             <td>{{$category->created_at}}</td>
                             <td>
+                                                              
+                            </td>
+                            <td>
                                 <button type="button" class="btn btn-outline-info m-1" data-toggle="modal" data-target="#exampleModal{{$category->id}}"><i class="fadeIn animated bx bx-info-circle" data-toggle="tooltip" data-placement="top" data-original-title="Xem chi tiết"></i></button>
 							    <!-- Modal -->
 							    <div class="modal fade" id="exampleModal{{$category->id}}" tabindex="-1" role="dialog" aria-hidden="true">

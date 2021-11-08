@@ -75,32 +75,32 @@
             <div class="feature-block text-center">
                 <div class="feature-block-img"><img src="/client/img/feature/truck.png" alt="" class="img-reponsive"></div>
                 <div class="feature-info">
-                    <h3>Worldwide Delivery</h3>
-                    <p>With sites in 5 languages, we ship to over 200 countries & regions.</p>
+                    <h3>Giao hàng trên toàn thế giới</h3>
+                    <p>Với các trang web bằng 5 ngôn ngữ, chúng tôi giao hàng đến hơn 200 quốc gia và khu vực.</p>
                 </div>
             </div>
 
             <div class="feature-block text-center">
                 <div class="feature-block-img"><img src="/client/img/feature/credit-card.png" alt="" class="img-reponsive"></div>
                 <div class="feature-info">
-                    <h3>Safe Payment</h3>
-                    <p>Pay with the world’s most popular and secure payment methods.</p>
+                    <h3>Thanh toán an toàn</h3>
+                    <p>Thanh toán bằng các phương thức thanh toán an toàn và phổ biến nhất trên thế giới.</p>
                 </div>
             </div>
 
             <div class="feature-block text-center">
                 <div class="feature-block-img"><img src="/client/img/feature/safety.png" alt="" class="img-reponsive"></div>
                 <div class="feature-info">
-                    <h3>Shop with Confidence</h3>
-                    <p>Our Buyer Protection covers your purchase from click to delivery.</p>
+                    <h3>Mua sắm với sự tự tin</h3>
+                    <p>Bảo vệ người mua của chúng tôi bao gồm việc mua hàng của bạn từ khi nhấp chuột đến khi giao hàng.</p>
                 </div>
             </div>
 
             <div class="feature-block text-center">
                 <div class="feature-block-img"><img src="/client/img/feature/telephone.png" alt="" class="img-reponsive"></div>
                 <div class="feature-info">
-                    <h3>24/7 Help Center</h3>
-                    <p>Round-the-clock assistance for a smooth shopping experience.</p>
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Hỗ trợ 24/7 để có trải nghiệm mua sắm suôn sẻ.</p>
                 </div>
             </div>
     </div>

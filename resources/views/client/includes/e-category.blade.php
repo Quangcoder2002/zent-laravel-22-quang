@@ -2,7 +2,7 @@
     <div class="container container-240">
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <h1 class="cate-title">Featured Products</h1>
+                <h1 class="cate-title">Sản phẩm nổi bật</h1>
                 <div class="cate-item">
                     <div class="product-img">
                         <a href="#"><img src="/client/img/product/usb.jpg" alt="" class="img-reponsive"></a>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <h1 class="cate-title">Top Rated Products</h1>
+                <h1 class="cate-title">Sản phẩm mới</h1>
                 <div class="cate-item">
                     <div class="product-img">
                         <a href="#"><img src="/client/img/product/samsung.jpg" alt="" class="img-reponsive"></a>
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <h1 class="cate-title">Top Selling Products</h1>
+                <h1 class="cate-title">Sản phẩm bán chạy</h1>
                 <div class="cate-item">
                     <div class="product-img">
                         <a href="#"><img src="/client/img/product/headphone.jpg" alt="" class="img-reponsive"></a>

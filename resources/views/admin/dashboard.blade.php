@@ -103,7 +103,7 @@
             </div>
         </div>
         <!--end row-->
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12 col-lg-12 col-xl-6">
                 <div class="card-deck flex-column flex-lg-row">
                     <div class="card radius-15 bg-info">
@@ -538,5 +538,5 @@
                     </table>
                 </div>
             </div>
-        </div>
+        </div> --}}
 @endsection

@@ -70,8 +70,8 @@
                     <img src="/client/img/feature/b_truck.png" alt="" class="img-reponsive">
                 </div>
                 <div class="feature-info v2">
-                    <h3>Worldwide Delivery</h3>
-                    <p>With sites in 5 languages, we ship to over 200 countries &amp; regions.</p>
+                    <h3>Giao hàng trên toàn thế giới</h3>
+                    <p>Với các trang web bằng 5 ngôn ngữ, chúng tôi giao hàng đến hơn 200 quốc gia và khu vực.</p>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 feature-item">
@@ -79,8 +79,8 @@
                     <img src="/client/img/feature/b_credit.png" alt="" class="img-reponsive">
                 </div>
                 <div class="feature-info v2">
-                    <h3>Safe Payment</h3>
-                    <p>Pay with the world’s most popular and secure payment methods.</p>
+                    <h3>Thanh toán an toàn</h3>
+                    <p>Thanh toán bằng các phương thức thanh toán an toàn và phổ biến nhất trên thế giới.</p>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 feature-item">
@@ -88,8 +88,8 @@
                     <img src="/client/img/feature/b-tele.png" alt="" class="img-reponsive">
                 </div>
                 <div class="feature-info v2">
-                    <h3>24/7 Help Center</h3>
-                    <p>Round-the-clock assistance for a smooth shopping experience.</p>
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Hỗ trợ 24/7 để có trải nghiệm mua sắm suôn sẻ.</p>
                 </div>
             </div>
         </div>
@@ -100,11 +100,11 @@
     <div class="container container-240">
         <div class="ecome-heading style2 spc5">
             <ul class="product-tab-sw v2">
-                <li class="active"><a data-toggle="tab" href="#feature" aria-expanded="true">Featured</a></li>
-                <li class=""><a data-toggle="tab" href="#top-rated" aria-expanded="false">Top rated</a></li>
-                <li class=""><a data-toggle="tab" href="#most" aria-expanded="false">New arrivals</a></li>
+                <li class="active"><a data-toggle="tab" href="#feature" aria-expanded="true">Nổi bật</a></li>
+                <li class=""><a data-toggle="tab" href="#top-rated" aria-expanded="false">Top theo dõi</a></li>
+                <li class=""><a data-toggle="tab" href="#most" aria-expanded="false">Sản phẩm mới</a></li>
             </ul>
-            <a href="#" class="btn-show">Shop more<i class="ion-ios-arrow-forward"></i></a>
+            <a href="#" class="btn-show">Xem thêm<i class="ion-ios-arrow-forward"></i></a>
         </div>
         <div class="tab-content">
             <div id="feature" class="tab-pane fade in active">
@@ -139,8 +139,8 @@
                                     <div class="product-bottom">
                                         <div class="product-price"><span>$1,215.00</span></div>
                                         <a href="#" class="btn-icon btn-view">
-                                                <span class="icon-bg icon-view"></span>
-                                            </a>
+                                            <span class="icon-bg icon-view"></span>
+                                        </a>
                                     </div>
                                     <div class="product-bottom-group">
                                         <a href="#" class="btn-icon">
@@ -168,12 +168,15 @@
                             </div>
                         </div>
                     </div>
+
+                 
+
                     <div class="product-item">
                         <div class="pd-bd product-inner">
                             <div class="product-img">
                                 <a href="#"><img src="/client/img/product/pd2.jpg" alt="" class="img-reponsive"></a>
                             </div>
-                            <div class="product-info">
+                            <div class="product-info" >
                                 <div class="color-group"></div>
                                 <div class="element-list element-list-left">
                                     <ul class="desc-list">
@@ -198,7 +201,7 @@
                                         <div class="product-price"><span>$1,215.00</span></div>
                                         <a href="#" class="btn-icon btn-view">
                                                 <span class="icon-bg icon-view"></span>
-                                            </a>
+                                        </a>
                                     </div>
                                     <div class="product-bottom-group">
                                         <a href="#" class="btn-icon">
@@ -3508,14 +3511,14 @@
     <div class="container container-240">
         <div class="h-heading">
             <div class="title-icon">
-                <h1>Best Sellers</h1>
+                <h1>Sản phẩm bán chạy</h1>
             </div>
             <ul class="product-tab-sw2">
-                <li class="active"><a data-toggle="tab" href="#tv" aria-expanded="true">TV & Video</a></li>
-                <li class=""><a data-toggle="tab" href="#audito" aria-expanded="false">Audio & Theater</a></li>
-                <li class=""><a data-toggle="tab" href="#camera" aria-expanded="false">Camera, Photo & Video</a></li>
-                <li class=""><a data-toggle="tab" href="#phone" aria-expanded="false">Cell Phones & Accessories</a></li>
-                <li class=""><a data-toggle="tab" href="#headphone" aria-expanded="false">Headphones</a></li>
+                <li class="active"><a data-toggle="tab" href="#tv" aria-expanded="true">Thiết bị điện tử</a></li>
+                <li class=""><a data-toggle="tab" href="#audito" aria-expanded="false">Âm thanh</a></li>
+                <li class=""><a data-toggle="tab" href="#camera" aria-expanded="false">Máy ảnh & máy quay</a></li>
+                <li class=""><a data-toggle="tab" href="#phone" aria-expanded="false">Điện thoại & phụ kiện</a></li>
+                <li class=""><a data-toggle="tab" href="#headphone" aria-expanded="false">Tai nghe</a></li>
             </ul>
         </div>
         <div class="tab-content">
@@ -5116,8 +5119,8 @@
 <div class="category-list spc5">
     <div class="container container-240">
         <div class="ecome-heading style5 spc5v2">
-            <h1>Categories</h1>
-            <a href="#" class="btn-show">Shop more<i class="ion-ios-arrow-forward"></i></a>
+            <h1>Danh mục</h1>
+            <a href="#" class="btn-show">xem thêm<i class="ion-ios-arrow-forward"></i></a>
         </div>
         
         <div class="owl-carousel owl-theme owl-cate v3 js-owl-cate">
@@ -5379,8 +5382,8 @@
 <div class="container container-240">
     <div class="brand">
         <div class="ecome-heading style5v2 spc4">
-            <h1>Shop by brand</h1>
-            <a href="#" class="btn-show">Shop more<i class="ion-ios-arrow-forward"></i></a>
+            <h1>Thương hiệu</h1>
+            <a href="#" class="btn-show">Xem thêm<i class="ion-ios-arrow-forward"></i></a>
         </div>
         <div class="owl-carousel owl-theme owl-brand js-owl-brand">
             <div class="brand-item">

@@ -61,7 +61,6 @@
 										    </div>
 										    <div class="modal-body">
                                                <h1>{{$role->title}}</h1> 
-                                                {!!$role->content!!}
                                             </div>
 									    </div>
 								    </div>

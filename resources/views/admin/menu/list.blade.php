@@ -48,23 +48,6 @@
                                {{ $menu->url}}
                             </td>   
                             <td>
-                                <button type="button" class="btn btn-outline-info m-1" data-toggle="modal" data-target="#exampleModal{{$menu->id}}"><i class="fadeIn animated bx bx-info-circle" data-toggle="tooltip" data-placement="top" data-original-title="Xem chi tiết"></i></button>
-							    <!-- Modal -->
-							    <div class="modal fade" id="exampleModal{{$menu->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-								    <div class="modal-dialog modal-xl">
-									    <div class="modal-content">
-										    <div class="modal-header">
-											    <h5 class="modal-title">Xem chi tiết</h5>
-											    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-											    </button>
-										    </div>
-										    <div class="modal-body">
-                                               <h1>{{$menu->title}}</h1> 
-                                                {!!$menu->content!!}
-                                            </div>
-									    </div>
-								    </div>
-							    </div>
                                 <a href="{{route('admin.menu.edit',['id'=>$menu->id])}}" class="btn btn-outline-primary m-1"><i class="fadeIn animated bx bx-edit-alt" data-toggle="tooltip" data-placement="top" data-original-title="Chỉnh sửa"></i></a>
                                 <button type="button" class="btn btn-outline-danger m-1" data-toggle="modal" data-target="#delete{{$menu->id}}"><i class="fadeIn animated bx bx-trash" data-toggle="tooltip" data-placement="top" data-original-title="Xóa"></i></button>
                                 <!-- Modal -->

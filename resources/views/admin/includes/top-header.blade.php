@@ -295,7 +295,7 @@
                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-toggle="dropdown">
                         <div class="media user-box align-items-center">
                             <div class="media-body user-info">
-                                <p class="user-name mb-0">{{auth()->user()->name}}</p>
+                                <p class="user-name mb-0">{{auth()->user()->name ?? ""}}</p>
                                 <p class="designattion mb-0">Quản trị viên</p>
                             </div>
                             
