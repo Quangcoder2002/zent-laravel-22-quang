@@ -34,4 +34,22 @@ class Product extends Model
     public function coupons() {
         return $this->belongsToMany(Coupon::class,'coupon_product');
     }
+    public function getSalePriceFormatAttribute() {
+        return number_format($this->sale_price,0,'','.').'đ';
+    }
+    public function getOrginPriceFormatAttribute() {
+        return number_format($this->orgin_price,0,'','.').'đ';
+    }
+    public function getShowPercentAttribute() {
+        $percent = ($this->orgin_price-$this->sale_price)/$this->orgin_price*100;
+        if ($percent != 0) {
+            return' <div class="ribbon-price red"><span>- '.number_format($percent,0,'','.').'%</span></div>';
+        }
+    }
+    public function getShowPriceAttribute() {
+        if ($this->orgin_price == $this->sale_price) {
+            return'<span>'.$this->orgin_price_format.'</span>';
+        }
+        return'<span class="red">'.$this->sale_price_format.'</span><span class="old">'.$this->orgin_price_format.'</span>';
+    }
 }

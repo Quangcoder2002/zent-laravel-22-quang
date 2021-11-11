@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Post_TagTableSeeder::class);
         $this->call(RolePermissionSeeder::class);
         $this->call(TagsTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
     }
 }

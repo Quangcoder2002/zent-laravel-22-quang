@@ -3,33 +3,17 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h1 class="cate-title">Sản phẩm nổi bật</h1>
+                @foreach ($featured_product as $item)
                 <div class="cate-item">
                     <div class="product-img">
                         <a href="#"><img src="/client/img/product/usb.jpg" alt="" class="img-reponsive"></a>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
+                    <div class="product-info" style="width: 65%;">
+                        <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
+                        <div class="product-price v2">{!!$item->show_price!!}</div>
                     </div>
                 </div>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/macbook.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/flycam.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h1 class="cate-title">Sản phẩm mới</h1>

@@ -4,8 +4,8 @@
     <div class="product-bundle product-aff">
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active">Accessories</li>
-            <li class="active">Ultra Wireless S50 Headphones </li>
+            <li class="active">{{$product->category->name}}</li>
+            <li class="active">{{$product->name}}</li>
         </ul>
         <div class="row shop-colect r-sidebar">
             <div class="col-md-3 col-sm-3 col-xs-12 col-left collection-sidebar v2" id="filter-sidebar">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                                                        <div class="item">
+                        <div class="item">
                             <div class="cate-item">
                                 <div class="product-img">
                                     <a href="#"><img src="/client/img/product/phone4.jpg" alt="" class="img-reponsive"></a>
@@ -111,7 +111,7 @@
                             </div>
                         </div>
 
-                                                        <div class="item">
+                        <div class="item">
                             <div class="cate-item">
                                 <div class="product-img">
                                     <a href="#"><img src="/client/img/product/phone4.jpg" alt="" class="img-reponsive"></a>
@@ -200,31 +200,31 @@
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="single-flex">
                             <div class="single-product-info product-info product-grid-v2 s-50">
-                                <p class="product-cate">Audio Speakers</p>
+                                <p class="product-cate">{{$product->category->name}}</p>
                                 <div class="product-rating">
                                     <span class="star star-5"></span>
                                     <span class="star star-4"></span>
                                     <span class="star star-3"></span>
                                     <span class="star star-2"></span>
                                     <span class="star star-1"></span>
-                                    <div class="number-rating">( 896 reviews )</div>
+                                    <div class="number-rating">( {{$product->review_count}} đánh giá )</div>
                                 </div>
-                                <h3 class="product-title"><a href="#">Smartphone seri-x 2018</a></h3>
+                                <h3 class="product-title"><a href="#">{{$product->name}}</a></h3>
                                 <div class="product-price">
-                                    <span>$1,215.00</span>
+                                    {!!$product->show_price!!}
                                 </div>
                                 <div class="availability">
                                     <p class="product-inventory">
                                         <label>Availability : </label><span> In stock</span></p>
                                 </div>
                                 <div class="product-brand">
-                                    <p>Brand :</p>
+                                    <p>Thương hiệu :</p>
                                     <img src="/client/img/single/apple_brand.png" alt="">
                                 </div>
-                                <div class="product-sku">
+                                {{-- <div class="product-sku">
                                     <label>SKU :</label><span> 8900105789430</span>
-                                </div>
-                                <div class="short-desc">
+                                </div> --}}
+                                {{-- <div class="short-desc">
                                     <p class="product-desc">Uses a dictionary of over combined with a handful of model sentence structures, to generate lorem Ipsum which looks reasonable.</p>
                                     <ul class="desc-list">
                                         <li>Connects directly to Bluetooth</li>
@@ -232,13 +232,19 @@
                                         <li>DPI Selection:2600/2000/1600/1200/800</li>
                                         <li>Computers running Windows</li>
                                     </ul>
-                                </div>
+                                </div> --}}
                                 <div class="color-group">
-                                    <label>Color :</label>
-                                    <a href="#" class="circle black"></a>
-                                    <a href="#" class="circle red"></a>
-                                    <a href="#" class="circle gray"></a>
+                                    <label>Màu sắc :</label>
+                                    @foreach (json_decode($product->option)->color as $item)
+                                        <a href="#" class="circle {{$item}}"></a>
+                                    @endforeach
+                                    <br>
+                                    <label>Dung lượng :</label>
+                                    @foreach (json_decode($product->option)->storage as $item)
+                                        <a href="#">{{$item}}GB</a>,
+                                    @endforeach
                                 </div>
+                                
                                 <div class="single-product-button-group">
                                     <div class="e-btn cart-qtt btn-gradient">
                                         <div class="e-quantity">
@@ -248,7 +254,7 @@
                                                 <a class="js-minus quantity-left-minus"><i class="fa fa-caret-down"></i></a>
                                             </div>
                                         </div>
-                                        <a href="#" class="btn-add-cart">Add to cart <span class="icon-bg icon-cart v2"></span></a>
+                                        <a href="#" class="btn-add-cart">Thên vào giỏ<span class="icon-bg icon-cart v2"></span></a>
                                     </div>
                                     <a href="#" class="e-btn btn-icon">
                                 <span class="icon-bg icon-wishlist"></span>
@@ -270,9 +276,9 @@
                 <div class="single-product-tab bd-7">
                     <div class="cmt-title text-center abs">
                         <ul class="nav nav-tabs text-center v2">
-                            <li class="active"><a data-toggle="pill" href="#desc">Description</a></li>
-                            <li><a data-toggle="pill" href="#info">Specification</a></li>
-                            <li><a data-toggle="pill" href="#review">Reviews</a></li>
+                            <li class="active"><a data-toggle="pill" href="#desc">Mô tả sản phẩm</a></li>
+                            <li><a data-toggle="pill" href="#info">Thông số</a></li>
+                            <li><a data-toggle="pill" href="#review">Đánh giá</a></li>
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -282,29 +288,18 @@
                                     <div class="entry-img-first text-center">
                                         <img src="/client/img/single/iphone_info_1.jpg" alt="">
                                     </div>
+                                   
                                     <div class="entry-inside v2 img-cal">
-                                        <div class="entry-element v2 flex align-center">
-                                            <div class="entry-img text-center">
+                                        <div class="entry-element">
+                                            {{-- <div class="entry-img text-center">
                                                 <img src="/client/img/single/iphone_info_2.jpg" alt="">
-                                            </div>
-                                            <div class="entry-info">
-                                                <h3>Super Retina Display</h3>
-                                                <p>It is a long established fact that a reader will be distracted by the readable contentpage when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                                            </div>
-                                        </div>
-                                        <div class="entry-element v2 flex align-center ">
-                                            <div class="entry-img text-center">
-                                                <img src="/client/img/single/iphone_info_2.jpg" alt="">
-                                            </div>
-                                            <div class="entry-info">
-                                                <h3>Comfort Redefined</h3>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                                            </div>
+                                            </div> --}}
+                                            {{$product->content}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="entry-button text-center abs">
-                                    <a href="#" class="btn-show">Show more<i class="ion-chevron-down"></i></a>
+                                    <a href="#" class="btn-show">Xem thêm<i class="ion-chevron-down"></i></a>
                                 </div>
                             </div>
                         </div>

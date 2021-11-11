@@ -4,7 +4,7 @@
     <div class="container container-240">
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active">Cart</li>
+            <li class="active">Thanh toán</li>
         </ul>
         <div class="co-coupon">
             <div class="row">

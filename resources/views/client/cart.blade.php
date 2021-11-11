@@ -5,13 +5,13 @@
     <div class="checkout">
         <ul class="breadcrumb v3">
             <li><a href="#">Home</a></li>
-            <li class="active">Cart</li>
+            <li class="active">Giỏ hàng</li>
         </ul>
         <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="shopping-cart bd-7">
                     <div class="cmt-title text-center abs">
-                        <h1 class="page-title v2">Cart</h1>
+                        <h1 class="page-title v2">Giỏ hàng</h1>
                     </div>
                     <div class="table-responsive">
                         <table class="table cart-table">
@@ -33,9 +33,9 @@
                                             <div class="e-quantity">
                                               <input type="number" step="1" min="1" max="999" name="quantity" value="1" title="Qty" class="qty input-text js-number" size="4">
                                               <div class="tc pa">
-                                                 <a class="js-plus quantity-right-plus"><i class="fa fa-caret-up"></i></a>
-                                                 <a class="js-minus quantity-left-minus"><i class="fa fa-caret-down"></i></a>
-                                              </div>
+                                                <a class="js-plus quantity-right-plus"><i class="fa fa-caret-up"></i></a>
+                                                <a class="js-minus quantity-left-minus"><i class="fa fa-caret-down"></i></a>
+                                             </div>
                                            </div>
                                         </div>
                                     </td>
@@ -103,16 +103,14 @@
                     <div class="table-cart-bottom">
                         
                             <form class="form_coupon" action="#" method="post">
-                                <input type="email" value="" placeholder="Coupon code" name="EMAIL" id="mail" class="newsletter-input form-control">
+                                <input type="email" value="" placeholder="Nhập mã giảm giá" name="EMAIL" id="mail" class="newsletter-input form-control">
                                 <div class="input-icon">
-                                    <img src="img/coupon-icon.png" alt="">
+                                    <img src="/client/img/coupon-icon.png" alt="">
                                 </div>
                                 <button id="subscribe2" class="button_mini btn" type="submit">
-                                    Apply coupon
+                                    Áp dụng
                                 </button>
                             </form>
-                        
-                        <a href="#" class="btn btn-update">Update cart</a> 
                     </div>
     
                 </div>
@@ -120,13 +118,13 @@
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="cart-total bd-7">
                     <div class="cmt-title text-center abs">
-                        <h1 class="page-title v3">Cart totals</h1>
+                        <h1 class="page-title v3">Tổng thanh toán</h1>
                     </div>
                     <div class="table-responsive">
                         <table class="shop_table">
                             <tbody>
-                                <tr class="cart-subtotal">
-                                    <th>Subtotal</th>
+                                {{-- <tr class="cart-subtotal">
+                                    <th>Tổng sản phẩm</th>
                                     <td>$ 1.215.00</td>
                                 </tr>
                                 <tr class="cart-shipping">
@@ -144,23 +142,18 @@
                                         </ul>
                                         <a href="#" class="calcu">Calculate shipping</a>
                                     </td>
-                                </tr>
+                                </tr> --}}
                                 <tr class="order-total">
-                                    <th>Total</th>
+                                    <th>Tổng</th>
                                     <td>$ 1.215.00</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="cart-total-bottom">
-                        <a href="#" class="btn-gradient btn-checkout">Proceed to checkout</a>
+                        <a href="#" class="btn-gradient btn-checkout">Mua hàng</a>
                     </div>
-                    <div class="sign-in-divider">
-                        <span>or</span>
-                    </div>
-                    <div class="cart-total-bottom pp-checkout">
-                        <a href="#"><img src="img/checkoutpp.jpg" alt="" class="img-responsive"></a>
-                    </div>
+                    <br>
                 </div>
             </div>
         </div>

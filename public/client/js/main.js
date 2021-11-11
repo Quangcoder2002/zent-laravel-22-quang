@@ -142,11 +142,11 @@ jQuery(document).ready(function($) {
         // Stop acting like a button
         e.preventDefault();
         // Get the field name
-        var quantity = parseInt($('.js-number').val(), 10);
-
+        // var quantity = parseInt($('.js-number').val(), 10);
+        var quantity =  parseInt($(this).parent().siblings('.js-number').val(), 10);
         // If is not undefined
-
-        $('.js-number').val(quantity + 1);
+        $(this).parent().siblings('.js-number').val(quantity + 1);
+        // $('.js-number').val(quantity + 1);
 
 
         // Increment    
@@ -156,13 +156,13 @@ jQuery(document).ready(function($) {
         // Stop acting like a button
         e.preventDefault();
         // Get the field name
-        var quantity = parseInt($('.js-number').val(), 10);
+        var quantity =  parseInt($(this).parent().siblings('.js-number').val(), 10);
 
         // If is not undefined
 
         // Increment
         if (quantity > 0) {
-            $('.js-number').val(quantity - 1);
+            $(this).parent().siblings('.js-number').val(quantity - 1);
         }
     });
     // Js product single slider

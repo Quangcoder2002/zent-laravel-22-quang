@@ -34,27 +34,27 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','
 Route::prefix('')->name('client.')->namespace('Client')->group(function(){
     Route::get('','HomeController@index')->name('index');
     Route::resource('blog', BlogController::class)->parameters(['blog' => 'id'])->whereNumber('id');
-    Route::get('cart/{id}', function($id){
-        return view('client.cart');
-    });
-    Route::get('product/{id}', function($id){
-        return view('client.detail_product');
-    });
+    Route::resource('product', ProductController::class)->parameters(['product' => 'id'])->whereNumber('id');
+    Route::get('cart', 'ProductController@index');
+    // Route::get('product', 'ProductController@index');
+    // Route::get('product/{id}', function($id){
+    //     return view('client.detail_product');
+    // });
     Route::get('product/categories/{id}', function($id){
         return view('client.categories_product');
     });
     Route::view('checkout','client.checkout');
-    Route::get('blog/category','BlogController@category')->name('blog.category');
-    // // Route::view('/','client.home')
-    // // Route::prefix('blog')->name('blog.')->group(function(){
-    // //     Route::view('','client.blog')->name('index');
-    // //     Route::get('/{id}', function($id){
-    // //         return view('client.blog-single-post');
-    // //     })->name('show');
-    // // });
-    Route::prefix('category')->name('category.')->group(function(){
-        Route::view('','client.categories-post')->name('index');
-    });
+    // Route::get('blog/category','BlogController@category')->name('blog.category');
+    // // // Route::view('/','client.home')
+    // // // Route::prefix('blog')->name('blog.')->group(function(){
+    // // //     Route::view('','client.blog')->name('index');
+    // // //     Route::get('/{id}', function($id){
+    // // //         return view('client.blog-single-post');
+    // // //     })->name('show');
+    // // // });
+    // Route::prefix('category')->name('category.')->group(function(){
+    //     Route::view('','client.categories-post')->name('index');
+    // });
 });
 Route::prefix('admin')->namespace('Auth')->name('auth.')->group(function(){
     Route::get('/register', 'RegisteredUserController@create')->middleware('guest')->name('register');

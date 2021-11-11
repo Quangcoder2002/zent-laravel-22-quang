@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>E-come | Multi-Purpose HTML Template for Electronics Store</title>
     @include('client.compoments.css_base')
+    @stack('stack-css')
 </head>
 
 <body>
