@@ -14,7 +14,7 @@ class BrandsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Brands')->truncate();
+        DB::table('brands')->truncate();
         $brands = [
             [
                 'name' => 'Apple',
@@ -27,6 +27,6 @@ class BrandsTableSeeder extends Seeder
                 'updated_at' => now()
             ]
         ];
-    DB::table('Brands')->insert($brands);
+    DB::table('brands')->insert($brands);
     }
 }

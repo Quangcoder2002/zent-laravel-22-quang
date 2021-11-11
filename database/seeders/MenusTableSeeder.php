@@ -14,6 +14,7 @@ class MenusTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('menus')->truncate();
         $menus = [
             [
             'name' => 'Shop',
