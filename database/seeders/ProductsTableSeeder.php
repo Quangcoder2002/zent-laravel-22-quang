@@ -14,7 +14,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Products')->truncate();
+        DB::table('products')->truncate();
         
         $products = [
             [
@@ -901,6 +901,6 @@ class ProductsTableSeeder extends Seeder
             ]
         ];
      
-    DB::table('Products')->insert($products);
+    DB::table('products')->insert($products);
     }
 }
