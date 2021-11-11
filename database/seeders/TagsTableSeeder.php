@@ -14,7 +14,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Tags')->truncate();
+        DB::table('tags')->truncate();
             $tags = [
                 [
                     'name' => 'Mới',
@@ -29,6 +29,6 @@ class TagsTableSeeder extends Seeder
                     'updated_at' => now()
                 ]
             ];
-        DB::table('Tags')->insert($tags);
+        DB::table('tags')->insert($tags);
     }
 }
