@@ -33,13 +33,13 @@ class AppServiceProvider extends ServiceProvider
             return Menu::get();
         });
         View::share('menus', $menus);
-        // $featured_product = Cache::remember('featured_product', 24*60*60*60, function () {
-        //     $time_stamp =  date('Y-m-d H:i:s',strtotime(now())-7*24*60*60);
-        //     $time_now =  date('Y-m-d H:i:s',strtotime(now()));
-        //     return Product::whereBetween('created_at', [$time_stamp,$time_now])->orderBy('view_count', 'desc')->take(3)->get();
-        // });
+        $featured_product = Cache::remember('featured_product', 24*60*60*60, function () {
+            $time_stamp =  date('Y-m-d H:i:s',strtotime(now())-7*24*60*60);
+            $time_now =  date('Y-m-d H:i:s',strtotime(now()));
+            return Product::whereBetween('created_at', [$time_stamp,$time_now])->orderBy('view_count', 'desc')->take(3)->get();
+        });
         
-        // View::share('featured_product', $featured_product);
+        View::share('featured_product', $featured_product);
         Paginator::useBootstrap();
     }
 }
