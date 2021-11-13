@@ -28,6 +28,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware(['auth','
     Route::post('/login/user/{id}', 'UserController@loginWithUser')->name('users.login');
     Route::resource('storage', StorageController::class)->parameters(['storage' => 'id']);
     Route::resource('menu', MenuController::class)->parameters(['menu' => 'id']);
+    Route::resource('product', ProductController::class)->parameters(['product' => 'id'])->whereNumber('id');
     Route::get('storage/download','StorageController@download')->name('storage.download');
 });
 
@@ -35,14 +36,15 @@ Route::prefix('')->name('client.')->namespace('Client')->group(function(){
     Route::get('','HomeController@index')->name('index');
     Route::resource('blog', BlogController::class)->parameters(['blog' => 'id'])->whereNumber('id');
     Route::resource('product', ProductController::class)->parameters(['product' => 'id'])->whereNumber('id');
+    Route::resource('product/categories', Prod_CategoryController::class)->parameters(['categories' => 'id'])->whereNumber('id');
     Route::get('cart', 'ProductController@index');
     // Route::get('product', 'ProductController@index');
     // Route::get('product/{id}', function($id){
     //     return view('client.detail_product');
     // });
-    Route::get('product/categories/{id}', function($id){
-        return view('client.categories_product');
-    });
+    // Route::get('product/categories/{id}', function($id){
+    //     return view('client.categories_product');
+    // });
     Route::view('checkout','client.checkout');
     // Route::get('blog/category','BlogController@category')->name('blog.category');
     // // // Route::view('/','client.home')

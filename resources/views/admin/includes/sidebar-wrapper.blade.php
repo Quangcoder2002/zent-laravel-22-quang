@@ -24,6 +24,24 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-label">Quản lý bán hàng</li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon icon-color-9">
+                    <i class="fadeIn animated bx bx-book-bookmark"></i>
+                </div>
+                <div class="menu-title">Quản lý sản phẩm</div>
+            </a>
+            <ul>
+                <li> 
+                    <a href="{{ route('admin.product.index') }}">
+                        <i class="fadeIn animated bx bx-list-ul"></i> Danh sách sản phẩm
+                    </a>
+                </li>
+                <li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Đang cập nhật</a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-label">Quản lý Blogs</li>
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -42,6 +60,7 @@
                 </li>
             </ul>
         </li>
+  
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon icon-color-7">
