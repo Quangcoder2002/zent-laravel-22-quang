@@ -1,4 +1,4 @@
-{{-- <div class="pushmenu menu-home5">
+<div class="pushmenu menu-home5">
     <div class="menu-push">
         <span class="close-left js-close"><i class="icon-close f-20"></i></span>
         <div class="clearfix"></div>
@@ -108,4 +108,4 @@
             </li>
         </ul>
     </div>
-</div> --}}
+</div>

@@ -51,7 +51,7 @@
                     <div class="form-group">
                       <label>Mật khẩu</label>
                       <div class="input-group" id="show_hide_password">
-                        <input class="form-control border-right-0" type="password" placeholder="Mật khẩu"  name="password">
+                        <input class="form-control " type="password" placeholder="Mật khẩu"  name="text">
                         <div class="input-group-append">	<a href="javascript:;" class="input-group-text bg-transparent border-left-0"><i class='bx bx-hide'></i></a>
                         </div>
                       </div>

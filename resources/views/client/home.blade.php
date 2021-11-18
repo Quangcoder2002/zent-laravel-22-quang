@@ -113,7 +113,7 @@
                   <div class="product-item">
                     <div class="pd-bd product-inner">
                         <div class="product-img">
-                            <a href="#"><img src="/client/img/product/pd4.jpg" alt="" class="img-reponsive"></a>
+                            <a href="{{ route('client.product.show', ['id'=>$feature->id]) }}"><img src="/client/img/product/pd4.jpg" alt="" class="img-reponsive"></a>
                             {!! $feature->show_percent!!}
                         </div>
                         <div class="product-info">
@@ -140,7 +140,7 @@
                                     <div class="number-rating">( 896 reviews )</div>
                                 </div>
                                 <p class="product-cate">{{$feature->category->name}}</p>
-                                <h3 class="product-title"><a href="#">{{$feature->name}}</a></h3>
+                                <h3 class="product-title"><a href="{{ route('client.product.show', ['id'=>$feature->id]) }}">{{$feature->name}}</a></h3>
                                 <div class="product-bottom">
                                     <div class="product-price">{!!$feature->show_price!!}</div>
                                     <a href="{{ route('client.product.show', ['id'=>$feature->id]) }}" class="btn-icon btn-view">
@@ -2220,38 +2220,38 @@
 <div class="container container-240">
     <div class="brand">
         <div class="ecome-heading style5v2 spc4">
-            <h1>Thương hiệu</h1>
-            <a href="#" class="btn-show">Xem thêm<i class="ion-ios-arrow-forward"></i></a>
+            <h1>Shop by brand</h1>
+            <a href="#" class="btn-show">Shop more<i class="ion-ios-arrow-forward"></i></a>
         </div>
         <div class="owl-carousel owl-theme owl-brand js-owl-brand">
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="/client/img/brand/brand.png" alt=""></a>
+                <a href="#" class="hover-images"><img src="client/img/brand/brand.png" alt=""></a>
             </div>
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="/client/img/brand/brand_2.png" alt=""></a>
+                <a href="#" class="hover-images"><img src="client/img/brand/brand_2.png" alt=""></a>
             </div>
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="/client/img/brand/brand_3.png" alt=""></a>
+                <a href="#" class="hover-images"><img src="client/img/brand/brand_3.png" alt=""></a>
             </div>
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="/client/img/brand/brand_4.png" alt=""></a>
+                <a href="#" class="hover-images"><img src="client/img/brand/brand_4.png" alt=""></a>
             </div>
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="/client/img/brand/brand_5.png" alt=""></a>
+                <a href="#" class="hover-images"><img src="client/img/brand/brand_5.png" alt=""></a>
             </div>
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="/client/img/brand/brand_7.png" alt=""></a>
+                <a href="#" class="hover-images"><img src="client/img/brand/brand_7.png" alt=""></a>
             </div>
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="/client/img/brand/brand_8.png" alt=""></a>
+                <a href="#" class="hover-images"><img src="client/img/brand/brand_8.png" alt=""></a>
             </div>
         </div>
         <div class="about-brand">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-sm-3 col-md-4">
+                {{-- <div class="col-xs-12 col-sm-12 col-sm-3 col-md-4">
                     <div class="about-brand-info text-center">
                         <div class="brand-img">
-                            <a href="#" class="hover-images"><img src="/client/img/brand/sony_info.png" alt=""></a>
+                            <a href="#" class="hover-images"><img src="client/img/brand/sony_info.png" alt=""></a>
                         </div>
                         <div class="brand-info">
                             <p>All the Lorem Ipsum generators on the Internet
@@ -2267,7 +2267,7 @@
                             <div class="pd-bd product-inner v2">
                                 <div class="flex align-center">
                                     <div class="product-img">
-                                        <a href="#"><img src="/client/img/product/tplink.jpg" alt="" class="img-reponsive"></a>
+                                        <a href="#"><img src="client/img/product/tplink.jpg" alt="" class="img-reponsive"></a>
                                     </div>
                                     <div class="product-info">
                                         <div class="color-group">
@@ -2318,7 +2318,7 @@
                             <div class="pd-bd product-inner v2">
                                 <div class="flex align-center">
                                     <div class="product-img">
-                                        <a href="#"><img src="/client/img/product/wifi.jpg" alt="" class="img-reponsive"></a>
+                                        <a href="#"><img src="client/img/product/wifi.jpg" alt="" class="img-reponsive"></a>
                                     </div>
                                     <div class="product-info">
                                         <div class="color-group">
@@ -2369,7 +2369,7 @@
                             <div class="pd-bd product-inner v2">
                                 <div class="flex align-center">
                                     <div class="product-img">
-                                        <a href="#"><img src="/client/img/product/phone5.jpg" alt="" class="img-reponsive"></a>
+                                        <a href="#"><img src="client/img/product/phone5.jpg" alt="" class="img-reponsive"></a>
                                     </div>
                                     <div class="product-info">
                                         <div class="color-group">
@@ -2420,7 +2420,7 @@
                             <div class="pd-bd product-inner v2">
                                 <div class="flex align-center">
                                     <div class="product-img">
-                                        <a href="#"><img src="/client/img/product/logitech.jpg" alt="" class="img-reponsive"></a>
+                                        <a href="#"><img src="client/img/product/logitech.jpg" alt="" class="img-reponsive"></a>
                                     </div>
                                     <div class="product-info">
                                         <div class="color-group">
@@ -2468,670 +2468,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
+    <br>
+    <br>
 </div>
 <!-- recent added -->
-<div class="recent spc5 bg-gradient bg-insinde">
-    <div class="container container-240">
-        
-        <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-                <div class="title-icon">
-                    <h1>Recently Added</h1>
-                </div>
-                <div class="multiple-row js-multiple-row3">
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/headphone4.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/phone1.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/flycam.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/tplink.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/headphone2.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/headphone3.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/sonos.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/tplink.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/headphone4.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/flycam.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/phone1.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pd-bd product-inner v2">
-                            <div class="flex align-center">
-                                <div class="product-img">
-                                    <a href="#"><img src="/client/img/product/tplink.jpg" alt="" class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="color-group">
-                                    </div>
-                                    <div class="element-list element-list-left">
-                                    </div>
-                                    <div class="element-list element-list-middle">
-                                        <p class="product-cate">Audio Speakers</p>
-                                        <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
-                                        <div class="product-bottom v2">
-                                            <div class="product-price"><span>$1,215.00</span></div>
-                                            <div class="product-bottom-element flex">
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
-                                                <div class="color-group">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-button-group hidden-xs hidden-sm">
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-cart"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-wishlist"></span>
-                                        </a>
-                                        <a href="#" class="btn-icon">
-                                            <span class="icon-bg icon-compare"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-button-group hidden-md hidden-lg">
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-cart"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-wishlist"></span>
-                                </a>
-                                <a href="#" class="btn-icon">
-                                    <span class="icon-bg icon-compare"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-countd pd-bd product-inner">
-                    <div class="product-item-countd">
-                        <div class="product-head product-img">
-                            <a href="#"><img src="/client/img/product/headphone5.jpg" alt=""></a>
-                            <div class="ribbon-price v3 red"><span>- 30% </span></div>
-                        </div>
-                        <div class="product-info">
-                            <p class="product-cate text-center">Head phones</p>
-                            <div class="product-price thin-price v3">
-                                <span class="red">$79.00</span>
-                                <span class="old">$99.00</span>
-                            </div>
-                            <h3 class="product-title text-center v2"><a href="#">Esonstyle Rose Golden Bluetooth Headphone</a></h3>
-                            <div class="deal-progress">
-                                <div class="deal-stock">
-                                    <span class="stock-sold">19% already claimed</span>
-                                    <span class="stock-available">Available: <strong>22</strong></span>
-                                </div>
-                                <div class="progress">
-                                    <span class="progress-bar" style="width:27.5956%"></span>
-                                </div>
-                            </div>
-                            <div class="time-cound">
-                                <p class="text-center">Deal ends in :</p>
-                                <div class="countdown countdown-time" data-countdown="countdown" data-date="08-31-2018-00-00-00">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Banner -->
 <div class="container container-240">
     <div class="banner-callus spc2 spc5 image-bd effect_img2">

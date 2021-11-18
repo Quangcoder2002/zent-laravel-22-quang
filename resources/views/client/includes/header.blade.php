@@ -40,10 +40,6 @@
                                     @csrf
                                 <li class="level1 active dropdown">
                                     <a href="">
-                                        {{-- @php
-                                            dd(auth()->user()->checkUserInfoAvatar());
-                                       
-                                        @endphp  --}}
                                         <img src="@if (auth()->user()->checkUserInfoAvatar() == null)
                                         {{ auth()->user()->userInfo->avatar_full }}
                                         @else
@@ -166,47 +162,36 @@
                             <div class="cart">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="label5">
                                     <img src="/client/img/icon-cart.png" alt="">
-                                    <span class="count cart-count">0</span>
+                                    <span class="count cart-count">{{Cart::count()}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-cart">
                                     <ul class="mini-products-list">
-                                        <li class="item-cart">
-                                            <div class="product-img-wrap">
-                                                <a href="#"><img src="/client/img/cart1.jpg" alt="" class="img-reponsive"></a>
-                                            </div>
-                                            <div class="product-details">
-                                                <div class="inner-left">
-                                                    <div class="product-name"><a href="#">Harman Kardon Onyx Studio </a></div>
-                                                    <div class="product-price">
-                                                        $ 60.00 <span>( x2)</span>
+                                        @foreach (Cart::content() as $item)
+                                            <li class="item-cart">
+                                                <div class="product-img-wrap">
+                                                    <a href="#"><img src="/client/img/cart1.jpg" alt="" class="img-reponsive"></a>
+                                                </div>
+                                                <div class="product-details">
+                                                    <div class="inner-left">
+                                                        <div class="product-name"><a href="#">{{$item->name}}</a></div>
+                                                        <div class="product-price">
+                                                            
+                                                            {{number_format($item->price,0,'','.')}}đ <span>( x{{$item->qty}})</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <a href="#" class="e-del"><i class="ion-ios-close-empty"></i></a>
-                                        </li>
-                                        <li class="item-cart">
-                                            <div class="product-img-wrap">
-                                                <a href="#"><img src="/client/img/cart1.jpg" alt="" class="img-reponsive"></a>
-                                            </div>
-                                            <div class="product-details">
-                                                <div class="inner-left">
-                                                    <div class="product-name"><a href="#">Harman Kardon Onyx Studio </a></div>
-                                                    <div class="product-price">
-                                                        $ 60.00 <span>( x2)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="e-del"><i class="ion-ios-close-empty"></i></a>
-                                        </li>
+                                                <a href="{{ route('client.cart.remove',$item->rowId) }}" class="e-del"><i class="ion-ios-close-empty"></i></a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                     <div class="bottom-cart">
                                         <div class="cart-price">
-                                            <span>Subtotal</span>
-                                            <span class="price-total">$ 120.00</span>
+                                            <span>Tổng</span>
+                                            <span class="">{{Cart::total(0)}}đ</span>
                                         </div>
                                         <div class="button-cart">
-                                            <a href="#" class="cart-btn btn-viewcart">View Cart</a>
-                                            <a href="#" class="cart-btn e-checkout btn-gradient">Checkout</a>
+                                            <a href="{{ route('client.cart.index') }}" class="cart-btn btn-viewcart">Xem giỏ hàng</a>
+                                            <a href="{{ route('client.order.index') }}" class="cart-btn e-checkout btn-gradient">Thanh toán</a>
                                         </div>
                                     </div>
                                 </div>
@@ -453,71 +438,8 @@
                             </button>
                             <div class="collapse navbar-collapse" id="myNavbar">
                                 <ul class="nav navbar-nav js-menubar">
-                                    @foreach ($menus as $item)
-                                        <li class="level1 active hassub"><a href="">{{$item->name}}</a>
-                                            <span class="plus js-plus-icon"></span>
-                                        </li>
-                                    @endforeach
-                                    {{-- <li class="level1 active hassub"><a href="">Home</a>
+                                    <li class="level1 active hassub"><a href="">Home</a>
                                         <span class="plus js-plus-icon"></span>
-                                    </li>
-                                    <li class="level1 dropdown hassub"><a href="#">Shop<span class="h-ribbon h-pos e-green">sale</span></a>
-                                        <span class="plus js-plus-icon"></span>
-                                        <div class="menu-level-1 dropdown-menu">
-                                            <ul class="level1">
-                                                <li class="level2 col-4">
-                                                    <a href="#">Shop Layout</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="shop_full.html" title="">Shop Full Width</a></li>
-                                                        <li class="level3"><a href="shopgrid_v1.html" title="">Shop Grid v.1</a></li>
-                                                        <li class="level3"><a href="shopgrid_v2.html" title="">Shop Grid v.2</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                        <li class="level3"><a href="shoplist.html" title="">Shop List</a></li>
-                                                        <li class="level3"><a href="shopleft_sidebar.html" title="">Shop Left Sidebar</a></li>
-                                                        <li class="level3"><a href="shopright_sidebar.html" title="">Shop Right Sidebar</a></li>
-                                                    </ul>
-                                                    <a href="#">Categories</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="cat_fullwidth.html" title="">Categories Full Width</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                        <li class="level3"><a href="cat_left_sidebar.html" title="">Categories Left Sidebar</a></li>
-                                                        <li class="level3"><a href="cat_right_sidebar.html" title="">Categories Right Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2 col-4">
-                                                    <a href="# ">Single Product Type</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="bundle.html" title="">Bundle</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                        <li class="level3"><a href="pin_product.html" title="">Pin Product</a></li>
-                                                        <li class="level3"><a href="360degree.html" title="">360 Degree</a><span class="h-ribbon v3 e-green h-pos">new</span></li>
-                                                        <li class="level3"><a href="feature_video.html" title="">Featued video</a></li>
-                                                        <li class="level3"><a href="simple.html">Simple</a></li>
-                                                        <li class="level3"><a href="variable.html">Variable</a></li>
-                                                        <li class="level3"><a href="affilate.html">External / Affiliate</a></li>
-                                                        <li class="level3"><a href="grouped.html">Grouped</a></li>
-                                                        <li class="level3"><a href="outofstock.html">Out of stock</a></li>
-                                                        <li class="level3"><a href="onsale.html">On sale</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="level2 col-4">
-                                                    <a href="#">Single Product Layout</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="product_extended.html" title="">Product Extended</a><span class="h-ribbon v3 e-red h-pos">Hot</span></li>
-                                                        <li class="level3"><a href="product_sidebar.html" title="">Product Left Sidebar</a></li>
-                                                        <li class="level3"><a href="product_right_sidebar.html" title="">Product Right Sideba</a></li>
-                                                    </ul>
-                                                    <a href="#">Other Pages</a>
-                                                    <ul class="menu-level-2">
-                                                        <li class="level3"><a href="shop_full.html" title="">Shop</a></li>
-                                                        <li class="level3"><a href="cart.html" title="">Cart</a></li>
-                                                        <li class="level3"><a href="wishlist.html" title="">My Wishlist</a></li>
-                                                        <li class="level3"><a href="checkout.html" title="">Checkout</a></li>
-                                                        <li class="level3"><a href="myaccount.html" title="">My Account</a></li>
-                                                        <li class="level3"><a href="track.html" title="">Track Your Order</a></li>
-                                                        <li class="level3"><a href="quickview.html" title="">Quick View</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <div class="clearfix"></div>
-                                        </div>
                                     </li>
                                     <li class="level1 active dropdown">
                                         <a href="#">Pages<span class="h-ribbon h-pos e-skyblue">new</span></a>
@@ -537,7 +459,7 @@
                                             <li class="level2"><a href="{{route('client.blog.index')}}" title="404">Các bài viết</a></li>
                                             <li class="level2"><a href="{{route('client.blog.category')}}" title="404">Các bài viết theo danh mục</a></li>
                                         </ul>
-                                    </li> --}}
+                                    </li>
                                 </ul>
                             </div>
                         </nav>

@@ -791,9 +791,9 @@ jQuery(document).ready(function($) {
     // Read more
     $(function() {
         var $header = $('.entry-content');
-        var $half = parseInt($(".img-cal").height()) / 2;
+        var $half = parseInt($(".img-cal").height())/1.1;
         var $window = $(window).on('resize', function() {
-            var height = $header.height() - $half;
+            var height = $header.height() -$half;
             $header.height(height);
         }).trigger('resize'); //on page load
 

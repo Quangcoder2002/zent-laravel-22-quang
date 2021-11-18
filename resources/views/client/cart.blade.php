@@ -14,89 +14,37 @@
                         <h1 class="page-title v2">Giỏ hàng</h1>
                     </div>
                     <div class="table-responsive">
-                        <table class="table cart-table">
-                            
+                        <table class="table cart-table">  
                             <tbody>
+                                @foreach (Cart::content() as $product)
                                 <tr class="item_cart">
                                     <td class="product-name flex align-center">
-                                        <a href="#" class="btn-del"><i class="ion-ios-close-empty"></i></a>
+                                        <a href="{{ route('client.cart.remove',$product->rowId) }}" class="btn-del"><i class="ion-ios-close-empty"></i></a>
                                         <div class="product-img">
                                             <img src="/client/img/product/sound2.jpg" alt="Futurelife">
                                         </div>
                                         <div class="product-info">
-                                            <a href="#" title="">Harman Kardon Onyx Studio </a>
+                                            <a href="#" title="">{{$product->name}} </a>
                                         </div>
                                     </td>
                                     
                                     <td class="bcart-quantity single-product-detail">
                                         <div class="single-product-info">
                                             <div class="e-quantity">
-                                              <input type="number" step="1" min="1" max="999" name="quantity" value="1" title="Qty" class="qty input-text js-number" size="4">
+                                              <input type="number" step="1" min="1" max="999" name="quantity" value="{{$product->qty}}" title="Qty" class="qty input-text js-number" size="4">
                                               <div class="tc pa">
-                                                <a class="js-plus quantity-right-plus"><i class="fa fa-caret-up"></i></a>
-                                                <a class="js-minus quantity-left-minus"><i class="fa fa-caret-down"></i></a>
+                                                <a class="quantity-right-plus" href="{{ route('client.cart.increase',$product->rowId) }}"><i class="fa fa-caret-up"></i></a>
+                                                <a class="quantity-left-minus" href="{{ route('client.cart.decrease',$product->rowId) }}"><i class="fa fa-caret-down"></i></a>
                                              </div>
                                            </div>
                                         </div>
                                     </td>
                                     <td class="total-price">
-                                        <p class="price">$1,215.00</p>
+                                        <p class="price">{{number_format($product->price*$product->qty,0,'','.')}}đ</p>
                                     </td>
                                 </tr>
 
-                                <tr class="item_cart">
-                                    <td class="product-name flex align-center">
-                                        <a href="#" class="btn-del"><i class="ion-ios-close-empty"></i></a>
-                                        <div class="product-img">
-                                            <img src="/client/img/product/sound2.jpg" alt="Futurelife">
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="#" title="">Harman Kardon Onyx Studio </a>
-                                        </div>
-                                    </td>
-                                    
-                                    <td class="bcart-quantity single-product-detail">
-                                        <div class="single-product-info">
-                                            <div class="e-quantity">
-                                              <input type="number" step="1" min="1" max="999" name="quantity" value="1" title="Qty" class="qty input-text js-number" size="4">
-                                              <div class="tc pa">
-                                                 <a class="js-plus quantity-right-plus"><i class="fa fa-caret-up"></i></a>
-                                                 <a class="js-minus quantity-left-minus"><i class="fa fa-caret-down"></i></a>
-                                              </div>
-                                           </div>
-                                        </div>
-                                    </td>
-                                    <td class="total-price">
-                                        <p class="price">$1,215.00</p>
-                                    </td>
-                                </tr>
-
-                                <tr class="item_cart">
-                                    <td class="product-name flex align-center">
-                                        <a href="#" class="btn-del"><i class="ion-ios-close-empty"></i></a>
-                                        <div class="product-img">
-                                            <img src="/client/img/product/sound2.jpg" alt="Futurelife">
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="#" title="">Harman Kardon Onyx Studio </a>
-                                        </div>
-                                    </td>
-                                    
-                                    <td class="bcart-quantity single-product-detail">
-                                        <div class="single-product-info">
-                                            <div class="e-quantity">
-                                              <input type="number" step="1" min="1" max="999" name="quantity" value="1" title="Qty" class="qty input-text js-number" size="4">
-                                              <div class="tc pa">
-                                                 <a class="js-plus quantity-right-plus"><i class="fa fa-caret-up"></i></a>
-                                                 <a class="js-minus quantity-left-minus"><i class="fa fa-caret-down"></i></a>
-                                              </div>
-                                           </div>
-                                        </div>
-                                    </td>
-                                    <td class="total-price">
-                                        <p class="price">$1,215.00</p>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -145,13 +93,13 @@
                                 </tr> --}}
                                 <tr class="order-total">
                                     <th>Tổng</th>
-                                    <td>$ 1.215.00</td>
+                                    <td>{{\Gloudemans\Shoppingcart\Facades\Cart::total(0)}}đ</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="cart-total-bottom">
-                        <a href="#" class="btn-gradient btn-checkout">Mua hàng</a>
+                        <a href="{{ route('client.order.index') }}" class="btn-gradient btn-checkout">Thanh toán</a>
                     </div>
                     <br>
                 </div>

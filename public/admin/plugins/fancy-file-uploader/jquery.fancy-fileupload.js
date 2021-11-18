@@ -528,7 +528,10 @@
 
 			// Create a separate, hidden form on the page for handling file uploads.
 			var form = $('<form>').addClass('ff_fileupload_hidden').attr({
-				'id' : 'token_input',
+				
+				data:{
+					
+				},
 				'action' : settings.url,
 				'method' : 'POST',
 				'enctype' : 'multipart/form-data'
@@ -545,7 +548,6 @@
 						'name' : x,
 						'value' : settings.params[x]
 					});
-					
 					form.append(input);
 				}
 			}

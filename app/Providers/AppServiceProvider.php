@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Menu;
 use App\Models\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
@@ -38,7 +39,8 @@ class AppServiceProvider extends ServiceProvider
             $time_now =  date('Y-m-d H:i:s',strtotime(now()));
             return Product::whereBetween('created_at', [$time_stamp,$time_now])->orderBy('view_count', 'desc')->take(3)->get();
         });
-        
+        $carts = Cart::content();
+        View::share('carts', $carts);
         View::share('featured_product', $featured_product);
         Paginator::useBootstrap();
     }

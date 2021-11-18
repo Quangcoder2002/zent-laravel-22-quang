@@ -9,9 +9,9 @@
         </ul>
         <div class="row shop-colect r-sidebar">
             <div class="col-md-3 col-sm-3 col-xs-12 col-left collection-sidebar v2" id="filter-sidebar">
-                <div class="banner">
+                {{-- <div class="banner">
                     <a class="image-bd hover-images" href=""><img src="/client/img/s-banner.jpg" alt="" class="img-reponsive"></a>
-                </div>
+                </div> --}}
                 <div class="filter filter-product e-category">
                     <h1 class="widget-blog-title">Top Products</h1>
                     <div class="owl-carousel owl-theme js-owl-post">
@@ -254,7 +254,7 @@
                                                 <a class="js-minus quantity-left-minus"><i class="fa fa-caret-down"></i></a>
                                             </div>
                                         </div>
-                                        <a href="#" class="btn-add-cart">Thên vào giỏ<span class="icon-bg icon-cart v2"></span></a>
+                                        <a href="{{ route('client.cart.create', ['id'=>$product->id]) }}" class="btn-add-cart">Thên vào giỏ<span class="icon-bg icon-cart v2"></span></a>
                                     </div>
                                     <a href="#" class="e-btn btn-icon">
                                 <span class="icon-bg icon-wishlist"></span>
@@ -291,10 +291,7 @@
                                    
                                     <div class="entry-inside v2 img-cal">
                                         <div class="entry-element">
-                                            {{-- <div class="entry-img text-center">
-                                                <img src="/client/img/single/iphone_info_2.jpg" alt="">
-                                            </div> --}}
-                                            {{$product->content}}
+                                            {!!$product->content!!}
                                         </div>
                                     </div>
                                 </div>

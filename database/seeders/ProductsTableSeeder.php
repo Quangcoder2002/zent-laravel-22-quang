@@ -15,7 +15,8 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->truncate();
-        
+        DB::table('order_product')->truncate();
+        DB::table('orders')->truncate();
         $products = [
             [
                 'name' => 'Điện thoại iPhone 12 Pro Max 128GB',
@@ -28,6 +29,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 31990000,
                 'category_id' => 1,
                 'brand_id' => 1,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -44,6 +46,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 26990000,
                 'category_id' => 1,
                 'brand_id' => 3,
+                'qty' => 10,
                 'info' => '{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -60,6 +63,7 @@ class ProductsTableSeeder extends Seeder
                 'orgin_price' => 32990000,
                 'sale_price' => 31990000,
                 'category_id' => 1,
+                'qty' => 10,
                 'brand_id' => 1,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
@@ -75,6 +79,7 @@ class ProductsTableSeeder extends Seeder
                 Samsung Galaxy Z Flip3 5G dễ dàng lấy lòng phái nữ khi thiết kế của nó được lấy cảm hứng từ hộp đựng phấn trang điểm. Kết hợp với 7 màu sắc khác nhau, giúp bạn thoải mái thể hiện cá tính, từ mạnh mẽ sang trọng đến hiện đại trẻ trung.',
                 'orgin_price' => 26990000,
                 'sale_price' => 26990000,
+                'qty' => 10,
                 'category_id' => 1,
                 'brand_id' => 3,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
@@ -93,6 +98,7 @@ class ProductsTableSeeder extends Seeder
                 'orgin_price' => 32990000,
                 'sale_price' => 31990000,
                 'category_id' => 1,
+                'qty' => 10,
                 'brand_id' => 1,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
@@ -110,6 +116,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 26990000,
                 'category_id' => 1,
                 'brand_id' => 3,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -127,6 +134,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 31990000,
                 'category_id' => 1,
                 'brand_id' => 1,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -143,6 +151,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 26990000,
                 'category_id' => 1,
                 'brand_id' => 3,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -160,6 +169,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 31990000,
                 'category_id' => 1,
                 'brand_id' => 1,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -176,6 +186,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 26990000,
                 'category_id' => 1,
                 'brand_id' => 3,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -193,6 +204,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 31990000,
                 'category_id' => 1,
                 'brand_id' => 1,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,
@@ -209,6 +221,7 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => 26990000,
                 'category_id' => 1,
                 'brand_id' => 3,
+                'qty' => 10,
                 'info'=>'{"color":["red","blue"],"storage":[64,128]}',
                 'option' =>'{"color":["red","blue"],"storage":[64,128]}',
                 'user_created_id' => 1,

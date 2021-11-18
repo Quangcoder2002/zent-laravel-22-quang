@@ -12,7 +12,7 @@
 
 <body>
     <!-- push menu-->
-    {{-- @include('client.includes.push_menu') --}}
+    @include('client.includes.push_menu')
     <!-- end push menu-->
     <div class="wrappage">
         @include('client.includes.header')

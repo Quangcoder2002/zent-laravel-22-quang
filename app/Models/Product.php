@@ -40,6 +40,13 @@ class Product extends Model
     public function getOrginPriceFormatAttribute() {
         return number_format($this->orgin_price,0,'','.').'đ';
     }
+    public function getPercentFormatAttribute() {
+        $percent = ($this->orgin_price-$this->sale_price)/$this->orgin_price*100;
+        return number_format($percent,0,'','.').'%';
+    }
+    public function getCreatedAtFormatAttribute() {
+        return $this->created_at->format('d/m/Y');
+    }
     public function getShowPercentAttribute() {
         $percent = ($this->orgin_price-$this->sale_price)/$this->orgin_price*100;
         if ($percent != 0) {
