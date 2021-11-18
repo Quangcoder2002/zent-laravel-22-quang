@@ -17,63 +17,31 @@
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h1 class="cate-title">Sản phẩm mới</h1>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung.jpg" alt="" class="img-reponsive"></a>
+                @foreach ($new_products as $item)
+                    <div class="cate-item">
+                        <div class="product-img" >
+                            <a href="#"><img src="/client/img/product/anker.jpg" alt="" class="img-reponsive"></a>
+                        </div>
+                        <div class="product-info" style="width: 65%;">
+                            <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
+                            <div class="product-price v2"><span>{!!$item->show_price!!}</span></div>
+                        </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/headphone2.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/anker.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h1 class="cate-title">Sản phẩm bán chạy</h1>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/headphone.jpg" alt="" class="img-reponsive"></a>
+                @foreach ($top_products as $item)
+                    <div class="cate-item">
+                        <div class="product-img" >
+                            <a href="#"><img src="/client/img/product/anker.jpg" alt="" class="img-reponsive"></a>
+                        </div>
+                        <div class="product-info" style="width: 65%;">
+                            <h3 class="product-title"><a href="#">{{$item->name}}</a></h3>
+                            <div class="product-price v2"><span>{!!$item->show_price!!}</span></div>
+                        </div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/samsung2.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
-                <div class="cate-item">
-                    <div class="product-img">
-                        <a href="#"><img src="/client/img/product/sound.jpg" alt="" class="img-reponsive"></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="#">Epson Home Cinema 5040UB </a></h3>
-                        <div class="product-price v2"><span>$780.00</span></div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

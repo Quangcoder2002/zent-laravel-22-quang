@@ -1962,13 +1962,14 @@
         </div>
         
         <div class="owl-carousel owl-theme owl-cate v3 js-owl-cate">
+            @foreach ($cate_products as $item)
             <div class="category-item">
                 <div class="bd-7 pd30">
                     <div class="cate-img">
                         <a href="#"><img src="/client/img/product/tv3.jpg" alt=""></a>
                     </div>
                     <div class="cate-content">
-                        <h3>TV & Video</h3>
+                        <h3>{{$item->name}}</h3>
                         <div class="abs">
                             <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
                         </div>
@@ -1976,275 +1977,29 @@
                 </div>
                 <div class="cate-bg pd30">
                     <ul class="cate-list">
-                        <li><a href="#">Televisions</a></li>
+                        {{-- <li><a href="#">Televisions</a></li>
                         <li><a href="#">Blu-ray Players</a></li>
                         <li><a href="#">Streaming Media Players</a></li>
-                        <li><a href="#">Home Audio</a></li>
+                        <li><a href="#">Home Audio</a></li> --}}
                     </ul>
                 </div>
             </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/sonos.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Home Audio & Theater</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Speakers</a></li>
-                        <li><a href="#">Streaming audio</a></li>
-                        <li><a href="#">Stereo system components</a></li>
-                        <li><a href="#">Headphones</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/snap.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Camera & Photo</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Accessories</a></li>
-                        <li><a href="#">Lenses</a></li>
-                        <li><a href="#">Lighting & Studio</a></li>
-                        <li><a href="#">Video</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/xbox2.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/xbox2.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/samsungbox.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/phone3.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/phone2.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/phone3.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/tv.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/fujifilm.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="bd-7 pd30">
-                    <div class="cate-img">
-                        <a href="#"><img src="/client/img/product/tv2.jpg" alt=""></a>
-                    </div>
-                    <div class="cate-content">
-                        <h3>Computers & Accessories</h3>
-                        <div class="abs">
-                            <a href="#" class="btn-shopcate btn-gradient">Shop now<i class="ion-ios-arrow-forward"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cate-bg pd30">
-                    <ul class="cate-list">
-                        <li><a href="#">Tablets</a></li>
-                        <li><a href="#">Desktops</a></li>
-                        <li><a href="#">Computer Accessories</a></li>
-                        <li><a href="#">PC Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </div>
 <div class="container container-240">
     <div class="brand">
         <div class="ecome-heading style5v2 spc4">
-            <h1>Shop by brand</h1>
-            <a href="#" class="btn-show">Shop more<i class="ion-ios-arrow-forward"></i></a>
+            <h1>Các thương hiệu</h1>
         </div>
         <div class="owl-carousel owl-theme owl-brand js-owl-brand">
+            @foreach ($brand as $item)
             <div class="brand-item">
-                <a href="#" class="hover-images"><img src="client/img/brand/brand.png" alt=""></a>
+                <a href="" class="hover-images"><img src="client/img/brand/brand.png" alt=""></a>
             </div>
-            <div class="brand-item">
-                <a href="#" class="hover-images"><img src="client/img/brand/brand_2.png" alt=""></a>
-            </div>
-            <div class="brand-item">
-                <a href="#" class="hover-images"><img src="client/img/brand/brand_3.png" alt=""></a>
-            </div>
-            <div class="brand-item">
-                <a href="#" class="hover-images"><img src="client/img/brand/brand_4.png" alt=""></a>
-            </div>
-            <div class="brand-item">
-                <a href="#" class="hover-images"><img src="client/img/brand/brand_5.png" alt=""></a>
-            </div>
-            <div class="brand-item">
-                <a href="#" class="hover-images"><img src="client/img/brand/brand_7.png" alt=""></a>
-            </div>
-            <div class="brand-item">
-                <a href="#" class="hover-images"><img src="client/img/brand/brand_8.png" alt=""></a>
-            </div>
+            @endforeach
         </div>
         <div class="about-brand">
             <div class="row">

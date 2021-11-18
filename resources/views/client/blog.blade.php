@@ -6,7 +6,7 @@
     </div>
     <div class="blog spc1">
         <ul class="breadcrumb">
-            <li><a href="{{route('client.index')}}">Home</a></li>
+            <li><a href="{{route('client.blog.index')}}">Home</a></li>
             <li class="active">Blog</li>
         </ul>
         <div class="blog-grid">
